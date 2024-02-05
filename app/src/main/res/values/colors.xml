@@ -9,4 +9,17 @@
     <color name="white">#FFFFFFFF</color>
 
     <color name="background_color">#FF171F31</color>
+    <color name="color1">#FFB2A4FF</color>
+    <color name="color11">#FFC2D9FF</color>
+    <color name="color2">#FF8E8FFA</color>
+    <color name="color3">#FF7752FE</color>
+    <color name="color4">#FFB2A4FF</color>
+    <color name="color5">#FFA0E9FF</color>
+    <color name="color6">#FFFFFBAC</color>
+    <color name="color7">#FFD7E9B9</color>
+    <color name="color8">#FFFDF7C3</color>
+    <color name="color9">#FF190482</color>
+
+
+
 </resources>

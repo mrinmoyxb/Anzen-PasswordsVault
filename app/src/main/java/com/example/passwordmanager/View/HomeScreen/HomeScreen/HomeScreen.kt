@@ -14,6 +14,7 @@ import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.passwordmanager.R
@@ -35,16 +36,24 @@ fun HomeScreen() {
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    IconComponent()
-                    IconComponent()
+                    IconComponent(icon = painterResource(id = R.drawable.social),
+                        label = "Socials",
+                        color = colorResource(id = R.color.color11), onClick = {})
+                    IconComponent(icon = painterResource(id = R.drawable.payment_icon1),
+                        label = "Payments",
+                        color = colorResource(id = R.color.color5), onClick = {})
                 }
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
                 ) {
-                    IconComponent()
-                    IconComponent()
+                    IconComponent(icon = painterResource(id = R.drawable.application_icon1),
+                        label = "Apps",
+                        color = colorResource(id = R.color.color4), onClick = {})
+                    IconComponent(icon = painterResource(id = R.drawable.notes_icon),
+                        label = "Notes",
+                        color = colorResource(id = R.color.color7), onClick = {})
                 }
             }
         }
