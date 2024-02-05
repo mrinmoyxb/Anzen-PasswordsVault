@@ -7,6 +7,7 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
@@ -23,16 +24,19 @@ import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
+import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun IconComponent(
@@ -57,7 +61,8 @@ fun IconComponent(
             verticalArrangement = Arrangement.Bottom
         ) {
             Icon(painter = icon, contentDescription = "icon", modifier = Modifier.size(70.dp))
-            Text(label, fontSize = 20.sp, textAlign = TextAlign.Center)
+            Text(label, fontSize = 20.sp, textAlign = TextAlign.Center,
+                fontFamily = roboto, fontWeight= FontWeight.Normal)
         }
     }
 }
@@ -74,7 +79,8 @@ fun Display(){
         NameComponent("Mrinmoy")
         AnalyseComponent()
         Row(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             IconComponent(icon = painterResource(id = R.drawable.social),
                 label = "Socials",
@@ -84,7 +90,8 @@ fun Display(){
                 color = colorResource(id = R.color.color5), onClick = {})
         }
         Row(
-            modifier = Modifier.fillMaxWidth()
+            modifier = Modifier.fillMaxWidth(),
+            horizontalArrangement = Arrangement.SpaceEvenly
         ) {
             IconComponent(icon = painterResource(id = R.drawable.application_icon1),
                 label = "Apps",
