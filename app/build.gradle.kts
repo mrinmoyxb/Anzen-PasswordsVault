@@ -1,6 +1,7 @@
 plugins {
     id("com.android.application")
     id("org.jetbrains.kotlin.android")
+    id("com.chaquo.python")
 }
 
 android {
@@ -15,10 +16,19 @@ android {
         versionName = "1.0"
 
         testInstrumentationRunner = "androidx.test.runner.AndroidJUnitRunner"
+
         vectorDrawables {
             useSupportLibrary = true
         }
+
+        ndk {
+            // On Apple silicon, you can omit x86_64.
+            abiFilters += listOf("arm64-v8a", "x86_64")
+        }
+
+
     }
+
 
     buildTypes {
         release {
@@ -48,6 +58,22 @@ android {
         }
     }
 }
+
+
+chaquopy {
+    defaultConfig {
+        version = "3.10"
+        buildPython("C:/Users/Lenovo/AppData/Local/Programs/Python/Python310/python.exe")
+        //buildPython("C:/path/to/py.exe", "-3.8")
+    }
+
+    sourceSets {
+        getByName("main") {
+        srcDir("src/main/python")
+    }
+    }
+}
+
 
 dependencies {
 

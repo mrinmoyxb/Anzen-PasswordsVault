@@ -27,9 +27,9 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun NameComponent(name: String){
-    val c = listOf(Color(0xFFffffff), Color(0xFF80ffdb))
-    val d = listOf(Color(0xFFffffff), Color(0xFFe0aaff), Color(0xFF758bfd))
-    val e = listOf(Color(0xFFffffff), Color(0xFF80b918))
+
+    val c = listOf(Color(0xFFffffff), Color(0xFFe0aaff), Color(0xFF758bfd))
+
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -39,7 +39,7 @@ fun NameComponent(name: String){
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {
         Box(
-            modifier = Modifier.fillMaxSize().background(Brush.linearGradient(d))
+            modifier = Modifier.fillMaxSize().background(Brush.linearGradient(c))
         ) {
             Column(
                 modifier = Modifier
