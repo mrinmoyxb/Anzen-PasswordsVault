@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.chaquo.python.Python
 import com.example.passwordmanager.View.HomeScreen.HomeScreen.HomeScreen
+import com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScreen.PasswordGeneratorScreen
 import com.example.passwordmanager.ui.theme.PasswordManagerTheme
 
 class MainActivity : ComponentActivity() {
@@ -30,7 +31,8 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PasswordManagerTheme {
-                HomeScreen()
+                //HomeScreen()
+                PasswordGeneratorScreen()
             }
         }
     }

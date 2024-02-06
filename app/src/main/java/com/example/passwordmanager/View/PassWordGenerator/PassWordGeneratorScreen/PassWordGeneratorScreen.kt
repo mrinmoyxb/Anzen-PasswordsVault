@@ -1,18 +1,13 @@
-package com.example.passwordmanager.View.PassWordGenerator.Components
+package com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScreen
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
-import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.width
-import androidx.compose.foundation.shape.RoundedCornerShape
-import androidx.compose.material3.Card
-import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -24,37 +19,19 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.View.HomeScreen.Components.NameComponent
+import com.example.passwordmanager.View.PassWordGenerator.Components.LengthSlider
+import com.example.passwordmanager.View.PassWordGenerator.Components.PassWordDisplay
 import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
-fun PassWordDisplay(password: String){
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp),
-            //.padding(10.dp),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(colorResource(id = R.color.white))
-    ){
-        Box(
-            modifier = Modifier.fillMaxSize(),
-            contentAlignment = Alignment.Center
-        ){
-            Text(password, fontSize = 25.sp, color = Color.Black,
-                fontFamily = roboto, fontWeight = FontWeight.Bold)
-        }
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DisplayPassword(){
+fun PasswordGeneratorScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.background_color))
+            .padding(10.dp)
     ) {
+
         Spacer(modifier = Modifier.height(18.dp))
 
         Column(
@@ -70,6 +47,16 @@ fun DisplayPassword(){
                 fontWeight = FontWeight.Bold
             )
         }
+        Spacer(modifier = Modifier.height(10.dp))
         PassWordDisplay(password = "1234567890abcdefghij")
+        Spacer(modifier = Modifier.height(10.dp))
+        LengthSlider()
     }
+}
+
+
+@Preview(showBackground = true)
+@Composable
+fun DisplayPassword(){
+    PasswordGeneratorScreen()
 }
