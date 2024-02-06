@@ -29,6 +29,7 @@ fun HomeScreen() {
             .background(colorResource(id = R.color.background_color))) {
             item {
                 Spacer(modifier = Modifier.height(18.dp))
+
                 NameComponent("Mrinmoy")
                 AnalyseComponent()
 
