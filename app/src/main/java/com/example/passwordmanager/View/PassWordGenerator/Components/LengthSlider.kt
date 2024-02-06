@@ -5,6 +5,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
@@ -24,11 +25,13 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ui.theme.roboto
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -53,7 +56,7 @@ fun LengthSlider(){
                     Box(
                         modifier = Modifier
                             .clip(CircleShape)
-                            .size(30.dp)
+                            .size(35.dp)
                             .background(
                                 colorResource(
                                     id = R.color.thumb1
@@ -64,7 +67,7 @@ fun LengthSlider(){
                         Box(
                             modifier = Modifier
                                 .clip(CircleShape)
-                                .size(30.dp)
+                                .size(35.dp)
                                 .padding(5.dp)
                                 .background(
                                     colorResource(
@@ -74,7 +77,8 @@ fun LengthSlider(){
                                 ),
                             contentAlignment = Alignment.Center
                         ){
-                            Text(sliderValue.toString(), textAlign = TextAlign.Center)
+                            Text(sliderValue.toString(), textAlign = TextAlign.Center, color = Color.Black,
+                                fontFamily = roboto, fontWeight = FontWeight.Bold, fontSize = 14.sp)
                         }
 
                     }
@@ -83,10 +87,10 @@ fun LengthSlider(){
                 thumbColor = colorResource(id = R.color.thumb1),
                 activeTrackColor = colorResource(id = R.color.thumb1),
                 inactiveTrackColor = Color.White
-            )
+            ),
+
         )
     }
-    Text("slider value: ${sliderValue}", color = Color.White, fontSize = 32.sp)
 }
 
 
