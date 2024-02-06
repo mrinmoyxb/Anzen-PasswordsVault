@@ -21,6 +21,7 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.View.HomeScreen.Components.AnalyseComponent
 import com.example.passwordmanager.View.HomeScreen.Components.IconComponent
 import com.example.passwordmanager.View.HomeScreen.Components.NameComponent
+import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordNavigationCard
 
 @Preview(showBackground = true)
 @Composable
@@ -31,7 +32,10 @@ fun HomeScreen() {
                 Spacer(modifier = Modifier.height(18.dp))
 
                 NameComponent("Mrinmoy")
+
                 AnalyseComponent()
+
+                PasswordNavigationCard({})
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),
@@ -56,6 +60,8 @@ fun HomeScreen() {
                         label = "Notes",
                         color = colorResource(id = R.color.color7), onClick = {})
                 }
+
+
             }
         }
     }
