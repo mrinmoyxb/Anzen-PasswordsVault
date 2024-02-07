@@ -36,7 +36,7 @@ fun RefreshButton(){
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.thumb1), shape = RoundedCornerShape(20.dp)),
+                .background(colorResource(id = R.color.white), shape = RoundedCornerShape(20.dp)),
             contentAlignment = Alignment.Center
         ) {
             Icon(painter = painterResource(id = R.drawable.refresh),

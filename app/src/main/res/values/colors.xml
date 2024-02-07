@@ -28,7 +28,10 @@
     <color name="yellow2">#FFeefc57</color>
 
     <color name="theme1">#FFbfc6f3</color>
-    <color name="theme2">#f6ff80</color>
+    <color name="theme2">#FFf6ff80</color>
+    <color name="theme3">#FFf2ebfb</color>
+    <color name="theme4">#FFbbdefb</color>
+    <color name="theme5">#FFe9ecef</color>
 
 
 

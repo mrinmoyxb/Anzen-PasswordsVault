@@ -37,7 +37,7 @@ fun CopyToClipboard(){
     Card(
         modifier = Modifier
             .height(100.dp)
-            .width(250.dp),
+            .width(265.dp),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {
@@ -45,7 +45,7 @@ fun CopyToClipboard(){
             modifier = Modifier
                 .fillMaxSize()
                 .background(
-                    colorResource(id = R.color.thumb1),
+                    colorResource(id = R.color.theme4),
                     shape = RoundedCornerShape(20.dp)
                 ),
             contentAlignment = Alignment.Center
@@ -62,7 +62,7 @@ fun CopyToClipboard(){
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
                     "Copy to clipboard",
-                    fontSize = 22.sp,
+                    fontSize = 20.sp,
                     color = Color.Black,
                     fontFamily = roboto,
                     fontWeight = FontWeight.Medium

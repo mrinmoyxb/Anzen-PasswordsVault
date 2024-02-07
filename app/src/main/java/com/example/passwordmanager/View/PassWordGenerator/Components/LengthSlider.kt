@@ -59,7 +59,7 @@ fun LengthSlider() {
                 onValueChange = { newSliderValue ->
                     sliderValue = newSliderValue.toInt()
                 },
-                valueRange = 6f..20f,
+                valueRange = 5f..20f,
                 steps = 0,
                 thumb = {
                     Box(
