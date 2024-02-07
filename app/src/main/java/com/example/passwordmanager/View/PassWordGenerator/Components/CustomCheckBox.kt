@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
+import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
 import androidx.compose.foundation.clickable
@@ -13,6 +14,8 @@ import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -32,34 +35,43 @@ import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 
 @Composable
-fun CustomCheckBox(label: String){
-    var checked by remember{mutableStateOf(false)}
+fun CustomCheckBox(label: String) {
+    var checked by remember { mutableStateOf(false) }
 
     Row(
         verticalAlignment = Alignment.CenterVertically
-    ){
-    Box(
-        modifier = Modifier
-            .height(40.dp)
-            .width(40.dp)
-            .clickable { checked = !checked}
-            .background(if (checked) colorResource(id = R.color.thumb1) else Color.Transparent)
-            .clip(RoundedCornerShape(40.dp)),
-        contentAlignment = Alignment.Center
-    ){
-        if(checked){
-            Icon(imageVector = Icons.Default.Check,
-                contentDescription = "",
-                tint = Color.White)
-        }
-            
+    ) {
+        Card(
+            modifier = Modifier
+                .height(40.dp)
+                .width(40.dp)
+                .clickable { checked = !checked }
+                .background(Color.Transparent),
+            shape = RoundedCornerShape(10.dp),
+            colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.button1) else Color.Transparent),
+            border = BorderStroke(width = 1.dp, color = if(checked) colorResource(id = R.color.button1) else Color.White)
+        ) {
+            Box(
+                modifier = Modifier.fillMaxSize(),
+                contentAlignment = Alignment.Center
+            ) {
+                if (checked) {
+                    Icon(
+                        imageVector = Icons.Default.Check,
+                        contentDescription = "",
+                        tint = Color.Black
+                    )
+                }
+
+            }
+
+
         }
         Spacer(modifier = Modifier.width(10.dp))
         Text(
             label, fontSize = 20.sp, color = Color.White
         )
     }
-
 }
 
 
@@ -73,6 +85,6 @@ fun DisplayPasswords() {
             .background(colorResource(id = R.color.background_color))
     ) {
         Spacer(modifier = Modifier.height(18.dp))
-        CustomCheckBox(label = "uppercase")
+        CustomCheckBox(label = "Uppercase")
     }
 }
