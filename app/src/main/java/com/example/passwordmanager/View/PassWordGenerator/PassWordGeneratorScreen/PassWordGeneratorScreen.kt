@@ -50,7 +50,7 @@ fun PasswordGeneratorScreen() {
             )
         }
         Spacer(modifier = Modifier.height(10.dp))
-        PassWordDisplay(password = "1234567890abcdefghij")
+         PassWordDisplay(password = "1234567890abcdefghij")
         Spacer(modifier = Modifier.height(10.dp))
         LengthSlider()
         Row(
