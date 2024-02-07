@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -35,41 +36,46 @@ import com.example.passwordmanager.View.PassWordGenerator.Components.CustomCheck
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PassWordGenerator.Components.LengthSlider
 import com.example.passwordmanager.View.PassWordGenerator.Components.PassWordDisplay
+import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordHealth
 import com.example.passwordmanager.View.PassWordGenerator.Components.RefreshButton
 import com.example.passwordmanager.View.PassWordGenerator.Components.SelectionBox
 import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun PasswordGeneratorScreen() {
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.black))
             .padding(10.dp)
     ) {
+        item {
+            Spacer(modifier = Modifier.height(30.dp))
 
-        Spacer(modifier = Modifier.height(30.dp))
+            Heading()
 
-        Heading()
-
-        Spacer(modifier = Modifier.height(10.dp))
-        PassWordDisplay(password = "********")
-        Spacer(modifier = Modifier.height(12.dp))
-        LengthSlider()
-        Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(10.dp))
+            PassWordDisplay(password = "********")
+            Spacer(modifier = Modifier.height(12.dp))
+            LengthSlider()
+            Spacer(modifier = Modifier.height(12.dp))
 
 
-        // selection box ->
-        SelectionBox()
+            // selection box ->
+            SelectionBox()
+            Spacer(modifier = Modifier.height(10.dp))
 
-        Spacer(modifier = Modifier.height(10.dp))
+            PasswordHealth(length = 6)
+            Spacer(modifier = Modifier.height(10.dp))
 
-        Row (modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-            ){
-            CopyToClipboard()
-            Spacer(modifier = Modifier.width(5.dp))
-            RefreshButton()
+            Row(
+                modifier = Modifier.fillMaxWidth(),
+                horizontalArrangement = Arrangement.SpaceEvenly
+            ) {
+                CopyToClipboard()
+                Spacer(modifier = Modifier.width(5.dp))
+                RefreshButton()
+            }
         }
     }
 }
