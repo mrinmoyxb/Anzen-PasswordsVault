@@ -10,6 +10,7 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
@@ -29,6 +30,7 @@ import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.pointer.PointerIcon.Companion.Text
 import androidx.compose.ui.res.colorResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
@@ -49,8 +51,8 @@ fun CustomCheckBox(label: String) {
                 .clickable { checked = !checked }
                 .background(Color.Transparent),
             shape = RoundedCornerShape(10.dp),
-            colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.button1) else Color.Transparent),
-            border = BorderStroke(width = 1.dp, color = if(checked) colorResource(id = R.color.button1) else Color.White)
+            colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.black) else Color.Transparent),
+            border = BorderStroke(width = 2.dp, color = if(checked) colorResource(id = R.color.black) else Color.Black)
         ) {
             Box(
                 modifier = Modifier.fillMaxSize(),
@@ -59,8 +61,9 @@ fun CustomCheckBox(label: String) {
                 if (checked) {
                     Icon(
                         imageVector = Icons.Default.Check,
+                        modifier = Modifier.size(30.dp),
                         contentDescription = "",
-                        tint = Color.Black
+                        tint = Color.White,
                     )
                 }
 
@@ -70,7 +73,11 @@ fun CustomCheckBox(label: String) {
         }
         Spacer(modifier = Modifier.width(10.dp))
         Text(
-            label, fontSize = 20.sp, color = Color.White, textAlign = TextAlign.Left
+            label,
+            fontSize = 20.sp,
+            color = Color.Black,
+            textAlign = TextAlign.Left,
+            fontWeight = FontWeight.Medium
         )
     }
 }

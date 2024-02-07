@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.ExperimentalMaterial3Api
 import androidx.compose.material3.Slider
 import androidx.compose.material3.SliderColors
@@ -35,40 +37,47 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LengthSlider(){
-    var sliderValue by remember{
+fun LengthSlider() {
+    var sliderValue by remember {
         mutableStateOf(8)
     }
-    Box(
+    Card(
         modifier = Modifier
-            .fillMaxWidth()
-            .padding(10.dp),
-        contentAlignment = Alignment.Center
+            .height(100.dp)
+            .fillMaxWidth(),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(Color.Transparent)
     ) {
-        Slider(
-            value = sliderValue.toFloat(), // Convert for Slider
-            onValueChange = { newSliderValue ->
-                sliderValue = newSliderValue.toInt() // Update state with integer
-            },
-            valueRange = 8f..20f,
-            steps = 0,
-            thumb = {
+        Box(
+            modifier = Modifier
+                .fillMaxSize()
+                .background(colorResource(id = R.color.yellow2), shape = RoundedCornerShape(20.dp)),
+            contentAlignment = Alignment.Center
+        ) {
+            Slider(
+                value = sliderValue.toFloat(),
+                onValueChange = { newSliderValue ->
+                    sliderValue = newSliderValue.toInt()
+                },
+                valueRange = 6f..20f,
+                steps = 0,
+                thumb = {
                     Box(
                         modifier = Modifier
                             .clip(CircleShape)
-                            .size(35.dp)
+                            .size(40.dp)
                             .background(
                                 colorResource(
-                                    id = R.color.thumb1
+                                    id = R.color.black
                                 )
                             ),
                         contentAlignment = Alignment.Center
-                    ){
+                    ) {
                         Box(
                             modifier = Modifier
                                 .clip(CircleShape)
-                                .size(35.dp)
-                                .padding(5.dp)
+                                .size(40.dp)
+                                .padding(8.dp)
                                 .background(
                                     colorResource(
                                         id = R.color.white
@@ -76,23 +85,29 @@ fun LengthSlider(){
                                     shape = RoundedCornerShape(30.dp)
                                 ),
                             contentAlignment = Alignment.Center
-                        ){
-                            Text(sliderValue.toString(), textAlign = TextAlign.Center, color = Color.Black,
-                                fontFamily = roboto, fontWeight = FontWeight.Bold, fontSize = 14.sp)
+                        ) {
+                            Text(
+                                sliderValue.toString(),
+                                textAlign = TextAlign.Center,
+                                color = Color.Black,
+                                fontFamily = roboto,
+                                fontWeight = FontWeight.Bold,
+                                fontSize = 15.sp
+                            )
                         }
 
                     }
-            },
-            colors = SliderDefaults.colors(
-                thumbColor = colorResource(id = R.color.thumb1),
-                activeTrackColor = colorResource(id = R.color.thumb1),
-                inactiveTrackColor = Color.White
-            ),
+                },
+                colors = SliderDefaults.colors(
+                    thumbColor = colorResource(id = R.color.black),
+                    activeTrackColor = colorResource(id = R.color.black),
+                    inactiveTrackColor = Color.Black
+                ),
 
-        )
+                )
+        }
     }
 }
-
 
 @Preview(showBackground = true)
 @Composable

@@ -1,6 +1,7 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -27,7 +28,8 @@ fun RefreshButton(){
     Card(
         modifier = Modifier
             .height(100.dp)
-            .width(100.dp),
+            .width(100.dp)
+            .clickable{},
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {

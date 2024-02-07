@@ -2,6 +2,7 @@ package com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScre
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
@@ -9,6 +10,10 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -41,32 +46,64 @@ fun PasswordGeneratorScreen() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally
         ) {
-            Text(
-                text = "Password",
-                fontSize = 32.sp,
-                color = Color.White,
-                fontFamily = roboto,
-                fontWeight = FontWeight.Bold
-            )
+            Row(
+                modifier = Modifier.fillMaxWidth()
+            ) {
+                Text(
+                    text = "Pass****",
+                    fontSize = 32.sp,
+                    color = Color.White,
+                    fontFamily = roboto,
+                    fontWeight = FontWeight.Bold
+                )
+                Text(
+                    text = " Generator",
+                    fontSize = 32.sp,
+                    color = Color.White,
+                    fontFamily = roboto,
+                    fontWeight = FontWeight.Thin
+                )
+            }
         }
         Spacer(modifier = Modifier.height(10.dp))
-         PassWordDisplay(password = "1234567890abcdefghij")
-        Spacer(modifier = Modifier.height(10.dp))
+        PassWordDisplay(password = "1234567890abcdefghij")
+        Spacer(modifier = Modifier.height(12.dp))
         LengthSlider()
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround
-        ){
-            CustomCheckBox("Uppercase")
-            CustomCheckBox("Number")
-        }
-        Spacer(modifier = Modifier.height(10.dp))
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceAround
-        ){
-            CustomCheckBox("Lowercase")
-            CustomCheckBox("Symbol")
+        Spacer(modifier = Modifier.height(12.dp))
+
+
+        Card(
+            modifier = Modifier
+                .fillMaxWidth()
+                .height(110.dp),
+            colors = CardDefaults.cardColors(Color.Transparent),
+            shape = RoundedCornerShape(20.dp)
+        ) {
+            Box(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .background(Color.White, shape = RoundedCornerShape(20.dp))
+            ) {
+                Column(modifier = Modifier.fillMaxSize().padding(10.dp)) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        CustomCheckBox(label = "Uppercase")
+                        Spacer(modifier = Modifier.width(30.dp))
+                        CustomCheckBox(label = "Numbers")
+                    }
+                    Spacer(modifier = Modifier.height(10.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceAround
+                    ) {
+                        CustomCheckBox(label = "Lowercase")
+                        Spacer(modifier = Modifier.width(30.dp))
+                        CustomCheckBox(label = "Symbols")
+                    }
+                }
+            }
         }
     }
 }
