@@ -51,7 +51,7 @@ fun LengthSlider() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.yellow2), shape = RoundedCornerShape(20.dp)),
+                .background(colorResource(id = R.color.theme2), shape = RoundedCornerShape(20.dp)),
             contentAlignment = Alignment.Center
         ) {
             Slider(

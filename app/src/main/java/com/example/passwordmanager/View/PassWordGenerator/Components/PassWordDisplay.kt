@@ -30,21 +30,20 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun PassWordDisplay(password: String){
-    val c1 = listOf(Color(0xFF8E8FFA), Color(0xFFFFFFFF))
+    //val c1 = listOf(Color(0xFF8E8FFA), Color(0xFFFFFFFF))
     Card(
         modifier = Modifier
             .fillMaxWidth()
             .height(200.dp),
-            //.padding(10.dp),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ){
         Box(
-            modifier = Modifier.fillMaxSize()
-                .background(Brush.linearGradient(c1)),
+            modifier = Modifier.fillMaxSize().background(Color.White),
+                //.background(Brush.linearGradient(c1)),
             contentAlignment = Alignment.Center,
         ){
-            Text(password, fontSize = 25.sp, color = Color.Black,
+            Text(password, fontSize = 30.sp, color = Color.Black,
                 fontFamily = roboto, fontWeight = FontWeight.Bold)
         }
     }

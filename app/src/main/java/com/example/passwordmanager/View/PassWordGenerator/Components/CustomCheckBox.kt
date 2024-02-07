@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Check
@@ -50,9 +51,9 @@ fun CustomCheckBox(label: String) {
                 .width(40.dp)
                 .clickable { checked = !checked }
                 .background(Color.Transparent),
-            shape = RoundedCornerShape(10.dp),
+            shape = CircleShape,
             colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.black) else Color.Transparent),
-            border = BorderStroke(width = 2.dp, color = if(checked) colorResource(id = R.color.black) else Color.Black)
+            border = BorderStroke(width = 3.dp, color = if(checked) colorResource(id = R.color.black) else Color.Black)
         ) {
             Box(
                 modifier = Modifier.fillMaxSize(),

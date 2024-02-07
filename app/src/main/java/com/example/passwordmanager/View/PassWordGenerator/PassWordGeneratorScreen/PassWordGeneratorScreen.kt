@@ -6,6 +6,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -35,7 +36,7 @@ fun PasswordGeneratorScreen() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
+            .background(colorResource(id = R.color.black))
             .padding(10.dp)
     ) {
 
@@ -66,7 +67,7 @@ fun PasswordGeneratorScreen() {
             }
         }
         Spacer(modifier = Modifier.height(10.dp))
-        PassWordDisplay(password = "1234567890abcdefghij")
+        PassWordDisplay(password = "********")
         Spacer(modifier = Modifier.height(12.dp))
         LengthSlider()
         Spacer(modifier = Modifier.height(12.dp))
@@ -82,12 +83,13 @@ fun PasswordGeneratorScreen() {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(Color.White, shape = RoundedCornerShape(20.dp))
+                    .background(colorResource(id = R.color.theme1), shape = RoundedCornerShape(20.dp))
             ) {
-                Column(modifier = Modifier.fillMaxSize().padding(10.dp)) {
+                Column(modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 10.dp, end =10.dp, top = 10.dp, bottom = 10.dp)) {
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
+                        modifier = Modifier.fillMaxWidth().padding(start = 18.dp),
                     ) {
                         CustomCheckBox(label = "Uppercase")
                         Spacer(modifier = Modifier.width(30.dp))
@@ -95,8 +97,8 @@ fun PasswordGeneratorScreen() {
                     }
                     Spacer(modifier = Modifier.height(10.dp))
                     Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceAround
+                        modifier = Modifier.fillMaxWidth().padding(start = 18.dp),
+                        //horizontalArrangement = Arrangement.SpaceEvenly
                     ) {
                         CustomCheckBox(label = "Lowercase")
                         Spacer(modifier = Modifier.width(30.dp))
