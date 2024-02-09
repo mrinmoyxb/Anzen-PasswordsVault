@@ -70,9 +70,29 @@ fun NewPasswordScreen() {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(color = colorResource(R.color.theme4), RoundedCornerShape(20.dp))
-                    .padding(10.dp)
+                    .padding(15.dp)
             ) {
-                InputCard("Enter Username", "Username", painterResource(id = R.drawable.nerd_face))
+                Column(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    InputCard(
+                        "Username",
+                        "Enter Username",
+                        painterResource(id = R.drawable.nerd_face)
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    InputCard(
+                        "Email",
+                        "Enter Email",
+                        painterResource(id = R.drawable.email)
+                    )
+                    Spacer(modifier = Modifier.height(10.dp))
+                    InputCard(
+                        "Password",
+                        "Enter Password",
+                        painterResource(id = R.drawable.lock_img)
+                    )
+                }
 
             }
         }

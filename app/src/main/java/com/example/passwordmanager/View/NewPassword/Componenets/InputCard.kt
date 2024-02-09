@@ -44,7 +44,7 @@ fun InputCard(heading: String, label: String, painter: Painter){
     var value by remember{mutableStateOf("")}
     Column() {
                 Text(heading, fontSize = 20.sp, color = Color.Black,
-                    fontFamily = roboto, fontWeight = FontWeight.Medium)
+                    fontFamily = roboto, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(8.dp))
                 Box(
                     modifier = Modifier
@@ -63,9 +63,10 @@ fun InputCard(heading: String, label: String, painter: Painter){
                             .padding(5.dp),
                         placeholder = {
                             Text(
-                            label,
-                            color = Color.Black,
-                            fontFamily = roboto,
+                                label,
+                                color = Color.Black,
+                                fontFamily = roboto,
+                                //fontWeight = FontWeight.Medium
                         )
                         },
                         leadingIcon = {
