@@ -33,6 +33,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.roboto
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -117,6 +118,6 @@ fun DisplaySlider(){
             .fillMaxSize()
             .background(colorResource(id = R.color.background_color))
     ) {
-        LengthSlider()
+        //LengthSlider()
     }
 }

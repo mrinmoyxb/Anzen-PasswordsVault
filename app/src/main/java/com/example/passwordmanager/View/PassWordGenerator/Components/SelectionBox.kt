@@ -19,9 +19,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.unit.dp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 
 @Composable
-fun SelectionBox(){
+fun SelectionBox(viewModel: PasswordGeneratorViewModel){
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -45,9 +46,9 @@ fun SelectionBox(){
                         .fillMaxWidth()
                         .padding(start = 18.dp),
                 ) {
-                    CustomCheckBox(label = "Uppercase")
+                    CustomCheckBox(label = "Uppercase", {viewModel.uppercaseOnClick()})
                     Spacer(modifier = Modifier.width(30.dp))
-                    CustomCheckBox(label = "Numbers")
+                    CustomCheckBox(label = "Numbers", {viewModel.numberOnClick()})
                 }
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
@@ -56,9 +57,9 @@ fun SelectionBox(){
                         .padding(start = 18.dp),
                     //horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    CustomCheckBox(label = "Lowercase")
+                    CustomCheckBox(label = "Lowercase", {viewModel.lowercaseOnClick()})
                     Spacer(modifier = Modifier.width(30.dp))
-                    CustomCheckBox(label = "Symbols")
+                    CustomCheckBox(label = "Symbols", {viewModel.symbolOnClick()})
                 }
             }
         }

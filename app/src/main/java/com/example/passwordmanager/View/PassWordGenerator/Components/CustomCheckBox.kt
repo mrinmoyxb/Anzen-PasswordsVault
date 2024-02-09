@@ -39,7 +39,8 @@ import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 
 @Composable
-fun CustomCheckBox(label: String) {
+fun CustomCheckBox(label: String, onClick: ()-> Unit) {
+
     var checked by remember { mutableStateOf(false) }
 
     Row(
@@ -49,7 +50,9 @@ fun CustomCheckBox(label: String) {
             modifier = Modifier
                 .height(40.dp)
                 .width(40.dp)
-                .clickable { checked = !checked }
+                .clickable { checked = !checked
+                    onClick
+                }
                 .background(Color.Transparent),
             shape = CircleShape,
             colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.black) else Color.Transparent),
@@ -94,6 +97,6 @@ fun DisplayPasswords() {
             .background(colorResource(id = R.color.background_color))
     ) {
         Spacer(modifier = Modifier.height(18.dp))
-        CustomCheckBox(label = "Uppercase")
+        CustomCheckBox(label = "Uppercase", onClick = {})
     }
 }

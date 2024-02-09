@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class PasswordGeneratorViewModel: ViewModel(){
 
-    var generatedPassword = MutableStateFlow("********")
+    var generatedPassword = MutableStateFlow("")
     val _generatedPassword: StateFlow<String> = generatedPassword
 
     private var uppercaseState = MutableStateFlow(false)
@@ -50,6 +50,9 @@ class PasswordGeneratorViewModel: ViewModel(){
         numberState.value = !numberState.value
     }
 
+    fun setLengthState(l: Int){
+        lengthState.value = l
+    }
 
     @Composable
     fun GeneratePassword(){
@@ -77,6 +80,7 @@ class PasswordGeneratorViewModel: ViewModel(){
 
             val random = Random
             val password = (1.._lengthState.value).map{characters.random(random)}.joinToString("")
+
             generatedPassword.value = password
         }
     }

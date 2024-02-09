@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScreen
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -21,6 +22,8 @@ import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
@@ -30,6 +33,8 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.ViewModelProvider
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.PassWordGenerator.Components.CopyToClipboard
 import com.example.passwordmanager.View.PassWordGenerator.Components.CustomCheckBox
@@ -39,10 +44,16 @@ import com.example.passwordmanager.View.PassWordGenerator.Components.PassWordDis
 import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordHealth
 import com.example.passwordmanager.View.PassWordGenerator.Components.RefreshButton
 import com.example.passwordmanager.View.PassWordGenerator.Components.SelectionBox
+import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.roboto
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @Composable
 fun PasswordGeneratorScreen() {
+
+    val viewModel: PasswordGeneratorViewModel = viewModel()
+    val generatedPassword by viewModel.generatedPassword.collectAsState()
+
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -55,14 +66,14 @@ fun PasswordGeneratorScreen() {
             Heading()
 
             Spacer(modifier = Modifier.height(10.dp))
-            PassWordDisplay(password = "********")
+            PassWordDisplay(password = generatedPassword)
             Spacer(modifier = Modifier.height(12.dp))
             LengthSlider()
             Spacer(modifier = Modifier.height(12.dp))
 
 
             // selection box ->
-            SelectionBox()
+            SelectionBox(viewModel)
             Spacer(modifier = Modifier.height(10.dp))
 
             PasswordHealth(length = 6)
