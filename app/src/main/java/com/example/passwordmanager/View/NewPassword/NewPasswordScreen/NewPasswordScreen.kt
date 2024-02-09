@@ -41,6 +41,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme.colors
 import com.example.passwordmanager.R
+import com.example.passwordmanager.View.NewPassword.Componenets.DropDown
 import com.example.passwordmanager.View.NewPassword.Componenets.InputCard
 import com.example.passwordmanager.View.NewPassword.Componenets.NewPasswordScreenHeading
 import com.example.passwordmanager.ui.theme.roboto
@@ -75,6 +76,11 @@ fun NewPasswordScreen() {
                 Column(
                     modifier = Modifier.fillMaxSize()
                 ) {
+                    Text("Category", fontSize = 20.sp, color = Color.Black,
+                        fontFamily = roboto, fontWeight = FontWeight.Bold)
+                    Spacer(modifier = Modifier.height(10.dp))
+                    DropDown()
+                    Spacer(modifier = Modifier.height(10.dp))
                     InputCard(
                         "Username",
                         "Enter Username",
