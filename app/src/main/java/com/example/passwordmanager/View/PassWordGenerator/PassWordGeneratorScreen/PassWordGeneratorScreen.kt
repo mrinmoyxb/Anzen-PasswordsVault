@@ -53,7 +53,7 @@ import com.example.passwordmanager.ui.theme.roboto
 fun PasswordGeneratorScreen() {
 
 val viewModel: PasswordGeneratorViewModel = viewModel()
-//    val generatedPassword by viewModel.generatedPassword.collectAsState()
+val generatedPassword by viewModel.generatedPassword.collectAsState()
 
     LazyColumn(
         modifier = Modifier
@@ -65,37 +65,33 @@ val viewModel: PasswordGeneratorViewModel = viewModel()
             Spacer(modifier = Modifier.height(30.dp))
             Heading()
             Spacer(modifier = Modifier.height(10.dp))
+
+
             PassWordDisplay(password = viewModel._generatedPassword.value)
             Spacer(modifier = Modifier.height(8.dp))
 
-            // length ->
-//            Text("Length", fontSize = 20.sp, color = Color(0xFFdee2e6),
-//                fontFamily = roboto, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 10.dp))
+
             Spacer(modifier = Modifier.height(3.dp))
-            LengthSlider()
+            LengthSlider(viewModel)
             Spacer(modifier = Modifier.height(8.dp))
 
 
-            // selection box ->
-//            Text("Characters", fontSize = 20.sp, color = Color(0xFFdee2e6),
-//                fontFamily = roboto, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 10.dp))
             Spacer(modifier = Modifier.height(3.dp))
             SelectionBox(viewModel)
             Spacer(modifier = Modifier.height(8.dp))
 
 
-
-//            Text("Generate Password", fontSize = 20.sp, color = Color(0xFFdee2e6),
-//                fontFamily = roboto, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 10.dp))
             Spacer(modifier = Modifier.height(3.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                GeneratePasswordButton()
+                GeneratePasswordButton(viewModel)
                 Spacer(modifier = Modifier.width(5.dp))
                 CopyButton(viewModel)
             }
+
+
             Spacer(modifier = Modifier.height(10.dp))
             PasswordHealth(length = 6)
             Spacer(modifier = Modifier.height(10.dp))

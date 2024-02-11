@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -36,12 +37,14 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.roboto
 
+@SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun LengthSlider() {
+fun LengthSlider(viewModel: PasswordGeneratorViewModel) {
     var sliderValue by remember {
         mutableStateOf(8)
     }
+    viewModel.lengthState.value = sliderValue
     Card(
         modifier = Modifier
             .height(100.dp)
@@ -53,7 +56,6 @@ fun LengthSlider() {
             modifier = Modifier
                 .fillMaxSize()
                 .background(colorResource(id = R.color.supporting_color2), shape = RoundedCornerShape(20.dp)),
-            //Color(0xFF90E0EF)
             contentAlignment = Alignment.Center
         ) {
             Slider(
@@ -111,14 +113,3 @@ fun LengthSlider() {
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DisplaySlider(){
-//    Column(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .background(colorResource(id = R.color.background_color))
-//    ) {
-//        //LengthSlider()
-//    }
-//}

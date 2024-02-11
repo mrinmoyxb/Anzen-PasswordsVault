@@ -21,16 +21,19 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
-fun GeneratePasswordButton() {
+fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
     Card(
         modifier = Modifier
             .height(100.dp)
             .fillMaxWidth(0.7f)
             .offset(x=-1.dp)
-            .clickable{},
+            .clickable{
+                      viewModel.generateRandomPassword()
+            },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent),
     ) {

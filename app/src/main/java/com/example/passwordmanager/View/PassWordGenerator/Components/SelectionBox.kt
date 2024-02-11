@@ -48,7 +48,7 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                 ) {
                     CustomCheckBox(label = "Uppercase", { viewModel.uppercaseOnClick() })
                     Spacer(modifier = Modifier.width(30.dp))
-                    CustomCheckBox(label = "Numbers", {viewModel.numberOnClick()})
+                    CustomCheckBox(label = "Numbers", { viewModel.numberOnClick()})
                 }
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
@@ -58,7 +58,7 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                 ) {
                     CustomCheckBox(label = "Lowercase", {viewModel.lowercaseOnClick()})
                     Spacer(modifier = Modifier.width(30.dp))
-                    CustomCheckBox(label = "Symbols", {viewModel.symbolOnClick()})
+                    CustomCheckBox(label = "Symbols", { viewModel.symbolOnClick()})
                 }
             }
         }

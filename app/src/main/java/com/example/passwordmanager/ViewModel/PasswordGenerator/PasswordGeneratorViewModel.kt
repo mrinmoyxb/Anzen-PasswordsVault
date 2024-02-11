@@ -9,7 +9,7 @@ import kotlin.random.Random
 
 class PasswordGeneratorViewModel: ViewModel() {
 
-    var generatedPassword = MutableStateFlow("")
+    var generatedPassword = MutableStateFlow("********")
     val _generatedPassword: StateFlow<String> = generatedPassword
 
     private var uppercaseState = MutableStateFlow(false)
@@ -24,7 +24,7 @@ class PasswordGeneratorViewModel: ViewModel() {
     private var numberState = MutableStateFlow(false)
     val _numberState: StateFlow<Boolean> = numberState
 
-    private var lengthState = MutableStateFlow(8)
+    var lengthState = MutableStateFlow(8)
     val _lengthState: StateFlow<Int> = lengthState
 
 
@@ -54,9 +54,9 @@ class PasswordGeneratorViewModel: ViewModel() {
         lengthState.value = l
     }
 
-    @Composable
-    fun GeneratePassword() {
-        LaunchedEffect(_lengthState, _uppercaseState, _lowercaseState, _symbolState, _numberState) {
+    //@Composable
+    fun generateRandomPassword() {
+        //LaunchedEffect(_lengthState, _uppercaseState, _lowercaseState, _symbolState, _numberState) {
             val characters = mutableListOf<Char>()
             if (_lowercaseState.value) {
                 characters.addAll(lowercase)
@@ -74,10 +74,6 @@ class PasswordGeneratorViewModel: ViewModel() {
                 characters.addAll(numbers)
             }
 
-//            if(characters.isEmpty()){
-//                return@LaunchedEffect
-//            }
-
             val random = Random
             val password =
                 (1.._lengthState.value).map { characters.random(random) }.joinToString("")
@@ -85,7 +81,6 @@ class PasswordGeneratorViewModel: ViewModel() {
             generatedPassword.value = password
         }
     }
-}
 
 
 //}
