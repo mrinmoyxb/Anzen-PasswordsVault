@@ -70,7 +70,7 @@ fun NewPasswordScreen() {
             Box(
                 modifier = Modifier
                     .fillMaxSize()
-                    .background(color = colorResource(R.color.theme4), RoundedCornerShape(20.dp))
+                    .background(color = colorResource(R.color.brand_color), RoundedCornerShape(20.dp))
                     .padding(15.dp)
             ) {
                 Column(

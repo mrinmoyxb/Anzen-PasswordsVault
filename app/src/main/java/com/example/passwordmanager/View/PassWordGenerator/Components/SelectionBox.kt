@@ -34,7 +34,7 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
             modifier = Modifier
                 .fillMaxSize()
                 .background(
-                    colorResource(id = R.color.theme1),
+                    colorResource(id = R.color.supporting_color2),
                     shape = RoundedCornerShape(20.dp)
                 )
         ) {
@@ -55,7 +55,6 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                     modifier = Modifier
                         .fillMaxWidth()
                         .padding(start = 18.dp),
-                    //horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
                     CustomCheckBox(label = "Lowercase", {viewModel.lowercaseOnClick()})
                     Spacer(modifier = Modifier.width(30.dp))

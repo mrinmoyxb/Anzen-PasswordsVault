@@ -8,31 +8,6 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="background_color">#FF171F31</color>
-    <color name="color1">#FFB2A4FF</color>
-    <color name="color11">#FFC2D9FF</color>
-    <color name="color2">#FF8E8FFA</color>
-    <color name="color3">#FF7752FE</color>
-    <color name="color4">#FFB2A4FF</color>
-    <color name="color5">#FFA0E9FF</color>
-    <color name="color6">#FFFFFBAC</color>
-    <color name="color7">#FFD7E9B9</color>
-    <color name="color8">#FFFDF7C3</color>
-
-    <color name="color9">#FF190482</color>
-    <color name="thumb1">#FF48cae4</color>
-    <color name="thumb2">#FFe0aaff</color>
-
-    <color name="button1">#FFC2D9FF</color>
-    <color name="yellow1">#FCFD89</color>
-    <color name="yellow2">#FFeefc57</color>
-
-    <color name="theme1">#FFbfc6f3</color>
-    <color name="theme2">#FFf6ff80</color>
-    <color name="theme3">#FFf2ebfb</color>
-    <color name="theme4">#FFbbdefb</color>
-    <color name="theme5">#FFe9ecef</color>
-
     <color name="red">#ff0000</color>
     <color name="orange">#ff6b00</color>
     <color name="yellow">#ffd600</color>
@@ -40,10 +15,8 @@
     <color name="card_green">#EFF3C4</color>
     <color name="card_color">#cce4fd</color>
 
-    <color name="brand_color">#200E3A</color>
-    <color name="supporting_color">#FFFFFF</color>
-    <color name="supporting_color1">#38419D</color>
-    <color name="supporting_color2">#3887BE</color>
-    <color name="supporting_color3">#52D3D8</color>
+    <color name="brand_color">#000000</color>
+    <color name="supporting_color1">#D7E3FC</color>
+    <color name="supporting_color2">#CAF0F8</color>
 
 </resources>

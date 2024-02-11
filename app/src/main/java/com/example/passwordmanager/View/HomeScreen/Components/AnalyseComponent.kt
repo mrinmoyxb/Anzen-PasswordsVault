@@ -42,7 +42,7 @@ fun DisplayAnalyse(){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
+            .background(colorResource(id = R.color.brand_color))
     ) {
         NameComponent("Mrinmoy")
         AnalyseComponent()

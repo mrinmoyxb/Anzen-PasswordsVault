@@ -37,13 +37,13 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.passwordmanager.R
-import com.example.passwordmanager.View.PassWordGenerator.Components.CopyToClipboard
+import com.example.passwordmanager.View.PassWordGenerator.Components.CopyButton
 import com.example.passwordmanager.View.PassWordGenerator.Components.CustomCheckBox
+import com.example.passwordmanager.View.PassWordGenerator.Components.GeneratePasswordButton
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PassWordGenerator.Components.LengthSlider
 import com.example.passwordmanager.View.PassWordGenerator.Components.PassWordDisplay
 import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordHealth
-import com.example.passwordmanager.View.PassWordGenerator.Components.RefreshButton
 import com.example.passwordmanager.View.PassWordGenerator.Components.SelectionBox
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.roboto
@@ -63,31 +63,41 @@ fun PasswordGeneratorScreen(viewModel: PasswordGeneratorViewModel) {
     ) {
         item {
             Spacer(modifier = Modifier.height(30.dp))
-
             Heading()
-
             Spacer(modifier = Modifier.height(10.dp))
             PassWordDisplay(password = viewModel._generatedPassword.value)
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(8.dp))
+
+            // length ->
+//            Text("Length", fontSize = 20.sp, color = Color(0xFFdee2e6),
+//                fontFamily = roboto, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 10.dp))
+            Spacer(modifier = Modifier.height(3.dp))
             LengthSlider()
-            Spacer(modifier = Modifier.height(12.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
 
             // selection box ->
+//            Text("Characters", fontSize = 20.sp, color = Color(0xFFdee2e6),
+//                fontFamily = roboto, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 10.dp))
+            Spacer(modifier = Modifier.height(3.dp))
             SelectionBox(viewModel)
-            Spacer(modifier = Modifier.height(10.dp))
+            Spacer(modifier = Modifier.height(8.dp))
 
-            PasswordHealth(length = 6)
-            Spacer(modifier = Modifier.height(10.dp))
 
+
+//            Text("Generate Password", fontSize = 20.sp, color = Color(0xFFdee2e6),
+//                fontFamily = roboto, fontWeight = FontWeight.Medium, modifier = Modifier.padding(start = 10.dp))
+            Spacer(modifier = Modifier.height(3.dp))
             Row(
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                CopyToClipboard()
+                GeneratePasswordButton()
                 Spacer(modifier = Modifier.width(5.dp))
-                RefreshButton(viewModel)
+                CopyButton(viewModel)
             }
+            Spacer(modifier = Modifier.height(10.dp))
+            PasswordHealth(length = 6)
         }
     }
 }

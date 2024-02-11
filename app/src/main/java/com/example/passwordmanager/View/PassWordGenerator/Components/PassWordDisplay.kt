@@ -34,7 +34,7 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun PassWordDisplay(password: String){
-    //val c1 = listOf(Color(0xFF8E8FFA), Color(0xFFFFFFFF))
+    
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -45,11 +45,13 @@ fun PassWordDisplay(password: String){
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color.White),
+                .background(colorResource(id = R.color.supporting_color1)),
             contentAlignment = Alignment.Center,
         ) {
             Row(
-                modifier = Modifier.fillMaxWidth().padding(5.dp),
+                modifier = Modifier
+                    .fillMaxWidth()
+                    .padding(5.dp),
                 horizontalArrangement = Arrangement.Center,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -70,7 +72,7 @@ fun DisplayPassword(){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
+            .background(colorResource(id = R.color.brand_color))
     ) {
         Spacer(modifier = Modifier.height(18.dp))
 

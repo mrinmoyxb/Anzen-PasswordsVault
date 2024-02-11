@@ -73,7 +73,6 @@ fun CustomCheckBox(label: String, onClick: ()-> Unit) {
 
             }
 
-
         }
         Spacer(modifier = Modifier.width(10.dp))
         Text(
@@ -94,7 +93,7 @@ fun DisplayPasswords() {
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
+            .background(colorResource(id = R.color.brand_color))
     ) {
         Spacer(modifier = Modifier.height(18.dp))
         CustomCheckBox(label = "Uppercase", onClick = {})

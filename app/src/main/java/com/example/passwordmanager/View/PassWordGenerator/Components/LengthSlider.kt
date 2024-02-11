@@ -52,7 +52,8 @@ fun LengthSlider() {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.theme2), shape = RoundedCornerShape(20.dp)),
+                .background(colorResource(id = R.color.supporting_color2), shape = RoundedCornerShape(20.dp)),
+            //Color(0xFF90E0EF)
             contentAlignment = Alignment.Center
         ) {
             Slider(
@@ -110,14 +111,14 @@ fun LengthSlider() {
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DisplaySlider(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
-    ) {
-        //LengthSlider()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun DisplaySlider(){
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .background(colorResource(id = R.color.background_color))
+//    ) {
+//        //LengthSlider()
+//    }
+//}

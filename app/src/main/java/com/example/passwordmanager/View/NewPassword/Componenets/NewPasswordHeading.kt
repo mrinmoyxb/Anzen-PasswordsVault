@@ -34,7 +34,7 @@ fun NewPasswordScreenHeading(){
     ) {
         Box(
             modifier = Modifier.fillMaxSize()
-                .background(color = colorResource(R.color.yellow1), RoundedCornerShape(20.dp))
+                .background(color = colorResource(R.color.supporting_color1), RoundedCornerShape(20.dp))
                 .padding(10.dp)
         ) {
             Column(

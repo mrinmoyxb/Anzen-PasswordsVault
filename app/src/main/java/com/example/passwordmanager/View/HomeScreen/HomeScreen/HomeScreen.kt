@@ -27,7 +27,7 @@ import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordNav
 @Composable
 fun HomeScreen() {
         LazyColumn(modifier = Modifier.fillMaxSize()
-            .background(colorResource(id = R.color.background_color))) {
+            .background(colorResource(id = R.color.brand_color))) {
             item {
                 Spacer(modifier = Modifier.height(18.dp))
 
@@ -43,10 +43,10 @@ fun HomeScreen() {
                 ) {
                     IconComponent(icon = painterResource(id = R.drawable.social),
                         label = "Socials",
-                        color = colorResource(id = R.color.color11), onClick = {})
+                        color = colorResource(id = R.color.supporting_color1), onClick = {})
                     IconComponent(icon = painterResource(id = R.drawable.payment_icon1),
                         label = "Payments",
-                        color = colorResource(id = R.color.color5), onClick = {})
+                        color = colorResource(id = R.color.supporting_color2), onClick = {})
                 }
 
                 Row(
@@ -55,10 +55,10 @@ fun HomeScreen() {
                 ) {
                     IconComponent(icon = painterResource(id = R.drawable.application_icon1),
                         label = "Apps",
-                        color = colorResource(id = R.color.color4), onClick = {})
+                        color = colorResource(id = R.color.supporting_color2), onClick = {})
                     IconComponent(icon = painterResource(id = R.drawable.notes_icon),
                         label = "Notes",
-                        color = colorResource(id = R.color.color7), onClick = {})
+                        color = colorResource(id = R.color.supporting_color2), onClick = {})
                 }
 
 

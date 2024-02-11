@@ -65,14 +65,14 @@ fun PasswordNavigationCard(onClick: ()-> Unit){
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun DisplayPasswordNavigationCard() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
-    ) {
-        PasswordNavigationCard({})
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun DisplayPasswordNavigationCard() {
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .background(colorResource(id = R.color.background_color))
+//    ) {
+//        PasswordNavigationCard({})
+//    }
+//}

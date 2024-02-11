@@ -36,15 +36,15 @@ fun Heading() {
                     fontSize = 38.sp,
                     color = Color.White,
                     fontFamily = roboto,
-                    fontWeight = FontWeight.Bold
+                    fontWeight = FontWeight.Medium
                 )
                 //Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = "Password",
-                    fontSize = 38.sp,
+                    fontSize = 40.sp,
                     color = Color.White,
                     fontFamily = roboto,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = FontWeight.Bold
                 )
             }
         }

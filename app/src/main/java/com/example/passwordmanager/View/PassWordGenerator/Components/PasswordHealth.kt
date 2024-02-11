@@ -74,7 +74,7 @@ fun PasswordHealth(length: Int) {
             modifier = Modifier
                 .fillMaxSize()
                 .background(
-                    Color(0xFFecc5dd),
+                    colorResource(id = R.color.supporting_color2),
                     shape = RoundedCornerShape(20.dp)
                 )
                 .padding(10.dp)
@@ -83,16 +83,9 @@ fun PasswordHealth(length: Int) {
             Column(
                 modifier = Modifier.fillMaxSize()
             ) {
-                Text(
-                    "Your Password's Health:",
-                    fontSize = 20.sp,
-                    color = Color.Black,
-                    fontFamily = roboto,
-                    fontWeight = FontWeight.Medium
-                )
 
+                Text("Password Health", fontSize = 22.sp, fontFamily = roboto, fontWeight = FontWeight.Medium)
                 Spacer(modifier = Modifier.height(10.dp))
-
                 Row(
                     modifier = Modifier.fillMaxWidth()
                 ) {
@@ -101,7 +94,7 @@ fun PasswordHealth(length: Int) {
                             .height(40.dp)
                             .fillMaxWidth(),
                         shape = RoundedCornerShape(20.dp),
-                        colors = CardDefaults.cardColors(Color.White)
+                        colors = CardDefaults.cardColors(colorResource(id = R.color.brand_color))
                     ) {
                         Row(
                             modifier = Modifier
@@ -120,7 +113,7 @@ fun PasswordHealth(length: Int) {
                                 fontSize = 18.sp,
                                 fontFamily = roboto,
                                 fontWeight = FontWeight.Medium,
-                                color = Color.Black
+                                color = Color.White
                             )
                             Text(
                                 "${pass_state}",
@@ -142,7 +135,7 @@ fun PasswordHealth(length: Int) {
                             .height(40.dp)
                             .fillMaxWidth(),
                         shape = RoundedCornerShape(20.dp),
-                        colors = CardDefaults.cardColors(Color.White)
+                        colors = CardDefaults.cardColors(colorResource(id = R.color.brand_color))
                     ) {
                         Row(
                             modifier = Modifier
@@ -161,14 +154,14 @@ fun PasswordHealth(length: Int) {
                                     fontSize = 18.sp,
                                     fontFamily = roboto,
                                     fontWeight = FontWeight.Medium,
-                                    color = Color.Black
+                                    color = Color.White
                                 )
                                 Text(
                                     "${pass_statement}",
                                     fontSize = 18.sp,
                                     fontFamily = roboto,
                                     fontWeight = FontWeight.Medium,
-                                    color = Color.Black
+                                    color = Color.White
                                 )
                             }
                         }
@@ -186,9 +179,9 @@ fun DisplayP(){
     Column(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
+            .background(colorResource(id = R.color.brand_color))
             .padding(10.dp)
     ) {
-        PasswordHealth(6)
+        PasswordHealth(8)
     }
 }
