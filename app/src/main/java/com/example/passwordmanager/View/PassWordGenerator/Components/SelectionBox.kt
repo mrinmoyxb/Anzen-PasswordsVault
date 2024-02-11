@@ -46,7 +46,7 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                         .fillMaxWidth()
                         .padding(start = 18.dp),
                 ) {
-                    CustomCheckBox(label = "Uppercase", {viewModel.uppercaseOnClick()})
+                    CustomCheckBox(label = "Uppercase", { viewModel.uppercaseOnClick() })
                     Spacer(modifier = Modifier.width(30.dp))
                     CustomCheckBox(label = "Numbers", {viewModel.numberOnClick()})
                 }

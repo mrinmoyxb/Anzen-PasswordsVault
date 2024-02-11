@@ -22,21 +22,23 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 
 @Composable
-fun RefreshButton(){
+fun RefreshButton(viewModel: PasswordGeneratorViewModel){
     Card(
         modifier = Modifier
             .height(100.dp)
             .width(100.dp)
-            .clickable{},
+            .clickable {},
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.white), shape = RoundedCornerShape(20.dp)),
+                .background(colorResource(id = R.color.white), shape = RoundedCornerShape(20.dp))
+                .clickable(onClick = { }),
             contentAlignment = Alignment.Center
         ) {
             Icon(painter = painterResource(id = R.drawable.refresh),
@@ -55,6 +57,6 @@ fun DisplayRefreshButton(){
             .background(colorResource(id = R.color.background_color))
             .padding(10.dp)
     ) {
-        RefreshButton()
+        //RefreshButton()
     }
 }

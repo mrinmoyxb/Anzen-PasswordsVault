@@ -7,7 +7,7 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlin.random.Random
 
-class PasswordGeneratorViewModel: ViewModel(){
+class PasswordGeneratorViewModel: ViewModel() {
 
     var generatedPassword = MutableStateFlow("")
     val _generatedPassword: StateFlow<String> = generatedPassword
@@ -31,61 +31,63 @@ class PasswordGeneratorViewModel: ViewModel(){
     val lowercase = ('a'..'z').toList()
     val uppercase = ('A'..'Z').toList()
     val numbers = ('0'..'9').toList()
-    val symbols = listOf<Char>('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+', '=', '{', '}', '[', ']', '|', '\\', ':', ';', '"', '\'', '<', '>', '.', ',', '?')
+    val symbols = listOf<Char>('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+','=','{','}','[',']','|','\\',':',';','"','\'','<','>', '.', ',', '?')
 
-    
-    fun uppercaseOnClick(){
+
+    fun uppercaseOnClick() {
         uppercaseState.value = !uppercaseState.value
     }
 
-    fun lowercaseOnClick(){
+    fun lowercaseOnClick() {
         lowercaseState.value = !lowercaseState.value
     }
 
-    fun symbolOnClick(){
+    fun symbolOnClick() {
         symbolState.value = !symbolState.value
     }
 
-    fun numberOnClick(){
+    fun numberOnClick() {
         numberState.value = !numberState.value
     }
 
-    fun setLengthState(l: Int){
+    fun setLengthState(l: Int) {
         lengthState.value = l
     }
 
     @Composable
-    fun GeneratePassword(){
-        LaunchedEffect(_lengthState, _uppercaseState, _lowercaseState, _symbolState, _numberState){
+    fun GeneratePassword() {
+        LaunchedEffect(_lengthState, _uppercaseState, _lowercaseState, _symbolState, _numberState) {
             val characters = mutableListOf<Char>()
-            if(_lowercaseState.value){
+            if (_lowercaseState.value) {
                 characters.addAll(lowercase)
             }
 
-            if(_uppercaseState.value){
+            if (_uppercaseState.value) {
                 characters.addAll(uppercase)
             }
 
-            if(_symbolState.value){
+            if (_symbolState.value) {
                 characters.addAll(symbols)
             }
 
-            if(_numberState.value){
+            if (_numberState.value) {
                 characters.addAll(numbers)
             }
 
-            if(characters.isEmpty()){
-                return@LaunchedEffect
-            }
+//            if(characters.isEmpty()){
+//                return@LaunchedEffect
+//            }
 
             val random = Random
-            val password = (1.._lengthState.value).map{characters.random(random)}.joinToString("")
+            val password =
+                (1.._lengthState.value).map { characters.random(random) }.joinToString("")
 
             generatedPassword.value = password
         }
     }
-
-
 }
+
+
+//}
 
 

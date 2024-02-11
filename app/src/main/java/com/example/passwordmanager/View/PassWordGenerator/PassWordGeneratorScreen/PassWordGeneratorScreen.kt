@@ -49,15 +49,16 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun PasswordGeneratorScreen() {
+fun PasswordGeneratorScreen(viewModel: PasswordGeneratorViewModel) {
 
-    val viewModel: PasswordGeneratorViewModel = viewModel()
-    val generatedPassword by viewModel.generatedPassword.collectAsState()
+//    val viewModel: PasswordGeneratorViewModel = viewModel()
+//    val generatedPassword by viewModel.generatedPassword.collectAsState()
+
 
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
-            .background(colorResource(id = R.color.black))
+            .background(colorResource(id = R.color.brand_color))
             .padding(10.dp)
     ) {
         item {
@@ -66,7 +67,7 @@ fun PasswordGeneratorScreen() {
             Heading()
 
             Spacer(modifier = Modifier.height(10.dp))
-            PassWordDisplay(password = generatedPassword)
+            PassWordDisplay(password = viewModel._generatedPassword.value)
             Spacer(modifier = Modifier.height(12.dp))
             LengthSlider()
             Spacer(modifier = Modifier.height(12.dp))
@@ -85,7 +86,7 @@ fun PasswordGeneratorScreen() {
             ) {
                 CopyToClipboard()
                 Spacer(modifier = Modifier.width(5.dp))
-                RefreshButton()
+                RefreshButton(viewModel)
             }
         }
     }
@@ -95,5 +96,6 @@ fun PasswordGeneratorScreen() {
 @Preview(showBackground = true)
 @Composable
 fun DisplayPassword(){
-    PasswordGeneratorScreen()
+    val viewModel: PasswordGeneratorViewModel = viewModel()
+    PasswordGeneratorScreen(viewModel)
 }

@@ -40,4 +40,10 @@
     <color name="card_green">#EFF3C4</color>
     <color name="card_color">#cce4fd</color>
 
+    <color name="brand_color">#200E3A</color>
+    <color name="supporting_color">#FFFFFF</color>
+    <color name="supporting_color1">#38419D</color>
+    <color name="supporting_color2">#3887BE</color>
+    <color name="supporting_color3">#52D3D8</color>
+
 </resources>

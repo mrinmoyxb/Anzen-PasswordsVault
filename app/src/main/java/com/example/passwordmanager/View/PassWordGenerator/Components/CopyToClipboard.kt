@@ -72,21 +72,21 @@ fun CopyToClipboard(){
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DisplayCopyToClipboards() {
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.background_color))
-            .padding(10.dp)
-    ) {
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            CopyToClipboard()
-            RefreshButton()
-    }
-}
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun DisplayCopyToClipboards() {
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .background(colorResource(id = R.color.background_color))
+//            .padding(10.dp)
+//    ) {
+//        Row(
+//            modifier = Modifier.fillMaxWidth(),
+//            horizontalArrangement = Arrangement.SpaceEvenly
+//        ) {
+//            CopyToClipboard()
+//            RefreshButton()
+//    }
+//}
+//}
