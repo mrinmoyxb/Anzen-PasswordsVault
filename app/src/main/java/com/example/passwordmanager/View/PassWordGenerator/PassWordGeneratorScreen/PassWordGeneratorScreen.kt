@@ -50,9 +50,9 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
-fun PasswordGeneratorScreen(viewModel: PasswordGeneratorViewModel) {
+fun PasswordGeneratorScreen() {
 
-//    val viewModel: PasswordGeneratorViewModel = viewModel()
+val viewModel: PasswordGeneratorViewModel = viewModel()
 //    val generatedPassword by viewModel.generatedPassword.collectAsState()
 
     LazyColumn(
@@ -98,6 +98,7 @@ fun PasswordGeneratorScreen(viewModel: PasswordGeneratorViewModel) {
             }
             Spacer(modifier = Modifier.height(10.dp))
             PasswordHealth(length = 6)
+            Spacer(modifier = Modifier.height(10.dp))
         }
     }
 }
@@ -107,5 +108,5 @@ fun PasswordGeneratorScreen(viewModel: PasswordGeneratorViewModel) {
 @Composable
 fun DisplayPassword(){
     val viewModel: PasswordGeneratorViewModel = viewModel()
-    PasswordGeneratorScreen(viewModel)
+    PasswordGeneratorScreen()
 }

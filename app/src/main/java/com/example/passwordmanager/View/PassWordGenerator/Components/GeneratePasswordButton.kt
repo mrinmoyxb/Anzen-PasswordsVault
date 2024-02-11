@@ -1,9 +1,12 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
@@ -25,9 +28,11 @@ fun GeneratePasswordButton() {
     Card(
         modifier = Modifier
             .height(100.dp)
-            .width(265.dp),
+            .fillMaxWidth(0.7f)
+            .offset(x=-1.dp)
+            .clickable{},
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(Color.Transparent)
+        colors = CardDefaults.cardColors(Color.Transparent),
     ) {
         Box(
             modifier = Modifier

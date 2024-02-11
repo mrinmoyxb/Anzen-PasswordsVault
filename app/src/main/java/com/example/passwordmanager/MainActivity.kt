@@ -34,8 +34,8 @@ class MainActivity : ComponentActivity() {
         setContent {
             PasswordManagerTheme {
                 //HomeScreen()
-                val viewModel: PasswordGeneratorViewModel = viewModel()
-                PasswordGeneratorScreen(viewModel)
+                //val viewModel: PasswordGeneratorViewModel = viewModel()
+                PasswordGeneratorScreen()
             }
         }
     }
