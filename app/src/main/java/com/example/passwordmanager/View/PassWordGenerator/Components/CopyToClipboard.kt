@@ -45,7 +45,7 @@ fun CopyToClipboard(){
             modifier = Modifier
                 .fillMaxSize()
                 .background(
-                    colorResource(id = R.color.theme4),
+                    colorResource(id = R.color.brand_color),
                     shape = RoundedCornerShape(20.dp)
                 ),
             contentAlignment = Alignment.Center
@@ -57,13 +57,14 @@ fun CopyToClipboard(){
                     painter = painterResource(R.drawable.copy_icon),
                     contentDescription = "copy",
                     modifier = Modifier
-                        .size(30.dp)
+                        .size(30.dp),
+                    tint = Color.White
                 )
                 Spacer(modifier = Modifier.width(10.dp))
                 Text(
                     "Copy to clipboard",
                     fontSize = 20.sp,
-                    color = Color.Black,
+                    color = Color.White,
                     fontFamily = roboto,
                     fontWeight = FontWeight.Medium
                 )

@@ -46,7 +46,6 @@ fun PassWordDisplay(password: String){
             modifier = Modifier
                 .fillMaxSize()
                 .background(Color.White),
-                //.background(Brush.linearGradient(c1)),
             contentAlignment = Alignment.Center,
         ) {
             Row(

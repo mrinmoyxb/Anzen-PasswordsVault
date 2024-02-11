@@ -28,31 +28,24 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun Heading() {
-    Card(
-        modifier = Modifier
-            .height(80.dp)
-            .fillMaxWidth(),
-        colors = CardDefaults.cardColors(colorResource(id = R.color.theme5))
-    ) {
-            Row(
-                modifier = Modifier.fillMaxSize().padding(10.dp),
-                verticalAlignment = Alignment.CenterVertically,
-            ) {
+    Column(
+        modifier = Modifier.fillMaxSize().padding(10.dp),
+        ) {
                 Text(
-                    text = "Pass****",
-                    fontSize = 37.sp,
-                    color = Color.Black,
+                    text = "Create unique",
+                    fontSize = 38.sp,
+                    color = Color.White,
                     fontFamily = roboto,
                     fontWeight = FontWeight.Bold
                 )
-                Spacer(modifier = Modifier.width(5.dp))
+                //Spacer(modifier = Modifier.height(5.dp))
                 Text(
-                    text = "Generator",
-                    fontSize = 37.sp,
-                    color = Color.Black,
+                    text = "Password",
+                    fontSize = 38.sp,
+                    color = Color.White,
                     fontFamily = roboto,
                     fontWeight = FontWeight.Medium
                 )
             }
         }
-    }
+
