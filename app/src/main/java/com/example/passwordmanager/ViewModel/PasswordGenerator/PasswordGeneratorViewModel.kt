@@ -10,19 +10,19 @@ import kotlin.random.Random
 class PasswordGeneratorViewModel: ViewModel() {
 
     var generatedPassword = MutableStateFlow("********")
-    val _generatedPassword: StateFlow<String> = generatedPassword
+    var _generatedPassword: StateFlow<String> = generatedPassword
 
-    private var uppercaseState = MutableStateFlow(false)
-    val _uppercaseState: StateFlow<Boolean> = uppercaseState
+    var uppercaseState = MutableStateFlow(false)
+    var _uppercaseState: StateFlow<Boolean> = uppercaseState
 
-    private var lowercaseState = MutableStateFlow(false)
-    val _lowercaseState: StateFlow<Boolean> = lowercaseState
+    var lowercaseState = MutableStateFlow(false)
+    var _lowercaseState: StateFlow<Boolean> = lowercaseState
 
-    private var symbolState = MutableStateFlow(false)
-    val _symbolState: StateFlow<Boolean> = symbolState
+    var symbolState = MutableStateFlow(false)
+    var _symbolState: StateFlow<Boolean> = symbolState
 
-    private var numberState = MutableStateFlow(false)
-    val _numberState: StateFlow<Boolean> = numberState
+    var numberState = MutableStateFlow(false)
+    var _numberState: StateFlow<Boolean> = numberState
 
     var lengthState = MutableStateFlow(8)
     val _lengthState: StateFlow<Int> = lengthState
@@ -50,20 +50,15 @@ class PasswordGeneratorViewModel: ViewModel() {
         numberState.value = !numberState.value
     }
 
-    fun setLengthState(l: Int) {
-        lengthState.value = l
-    }
-
-    //@Composable
+    
     fun generateRandomPassword() {
-        //LaunchedEffect(_lengthState, _uppercaseState, _lowercaseState, _symbolState, _numberState) {
             val characters = mutableListOf<Char>()
             if (_lowercaseState.value) {
-                characters.addAll(lowercase)
+                characters.addAll('a'..'z')
             }
 
             if (_uppercaseState.value) {
-                characters.addAll(uppercase)
+                characters.addAll('A'..'Z')
             }
 
             if (_symbolState.value) {
@@ -71,7 +66,7 @@ class PasswordGeneratorViewModel: ViewModel() {
             }
 
             if (_numberState.value) {
-                characters.addAll(numbers)
+                characters.addAll('0'..'9')
             }
 
             val random = Random
@@ -82,7 +77,5 @@ class PasswordGeneratorViewModel: ViewModel() {
         }
     }
 
-
-//}
 
 

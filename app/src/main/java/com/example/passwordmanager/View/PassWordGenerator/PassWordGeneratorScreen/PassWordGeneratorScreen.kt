@@ -53,7 +53,7 @@ import com.example.passwordmanager.ui.theme.roboto
 fun PasswordGeneratorScreen() {
 
 val viewModel: PasswordGeneratorViewModel = viewModel()
-val generatedPassword by viewModel.generatedPassword.collectAsState()
+val generatedPassword by viewModel.generatedPassword.collectAsState("")
 
     LazyColumn(
         modifier = Modifier
@@ -67,7 +67,7 @@ val generatedPassword by viewModel.generatedPassword.collectAsState()
             Spacer(modifier = Modifier.height(10.dp))
 
 
-            PassWordDisplay(password = viewModel._generatedPassword.value)
+            PassWordDisplay(password = generatedPassword)
             Spacer(modifier = Modifier.height(8.dp))
 
 
