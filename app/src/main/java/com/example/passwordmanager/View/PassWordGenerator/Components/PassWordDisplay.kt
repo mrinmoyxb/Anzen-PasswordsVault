@@ -25,6 +25,7 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
@@ -56,39 +57,13 @@ fun PassWordDisplay(password: String){
                 verticalAlignment = Alignment.CenterVertically
             ) {
                 Image(painter = painterResource(id = R.drawable.lock_img), contentDescription = "", modifier = Modifier.size(30.dp))
-                Spacer(modifier = Modifier.width(15.dp))
+                Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    password, fontSize = 30.sp, color = Color.Black,
-                    fontFamily = roboto, fontWeight = FontWeight.Bold
+                    password, fontSize = 28.sp, color = Color.Black, fontWeight = FontWeight.Bold,
+                    textAlign = TextAlign.Center
                 )
             }
         }
     }
 }
 
-@Preview(showBackground = true)
-@Composable
-fun DisplayPassword(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.brand_color))
-    ) {
-        Spacer(modifier = Modifier.height(18.dp))
-
-        Column(
-            modifier = Modifier.fillMaxWidth(),
-            verticalArrangement = Arrangement.Center,
-            horizontalAlignment = Alignment.CenterHorizontally
-        ) {
-            Text(
-                text = "Password",
-                fontSize = 32.sp,
-                color = Color.White,
-                fontFamily = roboto,
-                fontWeight = FontWeight.Bold
-            )
-        }
-        PassWordDisplay(password = "1234567890abcdefghij")
-    }
-}

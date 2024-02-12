@@ -93,8 +93,8 @@ val generatedPassword by viewModel.generatedPassword.collectAsState("")
 
 
             Spacer(modifier = Modifier.height(10.dp))
-            PasswordHealth(length = 6)
-            Spacer(modifier = Modifier.height(10.dp))
+            PasswordHealth(length = viewModel._lengthState.value)
+            Spacer(modifier = Modifier.height(30.dp))
         }
     }
 }

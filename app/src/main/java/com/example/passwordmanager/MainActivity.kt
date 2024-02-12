@@ -33,8 +33,6 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             PasswordManagerTheme {
-                //HomeScreen()
-                //val viewModel: PasswordGeneratorViewModel = viewModel()
                 PasswordGeneratorScreen()
             }
         }
