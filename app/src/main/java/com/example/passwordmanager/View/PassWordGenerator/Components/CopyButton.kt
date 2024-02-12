@@ -34,7 +34,7 @@ fun CopyButton(viewModel: PasswordGeneratorViewModel){
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.supporting_color2), shape = RoundedCornerShape(20.dp))
+                .background(colorResource(id = R.color.supporting_color3), shape = RoundedCornerShape(20.dp))
                 .clickable(onClick = { }),
             contentAlignment = Alignment.Center
         ) {

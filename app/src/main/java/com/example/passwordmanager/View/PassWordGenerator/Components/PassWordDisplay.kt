@@ -35,7 +35,9 @@ import com.example.passwordmanager.ui.theme.roboto
 
 @Composable
 fun PassWordDisplay(password: String){
-    
+
+    val p1 = listOf(/*Color(0xFF40A2E3),*/ Color(0xFF52D3D8), Color(0xFFFFFFFF))
+    val p2 = listOf(/*Color(0xFF40A2E3),*/ Color(0xFF8E2DE2), Color(0xFF4A00E0))
     Card(
         modifier = Modifier
             .fillMaxWidth()
@@ -46,7 +48,9 @@ fun PassWordDisplay(password: String){
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.supporting_color1)),
+                //.background(colorResource(id = R.color.supporting_color1))
+                .background(Brush.linearGradient(p2))
+            ,
             contentAlignment = Alignment.Center,
         ) {
             Row(
@@ -59,7 +63,7 @@ fun PassWordDisplay(password: String){
                 Image(painter = painterResource(id = R.drawable.lock_img), contentDescription = "", modifier = Modifier.size(30.dp))
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
-                    password, fontSize = 28.sp, color = Color.Black, fontWeight = FontWeight.Bold,
+                    password, fontSize = 28.sp, color = Color.White, fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center
                 )
             }

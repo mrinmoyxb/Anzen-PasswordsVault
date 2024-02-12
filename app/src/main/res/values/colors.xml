@@ -18,5 +18,6 @@
     <color name="brand_color">#000000</color>
     <color name="supporting_color1">#D7E3FC</color>
     <color name="supporting_color2">#CAF0F8</color>
+    <color name="supporting_color3">#DBE2EB</color>
 
 </resources>

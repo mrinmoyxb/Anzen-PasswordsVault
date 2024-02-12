@@ -59,7 +59,7 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
             modifier = Modifier
                 .fillMaxSize()
                 .background(
-                    colorResource(id = R.color.supporting_color2),
+                    colorResource(id = R.color.supporting_color3),
                     shape = RoundedCornerShape(20.dp)
                 )
         ) {
@@ -123,7 +123,6 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
 
 
                     // NUMBERS:
-                    //CustomCheckBox(label = "Numbers", viewModel, { viewModel.numberOnClick()})
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -175,8 +174,6 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                         .fillMaxWidth()
                         .padding(start = 18.dp),
                 ) {
-                    //CustomCheckBox(label = "Lowercase", viewModel{viewModel.lowercaseOnClick()})
-
                     // LOWERCASE
 
                     Row(
@@ -225,7 +222,6 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                     }
 
                     Spacer(modifier = Modifier.width(30.dp))
-                    //CustomCheckBox(label = "Symbols", { viewModel.symbolOnClick()})
 
                     // Symbols
                     Row(
@@ -282,48 +278,3 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
 
 
 
-@SuppressLint("StateFlowValueCalledInComposition")
-@Composable
-fun CustomCheckBox(label: String, viewModel: PasswordGeneratorViewModel, onClick:()->Unit) {
-    var checked = viewModel._uppercaseState.value
-    Row(
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Card(
-            modifier = Modifier
-                .height(40.dp)
-                .width(40.dp)
-                .clickable { checked = !checked
-                    onClick
-                }
-                .background(Color.Transparent),
-            shape = CircleShape,
-            colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.black) else Color.Transparent),
-            border = BorderStroke(width = 3.dp, color = if(checked) colorResource(id = R.color.black) else Color.Black)
-        ) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                if (checked) {
-                    Icon(
-                        imageVector = Icons.Default.Check,
-                        modifier = Modifier.size(30.dp),
-                        contentDescription = "",
-                        tint = Color.White,
-                    )
-                }
-
-            }
-
-        }
-        Spacer(modifier = Modifier.width(10.dp))
-        Text(
-            label,
-            fontSize = 20.sp,
-            color = Color.Black,
-            textAlign = TextAlign.Left,
-            fontWeight = FontWeight.Medium
-        )
-    }
-}

@@ -74,7 +74,7 @@ fun PasswordHealth(length: Int) {
             modifier = Modifier
                 .fillMaxSize()
                 .background(
-                    colorResource(id = R.color.supporting_color2),
+                    colorResource(id = R.color.supporting_color3),
                     shape = RoundedCornerShape(20.dp)
                 )
                 .padding(10.dp)

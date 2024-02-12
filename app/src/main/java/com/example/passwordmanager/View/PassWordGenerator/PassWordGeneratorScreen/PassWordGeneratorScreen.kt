@@ -38,7 +38,6 @@ import androidx.lifecycle.ViewModelProvider
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.PassWordGenerator.Components.CopyButton
-import com.example.passwordmanager.View.PassWordGenerator.Components.CustomCheckBox
 import com.example.passwordmanager.View.PassWordGenerator.Components.GeneratePasswordButton
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PassWordGenerator.Components.LengthSlider
