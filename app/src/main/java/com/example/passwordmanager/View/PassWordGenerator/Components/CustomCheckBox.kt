@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.BorderStroke
 import androidx.compose.foundation.background
 import androidx.compose.foundation.border
@@ -39,52 +40,53 @@ import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 
-@Composable
-fun CustomCheckBox(label: String, onClick: ()-> Unit) {
-
-    var checked by remember { mutableStateOf(false) }
-
-    Row(
-        verticalAlignment = Alignment.CenterVertically
-    ) {
-        Card(
-            modifier = Modifier
-                .height(40.dp)
-                .width(40.dp)
-                .clickable { checked = !checked
-                    onClick
-                }
-                .background(Color.Transparent),
-            shape = CircleShape,
-            colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.black) else Color.Transparent),
-            border = BorderStroke(width = 3.dp, color = if(checked) colorResource(id = R.color.black) else Color.Black)
-        ) {
-            Box(
-                modifier = Modifier.fillMaxSize(),
-                contentAlignment = Alignment.Center
-            ) {
-                if (checked) {
-                    Icon(
-                        imageVector = Icons.Default.Check,
-                        modifier = Modifier.size(30.dp),
-                        contentDescription = "",
-                        tint = Color.White,
-                    )
-                }
-
-            }
-
-        }
-        Spacer(modifier = Modifier.width(10.dp))
-        Text(
-            label,
-            fontSize = 20.sp,
-            color = Color.Black,
-            textAlign = TextAlign.Left,
-            fontWeight = FontWeight.Medium
-        )
-    }
-}
+//@SuppressLint("StateFlowValueCalledInComposition")
+//@Composable
+//fun CustomCheckBox(label: String, viewModel: PasswordGeneratorViewModel, onClick:()->Unit) {
+//
+//    var checked = viewModel._uppercaseState.value
+//
+//    Row(
+//        verticalAlignment = Alignment.CenterVertically
+//    ) {
+//        Card(
+//            modifier = Modifier
+//                .height(40.dp)
+//                .width(40.dp)
+//                .clickable { checked = !checked
+//                    onClick
+//                }
+//                .background(Color.Transparent),
+//            shape = CircleShape,
+//            colors = CardDefaults.cardColors(if(checked) colorResource(id = R.color.black) else Color.Transparent),
+//            border = BorderStroke(width = 3.dp, color = if(checked) colorResource(id = R.color.black) else Color.Black)
+//        ) {
+//            Box(
+//                modifier = Modifier.fillMaxSize(),
+//                contentAlignment = Alignment.Center
+//            ) {
+//                if (checked) {
+//                    Icon(
+//                        imageVector = Icons.Default.Check,
+//                        modifier = Modifier.size(30.dp),
+//                        contentDescription = "",
+//                        tint = Color.White,
+//                    )
+//                }
+//
+//            }
+//
+//        }
+//        Spacer(modifier = Modifier.width(10.dp))
+//        Text(
+//            label,
+//            fontSize = 20.sp,
+//            color = Color.Black,
+//            textAlign = TextAlign.Left,
+//            fontWeight = FontWeight.Medium
+//        )
+//    }
+//}
 
 
 
@@ -97,6 +99,6 @@ fun DisplayPasswords() {
             .background(colorResource(id = R.color.brand_color))
     ) {
         Spacer(modifier = Modifier.height(18.dp))
-        CustomCheckBox(label = "Uppercase", onClick = {})
+        //CustomCheckBox(label = "Uppercase", onClick = {})
     }
 }
