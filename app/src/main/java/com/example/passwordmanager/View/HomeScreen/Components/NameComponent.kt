@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.HomeScreen.Components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
@@ -25,21 +26,11 @@ import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ui.theme.roboto
 
+
 @Composable
 fun NameComponent(name: String){
-
-    val c = listOf(Color(0xFFffffff), Color(0xFFe0aaff), Color(0xFF758bfd))
-
-    Card(
-        modifier = Modifier
-            .fillMaxWidth()
-            .height(200.dp)
-            .padding(10.dp),
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(Color.Transparent)
-    ) {
         Box(
-            modifier = Modifier.fillMaxSize().background(Brush.linearGradient(c))
+            modifier = Modifier.fillMaxSize()
         ) {
             Column(
                 modifier = Modifier
@@ -49,24 +40,12 @@ fun NameComponent(name: String){
             ) {
                 Text(
                     "Hello, ",
-                    fontSize = 30.sp,
+                    fontSize = 38.sp,
                     fontFamily = roboto,
-                    fontWeight = FontWeight.Normal
+                    fontWeight = FontWeight.Normal,
+                    color = Color.White
                 )
-                Text(name, fontSize = 38.sp, fontFamily = roboto, fontWeight = FontWeight.Bold)
+                Text(name, fontSize = 40.sp, fontFamily = roboto, fontWeight = FontWeight.Bold, color = Color.White)
             }
         }
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DisplayNameComponent(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.brand_color))
-    ) {
-        NameComponent(name = "Mrinmoy")
-    }
-}

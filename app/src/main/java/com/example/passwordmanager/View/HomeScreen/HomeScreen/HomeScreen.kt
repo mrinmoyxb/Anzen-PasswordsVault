@@ -29,13 +29,13 @@ fun HomeScreen() {
         LazyColumn(modifier = Modifier.fillMaxSize()
             .background(colorResource(id = R.color.brand_color))) {
             item {
-                Spacer(modifier = Modifier.height(18.dp))
+                Spacer(modifier = Modifier.height(30.dp))
 
                 NameComponent("Mrinmoy")
 
                 AnalyseComponent()
 
-                PasswordNavigationCard({})
+                //PasswordNavigationCard({})
 
                 Row(
                     modifier = Modifier.fillMaxWidth(),

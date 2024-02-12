@@ -29,7 +29,7 @@ import com.example.passwordmanager.ui.theme.roboto
 fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
 
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
-    val p2 = listOf(Color(0xFF2E3192), Color(0xFF1BFFFF))
+    val p2 = listOf(Color(0xFFBEEBFF), Color(0xFF9DDFFF), Color(0xFF5A74FC))
     Card(
         modifier = Modifier
             .height(100.dp)
@@ -44,16 +44,11 @@ fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-//                .background(
-//                    colorResource(id = R.color.supporting_color1),
-//                    shape = RoundedCornerShape(20.dp)
-//                )
-                .background(Brush.linearGradient(p1))
-            ,
+                .background(Brush.linearGradient(p1)),
             contentAlignment = Alignment.Center
 
         ) {
-            //Spacer(modifier = Modifier.width(10.dp))
+
             Text(
                 "Generate Password",
                 fontSize = 23.sp,
