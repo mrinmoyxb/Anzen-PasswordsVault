@@ -1,4 +1,4 @@
-package com.example.passwordmanager.View.PasswordHealth
+package com.example.passwordmanager.ViewModel.PasswordHealthChecker
 
 import androidx.lifecycle.ViewModel
 
