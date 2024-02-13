@@ -38,6 +38,7 @@ import androidx.compose.ui.unit.sp
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
+import com.example.passwordmanager.ui.theme.inter
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable
@@ -71,8 +72,9 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 18.dp),
+                        .padding(start = 15.dp),
                 ) {
+
 
                     //UPPERCASE: ->
                     Row(
@@ -116,7 +118,8 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                             fontSize = 20.sp,
                             color = Color.Black,
                             textAlign = TextAlign.Left,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = inter
                         )
                     }
                     Spacer(modifier = Modifier.width(30.dp))
@@ -164,7 +167,8 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                             fontSize = 20.sp,
                             color = Color.Black,
                             textAlign = TextAlign.Left,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = inter
                         )
                     }
                 }
@@ -172,10 +176,10 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                 Row(
                     modifier = Modifier
                         .fillMaxWidth()
-                        .padding(start = 18.dp),
+                        .padding(start = 15.dp),
                 ) {
-                    // LOWERCASE
 
+                    // LOWERCASE
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -217,13 +221,14 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                             fontSize = 20.sp,
                             color = Color.Black,
                             textAlign = TextAlign.Left,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = inter
                         )
                     }
 
                     Spacer(modifier = Modifier.width(30.dp))
 
-                    // Symbols
+                    // SYMBOLS
                     Row(
                         verticalAlignment = Alignment.CenterVertically
                     ) {
@@ -265,7 +270,8 @@ fun SelectionBox(viewModel: PasswordGeneratorViewModel){
                             fontSize = 20.sp,
                             color = Color.Black,
                             textAlign = TextAlign.Left,
-                            fontWeight = FontWeight.Medium
+                            fontWeight = FontWeight.Medium,
+                            fontFamily = inter
                         )
                     }
                 }

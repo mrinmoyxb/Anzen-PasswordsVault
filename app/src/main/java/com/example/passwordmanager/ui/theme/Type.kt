@@ -9,17 +9,16 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 
-val roboto = FontFamily(
-    Font(R.font.roboto_black, FontWeight.Black, FontStyle.Normal),
-    Font(R.font.roboto_bold, FontWeight.Bold, FontStyle.Normal),
-    Font(R.font.roboto_blackitalic, FontWeight.Black, FontStyle.Italic),
-    Font(R.font.roboto_bolditalic, FontWeight.Bold, FontStyle.Italic),
-    Font(R.font.roboto_italic, FontWeight.Normal, FontStyle.Italic),
-    Font(R.font.roboto_light, FontWeight.Light, FontStyle.Normal),
-    Font(R.font.roboto_medium, FontWeight.Medium, FontStyle.Normal),
-    Font(R.font.roboto_regular, FontWeight.Normal, FontStyle.Normal),
+val inter = FontFamily(
+    Font(R.font.inter_black, FontWeight.Black, FontStyle.Normal),
+    Font(R.font.inter_bold, FontWeight.Bold, FontStyle.Normal),
+    Font(R.font.inter_light, FontWeight.Light, FontStyle.Normal),
+    Font(R.font.inter_medium, FontWeight.Medium, FontStyle.Normal),
+    Font(R.font.inter_regular, FontWeight.Normal, FontStyle.Normal),
+    Font(R.font.inter_semibold, FontWeight.SemiBold, FontStyle.Normal),
+    Font(R.font.inter_extrabold, FontWeight.ExtraBold, FontStyle.Normal),
+    Font(R.font.inter_thin, FontWeight.Thin, FontStyle.Normal),
 )
-
 
 // Set of Material typography styles to start with
 val Typography = Typography(

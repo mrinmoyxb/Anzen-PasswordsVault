@@ -21,7 +21,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 @Composable
 fun NewPasswordScreenHeading(){
@@ -46,14 +46,14 @@ fun NewPasswordScreenHeading(){
                     "Add new",
                     fontSize = 25.sp,
                     color = Color.Black,
-                    fontFamily = roboto,
+                    fontFamily = inter,
                     fontWeight = FontWeight.Medium
                 )
                 Text(
                     "Pass****",
                     fontSize = 40.sp,
                     color = Color.Black,
-                    fontFamily = roboto,
+                    fontFamily = inter,
                     fontWeight = FontWeight.Bold
                 )
             }

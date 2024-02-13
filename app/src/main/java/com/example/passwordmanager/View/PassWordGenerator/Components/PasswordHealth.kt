@@ -28,7 +28,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 @Composable
 fun PasswordHealth(length: Int) {
@@ -84,7 +84,7 @@ fun PasswordHealth(length: Int) {
                 modifier = Modifier.fillMaxSize()
             ) {
 
-                Text("Password Health", fontSize = 22.sp, fontFamily = roboto, fontWeight = FontWeight.Medium)
+                Text("Password Health", fontSize = 22.sp, fontFamily = inter, fontWeight = FontWeight.Medium)
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth()
@@ -111,14 +111,14 @@ fun PasswordHealth(length: Int) {
                             Text(
                                 "Strength: ",
                                 fontSize = 18.sp,
-                                fontFamily = roboto,
+                                fontFamily = inter,
                                 fontWeight = FontWeight.Medium,
                                 color = Color.White
                             )
                             Text(
                                 "${pass_state}",
                                 fontSize = 18.sp,
-                                fontFamily = roboto,
+                                fontFamily = inter,
                                 fontWeight = FontWeight.Medium,
                                 color = pass_color
                             )
@@ -152,14 +152,14 @@ fun PasswordHealth(length: Int) {
                                 Text(
                                     "Time to crack: ",
                                     fontSize = 18.sp,
-                                    fontFamily = roboto,
+                                    fontFamily = inter,
                                     fontWeight = FontWeight.Medium,
                                     color = Color.White
                                 )
                                 Text(
                                     "${pass_statement}",
                                     fontSize = 18.sp,
-                                    fontFamily = roboto,
+                                    fontFamily = inter,
                                     fontWeight = FontWeight.Medium,
                                     color = Color.White
                                 )

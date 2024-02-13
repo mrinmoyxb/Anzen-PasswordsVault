@@ -45,7 +45,6 @@ import com.example.passwordmanager.View.PassWordGenerator.Components.PassWordDis
 import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordHealth
 import com.example.passwordmanager.View.PassWordGenerator.Components.SelectionBox
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
-import com.example.passwordmanager.ui.theme.roboto
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @Composable

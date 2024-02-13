@@ -36,7 +36,7 @@ import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
@@ -44,7 +44,7 @@ fun InputCard(heading: String, label: String, painter: Painter){
     var value by remember{mutableStateOf("")}
     Column() {
                 Text(heading, fontSize = 20.sp, color = Color.Black,
-                    fontFamily = roboto, fontWeight = FontWeight.Bold)
+                    fontFamily = inter, fontWeight = FontWeight.Bold)
                 Spacer(modifier = Modifier.height(8.dp))
                 Box(
                     modifier = Modifier
@@ -65,8 +65,8 @@ fun InputCard(heading: String, label: String, painter: Painter){
                             Text(
                                 label,
                                 color = Color.Black,
-                                fontFamily = roboto,
-                                //fontWeight = FontWeight.Medium
+                                fontFamily = inter,
+                                fontWeight = FontWeight.Medium
                         )
                         },
                         leadingIcon = {

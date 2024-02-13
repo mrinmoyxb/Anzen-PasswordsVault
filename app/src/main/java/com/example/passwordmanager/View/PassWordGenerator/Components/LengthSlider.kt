@@ -35,7 +35,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
+
 
 @SuppressLint("StateFlowValueCalledInComposition")
 @OptIn(ExperimentalMaterial3Api::class)
@@ -94,7 +95,7 @@ fun LengthSlider(viewModel: PasswordGeneratorViewModel) {
                                 sliderValue.toString(),
                                 textAlign = TextAlign.Center,
                                 color = Color.Black,
-                                fontFamily = roboto,
+                                fontFamily = inter,
                                 fontWeight = FontWeight.Bold,
                                 fontSize = 15.sp
                             )

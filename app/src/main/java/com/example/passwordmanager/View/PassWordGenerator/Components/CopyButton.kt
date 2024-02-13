@@ -45,15 +45,3 @@ fun CopyButton(viewModel: PasswordGeneratorViewModel){
     }
 }
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DisplayRefreshButton(){
-//    Column(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .background(colorResource(id = R.color.background_color))
-//            .padding(10.dp)
-//    ) {
-//        //RefreshButton()
-//    }
-//}

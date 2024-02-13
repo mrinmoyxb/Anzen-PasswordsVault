@@ -31,7 +31,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.HomeScreen.Components.NameComponent
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 @Composable
 fun PassWordDisplay(password: String){
@@ -61,7 +61,7 @@ fun PassWordDisplay(password: String){
                 Spacer(modifier = Modifier.width(8.dp))
                 Text(
                     password, fontSize = 28.sp, color = Color.White, fontWeight = FontWeight.Bold,
-                    textAlign = TextAlign.Center
+                    textAlign = TextAlign.Center, fontFamily = inter
                 )
             }
         }

@@ -26,7 +26,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.HomeScreen.Components.NameComponent
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
+
 
 @Composable
 fun PasswordNavigationCard(onClick: ()-> Unit){
@@ -55,7 +56,7 @@ fun PasswordNavigationCard(onClick: ()-> Unit){
                 horizontalAlignment = Alignment.CenterHorizontally
             ) {
                 Text("Password Generator", fontSize = 30.sp,
-                    fontFamily = roboto, fontWeight = FontWeight.Normal,
+                    fontFamily = inter, fontWeight = FontWeight.Normal,
                     color = Color.Black,
                     textAlign = TextAlign.Center
                     )
@@ -65,14 +66,3 @@ fun PasswordNavigationCard(onClick: ()-> Unit){
 }
 
 
-//@Preview(showBackground = true)
-//@Composable
-//fun DisplayPasswordNavigationCard() {
-//    Column(
-//        modifier = Modifier
-//            .fillMaxSize()
-//            .background(colorResource(id = R.color.background_color))
-//    ) {
-//        PasswordNavigationCard({})
-//    }
-//}

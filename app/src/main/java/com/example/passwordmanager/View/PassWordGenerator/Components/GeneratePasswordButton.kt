@@ -23,7 +23,7 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 @Composable
 fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
@@ -48,13 +48,12 @@ fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
             contentAlignment = Alignment.Center
 
         ) {
-
             Text(
                 "Generate Password",
                 fontSize = 23.sp,
-                color = Color(0xFFF5F7F8),
-                fontFamily = roboto,
-                fontWeight = FontWeight.Bold
+                color = Color.White,
+                fontFamily = inter,
+                fontWeight = FontWeight.Medium,
             )
         }
     }

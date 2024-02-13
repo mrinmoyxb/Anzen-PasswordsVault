@@ -24,7 +24,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 
 @Composable
@@ -41,11 +41,11 @@ fun NameComponent(name: String){
                 Text(
                     "Hello, ",
                     fontSize = 38.sp,
-                    fontFamily = roboto,
+                    fontFamily = inter,
                     fontWeight = FontWeight.Normal,
                     color = Color.White
                 )
-                Text(name, fontSize = 40.sp, fontFamily = roboto, fontWeight = FontWeight.Bold, color = Color.White)
+                Text(name, fontSize = 40.sp, fontFamily = inter, fontWeight = FontWeight.Bold, color = Color.White)
             }
         }
     }

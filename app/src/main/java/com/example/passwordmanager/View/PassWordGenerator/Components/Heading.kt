@@ -24,7 +24,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 @Composable
 fun Heading() {
@@ -35,15 +35,14 @@ fun Heading() {
                     text = "Create unique",
                     fontSize = 38.sp,
                     color = Color.White,
-                    fontFamily = roboto,
+                    fontFamily = inter,
                     fontWeight = FontWeight.Medium
                 )
-                //Spacer(modifier = Modifier.height(5.dp))
                 Text(
                     text = "Password",
                     fontSize = 40.sp,
                     color = Color.White,
-                    fontFamily = roboto,
+                    fontFamily = inter,
                     fontWeight = FontWeight.Bold
                 )
             }

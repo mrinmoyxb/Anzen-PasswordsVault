@@ -44,7 +44,7 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.View.NewPassword.Componenets.DropDown
 import com.example.passwordmanager.View.NewPassword.Componenets.InputCard
 import com.example.passwordmanager.View.NewPassword.Componenets.NewPasswordScreenHeading
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
 
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -77,7 +77,7 @@ fun NewPasswordScreen() {
                     modifier = Modifier.fillMaxSize()
                 ) {
                     Text("Category", fontSize = 20.sp, color = Color.Black,
-                        fontFamily = roboto, fontWeight = FontWeight.Bold)
+                        fontFamily = inter, fontWeight = FontWeight.Bold)
                     Spacer(modifier = Modifier.height(10.dp))
                     DropDown()
                     Spacer(modifier = Modifier.height(10.dp))

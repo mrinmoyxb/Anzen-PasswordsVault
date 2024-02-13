@@ -36,7 +36,8 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.R
-import com.example.passwordmanager.ui.theme.roboto
+import com.example.passwordmanager.ui.theme.inter
+
 
 @Composable
 fun IconComponent(
@@ -62,7 +63,7 @@ fun IconComponent(
         ) {
             Icon(painter = icon, contentDescription = "icon", modifier = Modifier.size(70.dp))
             Text(label, fontSize = 20.sp, textAlign = TextAlign.Center,
-                fontFamily = roboto, fontWeight= FontWeight.Normal)
+                fontFamily = inter, fontWeight= FontWeight.Normal)
         }
     }
 }

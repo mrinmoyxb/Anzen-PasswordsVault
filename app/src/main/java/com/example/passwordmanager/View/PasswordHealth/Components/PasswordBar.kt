@@ -30,7 +30,7 @@ fun PasswordBar(){
         Card(
             modifier = Modifier
                 .fillMaxWidth()
-                .height(200.dp),
+                .height(250.dp),
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(Color.Transparent)
         ) {
