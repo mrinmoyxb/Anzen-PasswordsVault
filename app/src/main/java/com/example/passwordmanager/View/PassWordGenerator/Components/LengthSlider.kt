@@ -56,7 +56,7 @@ fun LengthSlider(viewModel: PasswordGeneratorViewModel) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(colorResource(id = R.color.supporting_color3), shape = RoundedCornerShape(20.dp)),
+                .background(Color(0xFFFFFFFF), shape = RoundedCornerShape(20.dp)),
             contentAlignment = Alignment.Center
         ) {
             Slider(
