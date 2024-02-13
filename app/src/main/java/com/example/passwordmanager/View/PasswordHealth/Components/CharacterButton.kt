@@ -7,6 +7,7 @@ import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
@@ -44,7 +45,9 @@ fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier
             .fillMaxSize()
             .background(Color(0xFF5347E5))){
             Column(
-                modifier = Modifier.fillMaxSize().padding(start = 3.dp,end = 3.dp, top = 3.dp, bottom = 10.dp),
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 3.dp, end = 3.dp, top = 3.dp, bottom = 10.dp),
                 verticalArrangement = Arrangement.Center,
                 horizontalAlignment = Alignment.CenterHorizontally
             ){
@@ -67,6 +70,54 @@ fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier
     }
 }
 
+
+
+@Composable
+fun ContentButton(state: String, label: String, modifier: Modifier = Modifier){
+    Card(
+        modifier = Modifier
+            .height(110.dp)
+            .width(177.dp)
+            .then(modifier),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(Color.Transparent)
+    ){
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .background(Color(0xFF5347E5))){
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 3.dp, end = 3.dp, top = 3.dp, bottom = 10.dp),
+                verticalArrangement = Arrangement.Bottom,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Text(state, fontSize = 25.sp,
+                    fontFamily = inter,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.White,
+                    textAlign = TextAlign.Center
+                )
+                Column(
+                    modifier = Modifier.fillMaxHeight(),
+                    verticalArrangement = Arrangement.Bottom,
+                    horizontalAlignment = Alignment.CenterHorizontally
+                ) {
+                    Text(
+                        label,
+                        fontSize = 15.sp,
+                        fontFamily = inter,
+                        fontWeight = FontWeight.Medium,
+                        color = Color.White,
+                        textAlign = TextAlign.Center,
+                    )
+                }
+            }
+        }
+    }
+}
+
+
 @Preview(showBackground = true)
 @Composable
 fun DisplayChar(){
@@ -86,16 +137,29 @@ fun DisplayChar(){
             Box(modifier = Modifier
                 .fillMaxSize()
                 .background(Brush.linearGradient(p1))
-                .padding(top=10.dp, start=2.dp, end=2.dp)
-                ){
+                .padding(top = 10.dp, start = 2.dp, end = 2.dp)
+                ) {
+                Column(
+                    modifier = Modifier.fillMaxSize()
+                ) {
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        CharacterButton(number = "7", label = "Uppercase")
+                        CharacterButton(number = "2", label = "Lowercase")
+                        CharacterButton(number = "0", label = "Numbers")
+                        CharacterButton(number = "7", label = "Symbols")
+                    }
 
-                Row(modifier = Modifier.fillMaxWidth(),
-                    horizontalArrangement = Arrangement.SpaceEvenly
-                ){
-                    CharacterButton(number = "7", label = "Uppercase")
-                    CharacterButton(number = "2", label = "Lowercase")
-                    CharacterButton(number = "0", label = "Numbers")
-                    CharacterButton(number = "7", label = "Symbols")
+                    Spacer(modifier = Modifier.height(8.dp))
+                    Row(
+                        modifier = Modifier.fillMaxWidth(),
+                        horizontalArrangement = Arrangement.SpaceEvenly
+                    ) {
+                        ContentButton(state = "Strong", label = "Password Strength")
+                        ContentButton(state = "Seconds to minutes", label = "Time to crack")
+                    }
                 }
             }
         }
