@@ -28,19 +28,19 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
-fun Heading() {
+fun Heading(text1: String,text2: String) {
     Column(
-        modifier = Modifier.fillMaxSize().padding(10.dp),
+        modifier = Modifier.fillMaxWidth().padding(10.dp),
         ) {
                 Text(
-                    text = "Create unique",
+                    text = text1,
                     fontSize = 38.sp,
                     color = Color.White,
                     fontFamily = inter,
                     fontWeight = FontWeight.Medium
                 )
                 Text(
-                    text = "Password",
+                    text = text2,
                     fontSize = 40.sp,
                     color = Color.White,
                     fontFamily = inter,

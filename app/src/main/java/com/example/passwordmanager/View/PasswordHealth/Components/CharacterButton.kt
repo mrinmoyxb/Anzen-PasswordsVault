@@ -29,6 +29,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme.colors
+import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
@@ -128,6 +129,8 @@ fun DisplayChar(){
             .background(Color.Black)
             .padding(10.dp)
     ){
+        Spacer(modifier = Modifier.height(30.dp))
+        Heading("Passwords", "Health Check Up")
         InputPasswordBar()
         Spacer(modifier = Modifier.height(10.dp))
         Card(modifier = Modifier
