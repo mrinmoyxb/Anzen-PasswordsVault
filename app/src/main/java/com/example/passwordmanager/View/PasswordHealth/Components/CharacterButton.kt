@@ -128,6 +128,8 @@ fun DisplayChar(){
             .background(Color.Black)
             .padding(10.dp)
     ){
+        InputPasswordBar()
+        Spacer(modifier = Modifier.height(10.dp))
         Card(modifier = Modifier
             .height(500.dp)
             .fillMaxWidth(),
