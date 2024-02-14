@@ -14,6 +14,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
@@ -121,49 +122,66 @@ fun ContentButton(state: String, label: String, modifier: Modifier = Modifier){
 
 @Preview(showBackground = true)
 @Composable
-fun DisplayChar(){
+fun DisplayChar() {
     val p1 = listOf(Color(0xFF42e695), Color(0xFF3bb2b8))
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
             .padding(10.dp)
-    ){
-        Spacer(modifier = Modifier.height(30.dp))
-        Heading("Passwords", "Health Check Up")
-        InputPasswordBar()
-        Spacer(modifier = Modifier.height(10.dp))
-        Card(modifier = Modifier
-            .height(500.dp)
-            .fillMaxWidth(),
-                shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(Color.Transparent)
-        ){
-            Box(modifier = Modifier
-                .fillMaxSize()
-                .background(Brush.linearGradient(p1))
-                .padding(top = 10.dp, start = 2.dp, end = 2.dp)
-                ) {
-                Column(
-                    modifier = Modifier.fillMaxSize()
-                ) {
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
-                    ) {
-                        CharacterButton(number = "7", label = "Uppercase")
-                        CharacterButton(number = "2", label = "Lowercase")
-                        CharacterButton(number = "0", label = "Numbers")
-                        CharacterButton(number = "7", label = "Symbols")
-                    }
+    ) {
+        item {
+            Spacer(modifier = Modifier.height(30.dp))
+            Heading("Passwords", FontWeight.Bold, "Health Check Up", FontWeight.Medium)
+            Spacer(modifier = Modifier.height(10.dp))
 
-                    Spacer(modifier = Modifier.height(8.dp))
-                    Row(
-                        modifier = Modifier.fillMaxWidth(),
-                        horizontalArrangement = Arrangement.SpaceEvenly
+            Text(
+                "Enter Your Password",
+                fontSize = 20.sp,
+                color = Color.White,
+                fontFamily = inter,
+                fontWeight = FontWeight.SemiBold,
+                modifier = Modifier.padding(start = 2.dp)
+            )
+            Spacer(modifier = Modifier.height(5.dp))
+            InputPasswordBar()
+            Spacer(modifier = Modifier.height(15.dp))
+
+
+            Card(
+                modifier = Modifier
+                    .height(500.dp)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(Color.Transparent)
+            ) {
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(Brush.linearGradient(p1))
+                        .padding(top = 10.dp, start = 2.dp, end = 2.dp)
+                ) {
+                    Column(
+                        modifier = Modifier.fillMaxSize()
                     ) {
-                        ContentButton(state = "Strong", label = "Password Strength")
-                        ContentButton(state = "Seconds to minutes", label = "Time to crack")
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            CharacterButton(number = "7", label = "Uppercase")
+                            CharacterButton(number = "2", label = "Lowercase")
+                            CharacterButton(number = "0", label = "Numbers")
+                            CharacterButton(number = "7", label = "Symbols")
+                        }
+
+                        Spacer(modifier = Modifier.height(8.dp))
+                        Row(
+                            modifier = Modifier.fillMaxWidth(),
+                            horizontalArrangement = Arrangement.SpaceEvenly
+                        ) {
+                            ContentButton(state = "Strong", label = "Password Strength")
+                            ContentButton(state = "Seconds to minutes", label = "Time to crack")
+                        }
                     }
                 }
             }

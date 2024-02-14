@@ -61,7 +61,7 @@ val generatedPassword by viewModel.generatedPassword.collectAsState("")
     ) {
         item {
             Spacer(modifier = Modifier.height(30.dp))
-            Heading("Create unique", "Password")
+            Heading("Create unique", FontWeight.Medium, "Password", FontWeight.Bold)
             Spacer(modifier = Modifier.height(10.dp))
 
 

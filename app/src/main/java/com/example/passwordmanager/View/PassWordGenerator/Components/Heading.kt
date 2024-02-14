@@ -28,7 +28,7 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
-fun Heading(text1: String,text2: String) {
+fun Heading(text1: String, fontweight1: FontWeight, text2: String, fontweight2: FontWeight) {
     Column(
         modifier = Modifier.fillMaxWidth().padding(10.dp),
         ) {
@@ -37,14 +37,14 @@ fun Heading(text1: String,text2: String) {
                     fontSize = 38.sp,
                     color = Color.White,
                     fontFamily = inter,
-                    fontWeight = FontWeight.Medium
+                    fontWeight = fontweight1
                 )
                 Text(
                     text = text2,
                     fontSize = 40.sp,
                     color = Color.White,
                     fontFamily = inter,
-                    fontWeight = FontWeight.Bold,
+                    fontWeight = fontweight2,
                     modifier = Modifier.offset(y=-7.dp)
                 )
             }

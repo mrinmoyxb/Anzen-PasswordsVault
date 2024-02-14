@@ -42,7 +42,7 @@ fun InputPasswordBar(){
         TextField(
             value = value,
             onValueChange = { value = it },
-            placeholder = { Text("Enter your password",
+            placeholder = { Text("************",
                 fontFamily = inter,
                 fontWeight = FontWeight.Medium, fontSize = 20.sp,
                 color = Color.Black)},
