@@ -143,6 +143,7 @@ fun DisplayChar() {
                 fontWeight = FontWeight.SemiBold,
                 modifier = Modifier.padding(start = 2.dp)
             )
+
             Spacer(modifier = Modifier.height(5.dp))
             InputPasswordBar()
             Spacer(modifier = Modifier.height(15.dp))
@@ -185,6 +186,8 @@ fun DisplayChar() {
                     }
                 }
             }
+            Spacer(modifier = Modifier.height(10.dp))
+            GeneratePasswordHealth()
         }
     }
 }
