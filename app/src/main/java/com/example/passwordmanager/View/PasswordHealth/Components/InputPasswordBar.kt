@@ -46,7 +46,7 @@ fun InputPasswordBar(){
                 fontFamily = inter,
                 fontWeight = FontWeight.Medium, fontSize = 20.sp,
                 color = Color.Black)},
-            modifier = Modifier.fillMaxWidth().height(70.dp),
+            modifier = Modifier.fillMaxWidth(0.75f).height(70.dp),
             shape = RoundedCornerShape(20.dp),
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color.White,
