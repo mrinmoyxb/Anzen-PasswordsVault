@@ -17,6 +17,7 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
@@ -30,6 +31,7 @@ import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PasswordHealth.Components.CharacterButton
 import com.example.passwordmanager.View.PasswordHealth.Components.CheckHealthButton
 import com.example.passwordmanager.View.PasswordHealth.Components.ContentButton
+import com.example.passwordmanager.View.PasswordHealth.Components.CustomComponent
 import com.example.passwordmanager.View.PasswordHealth.Components.GeneratePasswordHealth
 import com.example.passwordmanager.View.PasswordHealth.Components.InputPasswordBar
 import com.example.passwordmanager.ui.theme.inter
@@ -72,7 +74,7 @@ fun PasswordHealthScreen(){
             // Password Result Screen:
             Card(
                 modifier = Modifier
-                    .height(500.dp)
+                    .height(600.dp)
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(Color.Transparent)
@@ -86,6 +88,9 @@ fun PasswordHealthScreen(){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
+                        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                            CustomComponent()
+                        }
                         Row(
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly

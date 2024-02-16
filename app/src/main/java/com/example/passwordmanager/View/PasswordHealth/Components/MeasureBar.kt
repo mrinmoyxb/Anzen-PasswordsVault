@@ -21,9 +21,11 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.width
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
@@ -41,9 +43,9 @@ fun CustomComponent(
     canvasSize: Dp = 300.dp,
     indicatorValue: Int = 0,
     maxIndicator: Int = 100,
-    backgroundIndicatorColor: Color = Color.Blue,
+    backgroundIndicatorColor: Color = Color.White,
     backgroundIndicatorStrokeWidth: Float = 100f,
-    foregroundIndicatorColor: Color = Color.Cyan,
+    foregroundIndicatorColor: Color = Color.Blue,
     foregroundIndicatorStrokeWidth: Float = 100f
 ){
 
@@ -86,14 +88,14 @@ fun CustomComponent(
         verticalArrangement = Arrangement.Center,
         horizontalAlignment = Alignment.CenterHorizontally
     ){
-        Spacer(modifier = Modifier.height(70.dp))
+        Spacer(modifier = Modifier.height(150.dp))
         EmbeddedElements(
-            bigText = 37,
-            bigTextFontSize = 40,
-            bigTextColor = Color.Black,
+            bigText = 32,
+            bigTextFontSize = 52,
+            bigTextColor = Color.White,
             bigTextSuffix = "%",
             smallText = "Complexity Score",
-            smallTextColor = Color.Black,
+            smallTextColor = Color.White,
             smallTextFontSize = 18
         )
     }
