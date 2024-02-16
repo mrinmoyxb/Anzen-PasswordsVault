@@ -111,6 +111,7 @@ fun PasswordHealthScreen(){
             // Generate Password:
             Spacer(modifier = Modifier.height(10.dp))
             GeneratePasswordHealth()
+            Spacer(modifier = Modifier.height(30.dp))
         }
 
     }

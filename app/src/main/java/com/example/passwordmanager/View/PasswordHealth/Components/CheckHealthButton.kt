@@ -27,7 +27,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.passwordmanager.R
 
-@Preview(showBackground = true)
+
 @Composable
 fun CheckHealthButton() {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))

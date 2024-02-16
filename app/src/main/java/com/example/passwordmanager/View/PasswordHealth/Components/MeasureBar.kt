@@ -21,8 +21,20 @@ import androidx.wear.compose.material.MaterialTheme
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
 import androidx.compose.animation.core.tween
+import androidx.compose.foundation.layout.Arrangement
+import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.height
 import androidx.compose.runtime.LaunchedEffect
 import androidx.compose.runtime.getValue
+import androidx.compose.runtime.mutableStateOf
+import androidx.compose.runtime.setValue
+import androidx.compose.ui.Alignment
+import androidx.compose.ui.text.font.FontWeight
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
+import androidx.compose.ui.unit.sp
+import androidx.wear.compose.material.Text
+import com.example.passwordmanager.ui.theme.inter
 
 @Composable
 fun CustomComponent(
@@ -35,18 +47,23 @@ fun CustomComponent(
     foregroundIndicatorStrokeWidth: Float = 100f
 ){
 
-
-    val animatedIndicatorValue = remember{
-        Animatable(0f)
+    var allowedIndicatorValue by remember{mutableStateOf(maxIndicator)}
+    allowedIndicatorValue = if(indicatorValue <= maxIndicator){
+        indicatorValue
+    }else{
+        maxIndicator
     }
-    LaunchedEffect(key1 = indicatorValue){
-        animatedIndicatorValue.animateTo(indicatorValue.toFloat())
+    var animatedIndicatorValue by remember{
+        mutableStateOf(0f)
+    }
+    LaunchedEffect(key1 =  allowedIndicatorValue){
+        animatedIndicatorValue = allowedIndicatorValue.toFloat()
     }
 
-    val percentage = (animatedIndicatorValue.value/maxIndicator)*100
+    val percentage = (animatedIndicatorValue/maxIndicator)*100
 
     val sweepAngle by animateFloatAsState(targetValue = (2.4*percentage).toFloat(),
-        animationSpec = tween(1000)
+        animationSpec = tween(1000), label = ""
     )
 
     Column(
@@ -65,9 +82,20 @@ fun CustomComponent(
                     indicatorColor = foregroundIndicatorColor,
                     indicatorStrokeWidth = foregroundIndicatorStrokeWidth
                 )
-            }
+            },
+        verticalArrangement = Arrangement.Center,
+        horizontalAlignment = Alignment.CenterHorizontally
     ){
-
+        Spacer(modifier = Modifier.height(70.dp))
+        EmbeddedElements(
+            bigText = 37,
+            bigTextFontSize = 40,
+            bigTextColor = Color.Black,
+            bigTextSuffix = "%",
+            smallText = "Complexity Score",
+            smallTextColor = Color.Black,
+            smallTextFontSize = 18
+        )
     }
 }
 
@@ -120,5 +148,28 @@ fun DrawScope.foregroundIndicator(
             x = (size.width-componentSize.width)/2f,
             y = (size.height-componentSize.width)/2f
         )
+    )
+}
+
+
+@Composable
+fun EmbeddedElements(
+    bigText: Int,
+    bigTextFontSize: Int,
+    bigTextColor: Color,
+    bigTextSuffix: String,
+    smallText: String,
+    smallTextColor: Color,
+    smallTextFontSize: Int
+){
+
+    Text(text = "$bigText${bigTextSuffix.take(2)}", color = bigTextColor,
+        fontFamily = inter, fontWeight = FontWeight.Bold,
+        fontSize = bigTextFontSize.sp, textAlign = TextAlign.Center
+        )
+
+    Text(text = smallText, color = smallTextColor,
+        fontFamily = inter, fontWeight = FontWeight.Medium,
+        fontSize = smallTextFontSize.sp, textAlign = TextAlign.Center
     )
 }
