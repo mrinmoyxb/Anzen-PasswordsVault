@@ -1,5 +1,7 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -27,13 +29,17 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 
 @Composable
-fun CopyButton(text: String, clipboardManager: ClipboardManager){
+fun CopyButton(text: String, clipboardManager: ClipboardManager, context: Context){
 
     Card(
         modifier = Modifier
             .height(100.dp)
             .width(100.dp)
-            .clickable{clipboardManager.setText(AnnotatedString(text))},
+            .clickable{clipboardManager.setText(AnnotatedString(text))
+                Toast.makeText(context,
+                    "Password Copied",
+                    Toast.LENGTH_SHORT).show()
+                      },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {

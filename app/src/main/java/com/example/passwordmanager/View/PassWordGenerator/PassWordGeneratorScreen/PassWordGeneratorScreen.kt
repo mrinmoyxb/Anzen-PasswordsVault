@@ -30,6 +30,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.platform.LocalClipboardManager
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -55,6 +56,7 @@ fun PasswordGeneratorScreen() {
     val viewModel: PasswordGeneratorViewModel = viewModel()
     val generatedPassword by viewModel.generatedPassword.collectAsState("")
     val clipboardManager = LocalClipboardManager.current
+    val context  = LocalContext.current
 
     LazyColumn(
         modifier = Modifier
@@ -89,7 +91,7 @@ fun PasswordGeneratorScreen() {
             ) {
                 GeneratePasswordButton(viewModel)
                 Spacer(modifier = Modifier.width(5.dp))
-                CopyButton(generatedPassword, clipboardManager)
+                CopyButton(generatedPassword, clipboardManager, context)
             }
 
 
