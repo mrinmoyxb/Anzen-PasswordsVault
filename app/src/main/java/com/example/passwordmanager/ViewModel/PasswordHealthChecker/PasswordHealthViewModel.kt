@@ -5,8 +5,9 @@ import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 
 
-class PasswordChecker : ViewModel() {
+class PasswordHealthViewModel : ViewModel() {
 
+    val regex = Regex("[!@#$%^&*()_+{}\":;'<>?,./]")
     // Password
     var userPassword = MutableStateFlow("")
     val _userPassword: StateFlow<String> = userPassword
@@ -43,7 +44,6 @@ class PasswordChecker : ViewModel() {
     var lengthOfPassword = MutableStateFlow(0)
     val _lengthOfPassword: StateFlow<Int> = lengthOfPassword
 
-    val regex = Regex("[!@#$%^&*()_+{}\":;'<>?,./]")
 
     var complexityScore = MutableStateFlow(0)
     val _complexityScore: StateFlow<Int> = complexityScore
@@ -51,26 +51,34 @@ class PasswordChecker : ViewModel() {
 
     // Methods:
     // 1. Length of password
-    fun lengthPassowrd(){
-        lengthOfPassword.value = _userPassword.value.length
-    }
+//    fun lengthPassowrd(){
+//        lengthOfPassword.value = _userPassword.value.length
+//    }
 
     // 2.function to check type and number of characters in password
     fun checkCharacters(){
+        uppercaseState.value = false
+        uppercaseCount.value = 0
+        lowercaseState.value = false
+        lowercaseCount.value = 0
+        numbersState.value = false
+        numbersCount.value = 0
+        symbolsState.value = false
+        symbolsCount.value = 0
         for(char in _userPassword.value){
             if(char.isUpperCase()){
                 uppercaseState.value = true
                 uppercaseCount.value++
             }
-            else if(char.isLowerCase()){
+            if(char.isLowerCase()){
                 lowercaseState.value = true
                 lowercaseCount.value++
             }
-            else if(char.isDigit()){
+            if(char.isDigit()){
                 numbersState.value = true
                 numbersCount.value++
             }
-            else if(regex.containsMatchIn(char.toString())){
+            if(regex.containsMatchIn(char.toString())){
                 symbolsState.value = true
                 symbolsCount.value++
             }
@@ -79,26 +87,26 @@ class PasswordChecker : ViewModel() {
     }
 
     // 3. Calculate complexity score:
-    fun calculateComplexityScore(){
-        if(_uppercaseCount.value>0){
-            complexityScore.value++
-        }
-        if(_lowercaseCount.value>0){
-            complexityScore.value++
-        }
-        if(_numbersCount.value>0){
-            complexityScore.value++
-        }
-        if(_symbolsCount.value>0){
-            complexityScore.value++
-        }
-    }
+//    fun calculateComplexityScore(){
+//        if(_uppercaseCount.value>0){
+//            complexityScore.value++
+//        }
+//        if(_lowercaseCount.value>0){
+//            complexityScore.value++
+//        }
+//        if(_numbersCount.value>0){
+//            complexityScore.value++
+//        }
+//        if(_symbolsCount.value>0){
+//            complexityScore.value++
+//        }
+//    }
 
     // 4. CalculateButton
     fun calculateButton(){
-        lengthPassowrd()
+        //lengthPassowrd()
         checkCharacters()
-        calculateComplexityScore()
+        //calculateComplexityScore()
     }
 
 }

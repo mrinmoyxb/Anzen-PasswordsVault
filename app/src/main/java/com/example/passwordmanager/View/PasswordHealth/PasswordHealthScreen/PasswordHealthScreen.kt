@@ -17,6 +17,8 @@ import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.collectAsState
+import androidx.compose.runtime.getValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
@@ -26,6 +28,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.lifecycle.viewmodel.compose.viewModel
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PasswordHealth.Components.CharacterButton
@@ -34,12 +37,19 @@ import com.example.passwordmanager.View.PasswordHealth.Components.ContentButton
 import com.example.passwordmanager.View.PasswordHealth.Components.CustomComponent
 import com.example.passwordmanager.View.PasswordHealth.Components.GeneratePasswordHealth
 import com.example.passwordmanager.View.PasswordHealth.Components.InputPasswordBar
+import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealthViewModel
 import com.example.passwordmanager.ui.theme.inter
 
 
 @Preview(showBackground = true)
 @Composable
 fun PasswordHealthScreen(){
+
+    val viewModel: PasswordHealthViewModel = viewModel()
+    val uppercaseCount by viewModel._uppercaseCount.collectAsState(0)
+    val lowercaseCount by viewModel._lowercaseCount.collectAsState(0)
+    val numbersCount by viewModel._numbersCount.collectAsState(0)
+    val symbolsCount by viewModel._symbolsCount.collectAsState(0)
 
     val p1 = listOf(Color(0xFF42e695), Color(0xFF3bb2b8))
 
@@ -64,9 +74,9 @@ fun PasswordHealthScreen(){
             )
             Spacer(modifier = Modifier.height(5.dp))
             Row {
-                InputPasswordBar()
+                InputPasswordBar(viewModel)
                 Spacer(modifier = Modifier.width(8.dp))
-                CheckHealthButton()
+                CheckHealthButton(viewModel)
             }
             Spacer(modifier = Modifier.height(15.dp))
 
@@ -95,10 +105,10 @@ fun PasswordHealthScreen(){
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            CharacterButton(number = "7", label = "Uppercase")
-                            CharacterButton(number = "2", label = "Lowercase")
-                            CharacterButton(number = "0", label = "Numbers")
-                            CharacterButton(number = "7", label = "Symbols")
+                            CharacterButton(number = uppercaseCount.toString(), label = "Uppercase")
+                            CharacterButton(number = lowercaseCount.toString(), label = "Lowercase")
+                            CharacterButton(number = numbersCount.toString(), label = "Numbers")
+                            CharacterButton(number = symbolsCount.toString(), label = "Symbols")
                         }
 
                         Spacer(modifier = Modifier.height(8.dp))

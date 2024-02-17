@@ -26,10 +26,11 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import com.example.passwordmanager.R
+import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealthViewModel
 
 
 @Composable
-fun CheckHealthButton() {
+fun CheckHealthButton(viewModel: PasswordHealthViewModel) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
     Column(
         modifier = Modifier
@@ -40,7 +41,7 @@ fun CheckHealthButton() {
             modifier = Modifier
                 .height(70.dp)
                 .fillMaxWidth()
-                .clickable {},
+                .clickable {viewModel.calculateButton()},
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(Color.Transparent)
         ) {

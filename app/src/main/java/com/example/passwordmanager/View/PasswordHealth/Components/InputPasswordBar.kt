@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.PasswordHealth.Components
 
+import android.annotation.SuppressLint
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
@@ -31,21 +32,23 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.placeholder
+import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealthViewModel
 import com.example.passwordmanager.ui.theme.inter
 
+@SuppressLint("StateFlowValueCalledInComposition", "SuspiciousIndentation")
 @OptIn(ExperimentalMaterial3Api::class)
-@Preview(showBackground = true)
 @Composable
-fun InputPasswordBar(){
+fun InputPasswordBar(viewModel: PasswordHealthViewModel){
     var value by remember{mutableStateOf("")}
+    viewModel.userPassword.value = value
 
         TextField(
             value = value,
             onValueChange = { value = it },
-            placeholder = { Text("************",
+            /*placeholder = { Text("************",
                 fontFamily = inter,
                 fontWeight = FontWeight.Medium, fontSize = 20.sp,
-                color = Color.Black)},
+                color = Color.Black)},*/
             modifier = Modifier.fillMaxWidth(0.75f).height(70.dp),
             shape = RoundedCornerShape(20.dp),
             colors = TextFieldDefaults.textFieldColors(
@@ -59,7 +62,7 @@ fun InputPasswordBar(){
                 fontSize = 22.sp,
                 color = Color.Black,
                 fontFamily = inter,
-                fontWeight = FontWeight.SemiBold
+                fontWeight = FontWeight.Medium
             ),
 
             singleLine = true,
