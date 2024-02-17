@@ -1,50 +1,78 @@
 package com.example.passwordmanager.ViewModel.PasswordHealthChecker
 
 import androidx.lifecycle.ViewModel
+import kotlinx.coroutines.flow.MutableStateFlow
+import kotlinx.coroutines.flow.StateFlow
 
 
 class PasswordChecker : ViewModel() {
-    var password: String = ""
 
-    var uppercase: Boolean = false
-    var uppercount: Int = 0
+    // Password
+    var userPassword = MutableStateFlow("")
+    val _userPassword: StateFlow<String> = userPassword
 
-    var lowercase: Boolean = false
-    var lowercount: Int = 0
+    // 1. Uppercase
+    var uppercaseState =  MutableStateFlow(false)
+    val _uppercaseState: StateFlow<Boolean> = uppercaseState
 
-    var numbers: Boolean = false
-    var numberCount: Int = 0
+    var uppercaseCount = MutableStateFlow(0)
+    val _uppercaseCount: StateFlow<Int> = uppercaseCount
 
-    var symbols: Boolean = false
-    var symbolsCount: Int = 0
+    //2. Lowercase
+    var lowercaseState =  MutableStateFlow(false)
+    val _lowercaseState: StateFlow<Boolean> = lowercaseState
+
+    var lowercaseCount = MutableStateFlow(0)
+    val _lowercaseCount: StateFlow<Int> = lowercaseCount
+
+    // 3. Numbers
+    var numbersState =  MutableStateFlow(false)
+    val _numbersState: StateFlow<Boolean> = numbersState
+
+    var numbersCount = MutableStateFlow(0)
+    val _numbersCount: StateFlow<Int> = numbersCount
+
+    // 4. Symbols
+    var symbolsState = MutableStateFlow(false)
+    val _symbolsState: StateFlow<Boolean> = symbolsState
+
+    var symbolsCount = MutableStateFlow(0)
+    val _symbolsCount: StateFlow<Int> = symbolsCount
+
+    // 5. Length
+    var lengthOfPassword = MutableStateFlow(0)
+    val _lengthOfPassword: StateFlow<Int> = lengthOfPassword
 
     val regex = Regex("[!@#$%^&*()_+{}\":;'<>?,./]")
-    var length: Int = 0
-    var complexityScore: Int = 0
 
+    var complexityScore = MutableStateFlow(0)
+    val _complexityScore: StateFlow<Int> = complexityScore
+
+
+    // Methods:
     // 1. Length of password
     fun lengthPassowrd(){
-        length = password.length
+        lengthOfPassword.value = _userPassword.value.length
     }
 
     // 2.function to check type and number of characters in password
     fun checkCharacters(){
-        for(char in password){
+        for(char in _userPassword.value){
             if(char.isUpperCase()){
-                uppercase=true
-                uppercount++
+                uppercaseState.value = true
+                uppercaseCount.value++
             }
             else if(char.isLowerCase()){
-                lowercase=true
-                lowercount++
+                lowercaseState.value = true
+                lowercaseCount.value++
             }
             else if(char.isDigit()){
-                numbers=true
-                numberCount++
+                numbersState.value = true
+                numbersCount.value++
             }
             else if(regex.containsMatchIn(char.toString())){
-                symbols=true
-                symbolsCount++
+                symbolsState.value = true
+                symbolsCount.value++
             }
 
         }
@@ -52,17 +80,17 @@ class PasswordChecker : ViewModel() {
 
     // 3. Calculate complexity score:
     fun calculateComplexityScore(){
-        if(uppercount>0){
-            complexityScore++
+        if(_uppercaseCount.value>0){
+            complexityScore.value++
         }
-        if(lowercount>0){
-            complexityScore++
+        if(_lowercaseCount.value>0){
+            complexityScore.value++
         }
-        if(numberCount>0){
-            numberCount++
+        if(_numbersCount.value>0){
+            complexityScore.value++
         }
-        if(symbolsCount>0){
-            symbolsCount++
+        if(_symbolsCount.value>0){
+            complexityScore.value++
         }
     }
 
@@ -72,7 +100,5 @@ class PasswordChecker : ViewModel() {
         checkCharacters()
         calculateComplexityScore()
     }
-
-
 
 }

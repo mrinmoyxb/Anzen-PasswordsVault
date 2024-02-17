@@ -74,7 +74,7 @@ fun PasswordHealthScreen(){
             // Password Result Screen:
             Card(
                 modifier = Modifier
-                    .height(600.dp)
+                    .height(550.dp)
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(Color.Transparent)

@@ -35,7 +35,7 @@ class MainActivity : ComponentActivity() {
         setContent {
             PasswordManagerTheme {
                 //PasswordGeneratorScreen()
-                //PasswordHealthScreen()
+                PasswordHealthScreen()
             }
         }
     }
