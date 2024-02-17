@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
@@ -86,7 +87,7 @@ fun PasswordHealthScreen(){
             // Password Result Screen:
             Card(
                 modifier = Modifier
-                    .height(550.dp)
+                    .height(520.dp)
                     .fillMaxWidth(),
                 shape = RoundedCornerShape(20.dp),
                 colors = CardDefaults.cardColors(Color.Transparent)
@@ -100,11 +101,13 @@ fun PasswordHealthScreen(){
                     Column(
                         modifier = Modifier.fillMaxSize()
                     ) {
-                        Box(contentAlignment = Alignment.Center, modifier = Modifier.fillMaxWidth()) {
+                        Box(contentAlignment = Alignment.Center,
+                            modifier = Modifier.fillMaxWidth()
+                        ) {
                             CustomComponent()
                         }
                         Row(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().offset(y=-15.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
                             CharacterButton(number = uppercaseCount.toString(), label = "Uppercase")
@@ -113,9 +116,9 @@ fun PasswordHealthScreen(){
                             CharacterButton(number = symbolsCount.toString(), label = "Symbols")
                         }
 
-                        Spacer(modifier = Modifier.height(8.dp))
+                        //Spacer(modifier = Modifier.height(8.dp))
                         Row(
-                            modifier = Modifier.fillMaxWidth(),
+                            modifier = Modifier.fillMaxWidth().offset(y=-8.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
                             ContentButton(state = strength, label = "Password Strength")

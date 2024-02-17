@@ -60,7 +60,7 @@ fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier
                     textAlign = TextAlign.Center
                 )
                 Text(label,
-                    fontSize = 15.sp,
+                    fontSize = 14.sp,
                     fontFamily = inter,
                     fontWeight = FontWeight.Medium,
                     color = Color.White,

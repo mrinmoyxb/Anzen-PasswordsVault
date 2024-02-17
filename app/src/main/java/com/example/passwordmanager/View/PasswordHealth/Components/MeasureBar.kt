@@ -91,12 +91,12 @@ fun CustomComponent(
         Spacer(modifier = Modifier.height(150.dp))
         EmbeddedElements(
             bigText = 32,
-            bigTextFontSize = 52,
+            bigTextFontSize = 60,
             bigTextColor = Color.Black,
             bigTextSuffix = "%",
             smallText = "Complexity Score",
             smallTextColor = Color.Black,
-            smallTextFontSize = 18
+            smallTextFontSize = 20
         )
     }
 }
