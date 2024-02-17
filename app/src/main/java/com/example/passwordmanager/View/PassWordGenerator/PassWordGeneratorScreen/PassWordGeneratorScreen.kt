@@ -86,7 +86,7 @@ val generatedPassword by viewModel.generatedPassword.collectAsState("")
             ) {
                 GeneratePasswordButton(viewModel)
                 Spacer(modifier = Modifier.width(5.dp))
-                CopyButton(viewModel)
+                CopyButton(generatedPassword)
             }
 
 

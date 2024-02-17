@@ -1,6 +1,7 @@
 package com.example.passwordmanager.View.PasswordHealth.Components
 
 import androidx.compose.animation.Animatable
+import androidx.compose.animation.animateColorAsState
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.size
 import androidx.compose.runtime.Composable
@@ -20,6 +21,7 @@ import androidx.wear.compose.material.ContentAlpha
 import androidx.wear.compose.material.MaterialTheme
 import androidx.compose.animation.core.Animatable
 import androidx.compose.animation.core.animateFloatAsState
+import androidx.compose.animation.core.animateIntAsState
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -39,9 +41,9 @@ import androidx.wear.compose.material.Text
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
-fun CustomComponent(
+fun ComplexityBar(
     canvasSize: Dp = 300.dp,
-    indicatorValue: Int = 0,
+    indicatorValue: Float = 0.0f,
     maxIndicator: Int = 100,
     backgroundIndicatorColor: Color = Color.White,
     backgroundIndicatorStrokeWidth: Float = 100f,
@@ -49,24 +51,28 @@ fun CustomComponent(
     foregroundIndicatorStrokeWidth: Float = 100f
 ){
 
-    var allowedIndicatorValue by remember{mutableStateOf(maxIndicator)}
+    var allowedIndicatorValue by remember{
+        mutableStateOf(maxIndicator)
+    }
     allowedIndicatorValue = if(indicatorValue <= maxIndicator){
-        indicatorValue
+        indicatorValue.toInt()
     }else{
         maxIndicator
     }
-    var animatedIndicatorValue by remember{
-        mutableStateOf(0f)
-    }
+
+
+    var animatedIndicatorValue by remember{ mutableStateOf(0f) }
     LaunchedEffect(key1 =  allowedIndicatorValue){
         animatedIndicatorValue = allowedIndicatorValue.toFloat()
     }
 
     val percentage = (animatedIndicatorValue/maxIndicator)*100
 
-    val sweepAngle by animateFloatAsState(targetValue = (2.4*percentage).toFloat(),
+    val sweepAngle by animateFloatAsState(targetValue = (2.4 * percentage).toFloat(),
         animationSpec = tween(1000), label = ""
     )
+
+
 
     Column(
         modifier = Modifier
@@ -79,7 +85,7 @@ fun CustomComponent(
                     indicatorStrokeWidth = backgroundIndicatorStrokeWidth
                 )
                 foregroundIndicator(
-                    sweepingAngle = 120f,
+                    sweepAngle = indicatorValue,
                     componentSize = componentSize,
                     indicatorColor = foregroundIndicatorColor,
                     indicatorStrokeWidth = foregroundIndicatorStrokeWidth
@@ -99,12 +105,6 @@ fun CustomComponent(
             smallTextFontSize = 20
         )
     }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun DisplayCustomComposable(){
-    CustomComponent()
 }
 
 fun DrawScope.backgroundIndicator(
@@ -131,7 +131,7 @@ fun DrawScope.backgroundIndicator(
 
 
 fun DrawScope.foregroundIndicator(
-    sweepingAngle: Float,
+    sweepAngle: Float,
     componentSize: Size,
     indicatorColor: Color,
     indicatorStrokeWidth: Float
@@ -140,7 +140,7 @@ fun DrawScope.foregroundIndicator(
         size = componentSize,
         color = indicatorColor,
         startAngle = 150f,
-        sweepAngle = sweepingAngle,
+        sweepAngle = sweepAngle,
         useCenter = false,
         style = Stroke(
             width = indicatorStrokeWidth,
@@ -174,4 +174,10 @@ fun EmbeddedElements(
         fontFamily = inter, fontWeight = FontWeight.Medium,
         fontSize = smallTextFontSize.sp, textAlign = TextAlign.Center
     )
+}
+
+@Preview(showBackground = true)
+@Composable
+fun disp(){
+    ComplexityBar( indicatorValue = 200.2f)
 }

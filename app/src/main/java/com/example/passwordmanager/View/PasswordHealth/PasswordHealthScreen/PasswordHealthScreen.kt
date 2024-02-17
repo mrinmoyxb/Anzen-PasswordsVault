@@ -34,8 +34,8 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PasswordHealth.Components.CharacterButton
 import com.example.passwordmanager.View.PasswordHealth.Components.CheckHealthButton
+import com.example.passwordmanager.View.PasswordHealth.Components.ComplexityBar
 import com.example.passwordmanager.View.PasswordHealth.Components.ContentButton
-import com.example.passwordmanager.View.PasswordHealth.Components.CustomComponent
 import com.example.passwordmanager.View.PasswordHealth.Components.GeneratePasswordHealth
 import com.example.passwordmanager.View.PasswordHealth.Components.InputPasswordBar
 import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealthViewModel
@@ -53,6 +53,7 @@ fun PasswordHealthScreen(){
     val symbolsCount by viewModel._symbolsCount.collectAsState(0)
     val strength by viewModel._strength.collectAsState("")
     val timeToCrack by viewModel._timeToCrack.collectAsState("")
+    val complexityScore by viewModel._complexityScore.collectAsState(0.0f)
 
     val p1 = listOf(Color(0xFF42e695), Color(0xFF3bb2b8))
 
@@ -104,10 +105,12 @@ fun PasswordHealthScreen(){
                         Box(contentAlignment = Alignment.Center,
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            CustomComponent()
+                            ComplexityBar()
                         }
                         Row(
-                            modifier = Modifier.fillMaxWidth().offset(y=-15.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .offset(y = -15.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
                             CharacterButton(number = uppercaseCount.toString(), label = "Uppercase")
@@ -118,7 +121,9 @@ fun PasswordHealthScreen(){
 
                         //Spacer(modifier = Modifier.height(8.dp))
                         Row(
-                            modifier = Modifier.fillMaxWidth().offset(y=-8.dp),
+                            modifier = Modifier
+                                .fillMaxWidth()
+                                .offset(y = -8.dp),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
                             ContentButton(state = strength, label = "Password Strength")

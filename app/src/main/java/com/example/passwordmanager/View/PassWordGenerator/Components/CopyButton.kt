@@ -8,34 +8,38 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.shape.RoundedCornerShape
+import androidx.compose.material3.Button
 import androidx.compose.material3.Card
 import androidx.compose.material3.CardDefaults
 import androidx.compose.material3.Icon
+import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.AnnotatedString
 import androidx.compose.ui.unit.dp
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 
 @Composable
-fun CopyButton(viewModel: PasswordGeneratorViewModel){
+fun CopyButton(text: String){
+    val clipboardManager = LocalClipboardManager.current
     Card(
         modifier = Modifier
             .height(100.dp)
             .width(100.dp)
-            .clickable {},
+            .clickable{clipboardManager.setText(AnnotatedString(text))},
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {
         Box(
             modifier = Modifier
                 .fillMaxSize()
-                .background(Color(0xFFFFFFFF), shape = RoundedCornerShape(20.dp))
-                .clickable(onClick = { }),
+                .background(Color(0xFFFFFFFF), shape = RoundedCornerShape(20.dp)),
             contentAlignment = Alignment.Center
         ) {
             Icon(painter = painterResource(id = R.drawable.copy_icon),
