@@ -92,10 +92,10 @@ fun CustomComponent(
         EmbeddedElements(
             bigText = 32,
             bigTextFontSize = 52,
-            bigTextColor = Color.White,
+            bigTextColor = Color.Black,
             bigTextSuffix = "%",
             smallText = "Complexity Score",
-            smallTextColor = Color.White,
+            smallTextColor = Color.Black,
             smallTextFontSize = 18
         )
     }

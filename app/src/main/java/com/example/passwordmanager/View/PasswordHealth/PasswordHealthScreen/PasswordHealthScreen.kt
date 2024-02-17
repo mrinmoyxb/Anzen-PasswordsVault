@@ -50,6 +50,8 @@ fun PasswordHealthScreen(){
     val lowercaseCount by viewModel._lowercaseCount.collectAsState(0)
     val numbersCount by viewModel._numbersCount.collectAsState(0)
     val symbolsCount by viewModel._symbolsCount.collectAsState(0)
+    val strength by viewModel._strength.collectAsState("")
+    val timeToCrack by viewModel._timeToCrack.collectAsState("")
 
     val p1 = listOf(Color(0xFF42e695), Color(0xFF3bb2b8))
 
@@ -116,8 +118,8 @@ fun PasswordHealthScreen(){
                             modifier = Modifier.fillMaxWidth(),
                             horizontalArrangement = Arrangement.SpaceEvenly
                         ) {
-                            ContentButton(state = "Strong", label = "Password Strength")
-                            ContentButton(state = "Seconds to minutes", label = "Time to crack")
+                            ContentButton(state = strength, label = "Password Strength")
+                            ContentButton(state = timeToCrack, label = "Time to crack")
                         }
                     }
                 }
