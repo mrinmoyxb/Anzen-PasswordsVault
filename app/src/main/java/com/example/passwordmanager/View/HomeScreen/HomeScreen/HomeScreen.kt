@@ -61,7 +61,7 @@ fun HomeScreen() {
                         color = colorResource(id = R.color.supporting_color2), onClick = {})
                 }
 
-
+                Spacer(modifier = Modifier.height(80.dp))
             }
         }
     }

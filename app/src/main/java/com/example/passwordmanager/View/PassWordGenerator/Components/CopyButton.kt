@@ -17,6 +17,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.ClipboardManager
 import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
@@ -26,8 +27,8 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 
 @Composable
-fun CopyButton(text: String){
-    val clipboardManager = LocalClipboardManager.current
+fun CopyButton(text: String, clipboardManager: ClipboardManager){
+
     Card(
         modifier = Modifier
             .height(100.dp)
@@ -44,6 +45,7 @@ fun CopyButton(text: String){
         ) {
             Icon(painter = painterResource(id = R.drawable.copy_icon),
                 contentDescription = "refresh",
+                tint = Color.Black,
                 modifier = Modifier.size(50.dp))
         }
     }

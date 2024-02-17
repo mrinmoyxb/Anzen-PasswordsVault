@@ -15,6 +15,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.chaquo.python.Python
+import com.example.passwordmanager.NavigationBar.MainScreen
 import com.example.passwordmanager.View.HomeScreen.HomeScreen.HomeScreen
 import com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScreen.PasswordGeneratorScreen
 import com.example.passwordmanager.View.PasswordHealth.PasswordHealthScreen.PasswordHealthScreen
@@ -28,14 +29,15 @@ class MainActivity : ComponentActivity() {
                 Color.TRANSPARENT, Color.TRANSPARENT
             ),
             navigationBarStyle = SystemBarStyle.light(
-                Color.TRANSPARENT, Color.TRANSPARENT
+                Color.BLACK, Color.BLACK
             )
         )
         super.onCreate(savedInstanceState)
         setContent {
             PasswordManagerTheme {
-                PasswordGeneratorScreen()
-                //PasswordHealthScreen()
+//                PasswordGeneratorScreen()
+//                PasswordHealthScreen()
+                MainScreen()
             }
         }
     }

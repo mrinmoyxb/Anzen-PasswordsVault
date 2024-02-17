@@ -81,7 +81,7 @@ fun PasswordHealth(length: Int) {
                 modifier = Modifier.fillMaxSize()
             ) {
 
-                Text("Password Health", fontSize = 22.sp, fontFamily = inter, fontWeight = FontWeight.Medium)
+                Text("Password Health", fontSize = 22.sp, fontFamily = inter, fontWeight = FontWeight.Medium, color = Color.Black)
                 Spacer(modifier = Modifier.height(10.dp))
                 Row(
                     modifier = Modifier.fillMaxWidth()

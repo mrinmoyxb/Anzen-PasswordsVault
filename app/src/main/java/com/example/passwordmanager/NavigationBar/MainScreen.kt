@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.RowScope
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.foundation.shape.RoundedCornerShape
@@ -25,6 +26,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
+import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.navigation.NavDestination
@@ -33,13 +35,16 @@ import androidx.navigation.NavGraph.Companion.findStartDestination
 import androidx.navigation.NavHostController
 import androidx.navigation.compose.currentBackStackEntryAsState
 import androidx.navigation.compose.rememberNavController
+import com.example.passwordmanager.ui.theme.inter
+import kotlinx.coroutines.CoroutineScope
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
 fun MainScreen(){
     val navController = rememberNavController()
     Scaffold(
-        bottomBar = {ButtonBar(navController)}
+        bottomBar = {ButtonBar(navController)},
+        modifier = Modifier.navigationBarsPadding()
     ){
         BottomNavGraph(navController = navController)
     }
@@ -51,6 +56,7 @@ fun BottomNavPreview() {
     MainScreen()
 }
 
+@SuppressLint("SuspiciousIndentation")
 @Composable
 fun ButtonBar(navController: NavHostController) {
     Column(
@@ -64,7 +70,7 @@ fun ButtonBar(navController: NavHostController) {
         val screens = listOf(
             BottomBarScreens.Home,
             BottomBarScreens.PasswordGenerator,
-            BottomBarScreens.PasswordHelath
+            BottomBarScreens.PasswordHealth
         )
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
@@ -72,9 +78,9 @@ fun ButtonBar(navController: NavHostController) {
             Row(
                 modifier = Modifier
                     .padding(start = 10.dp, end = 10.dp, top = 8.dp, bottom = 8.dp)
-                    .fillMaxWidth().height(60.dp)
-                    .clip(RoundedCornerShape(20.dp))
-                    .background(Color(0xFF22223b)),
+                    .fillMaxWidth().height(70.dp)
+                    .clip(RoundedCornerShape(50.dp))
+                    .background(Color(0xFFFFFFFF)),
                 horizontalArrangement = Arrangement.SpaceEvenly,
                 verticalAlignment = Alignment.CenterVertically
             ) {
@@ -101,8 +107,8 @@ fun RowScope.AddItem(
         it.route==screen.route
     } == true
 
-    val background = if(selected) Color.White else Color.Black
-    val contentColor = if(selected) Color.Black else Color.White
+    val background = if(selected) Color.Black else Color.White
+    val contentColor = if(selected) Color.White else Color.Black
 
     Box(
         modifier = Modifier
@@ -129,8 +135,10 @@ fun RowScope.AddItem(
             )
                 AnimatedVisibility(visible = selected) {
                     Text(
-                        text = screen.title,
-                        color = contentColor
+                        text = screen.icon_title,
+                        color = contentColor,
+                        fontFamily = inter,
+                        fontWeight = FontWeight.Medium
                     )
                 }
         }

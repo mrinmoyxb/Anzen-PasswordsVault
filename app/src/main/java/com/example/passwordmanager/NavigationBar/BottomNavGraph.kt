@@ -20,7 +20,7 @@ fun BottomNavGraph(navController: NavHostController){
             PasswordGeneratorScreen()
         }
         composable(
-            route = BottomBarScreens.PasswordHelath.route){
+            route = BottomBarScreens.PasswordHealth.route){
             PasswordHealthScreen()
         }
     }

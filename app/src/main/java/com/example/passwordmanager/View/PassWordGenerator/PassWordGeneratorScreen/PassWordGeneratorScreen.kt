@@ -12,6 +12,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.navigationBarsPadding
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.layout.width
@@ -28,6 +29,7 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.platform.LocalClipboardManager
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -50,8 +52,9 @@ import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGenerator
 @Composable
 fun PasswordGeneratorScreen() {
 
-val viewModel: PasswordGeneratorViewModel = viewModel()
-val generatedPassword by viewModel.generatedPassword.collectAsState("")
+    val viewModel: PasswordGeneratorViewModel = viewModel()
+    val generatedPassword by viewModel.generatedPassword.collectAsState("")
+    val clipboardManager = LocalClipboardManager.current
 
     LazyColumn(
         modifier = Modifier
@@ -86,13 +89,13 @@ val generatedPassword by viewModel.generatedPassword.collectAsState("")
             ) {
                 GeneratePasswordButton(viewModel)
                 Spacer(modifier = Modifier.width(5.dp))
-                CopyButton(generatedPassword)
+                CopyButton(generatedPassword, clipboardManager)
             }
 
 
             Spacer(modifier = Modifier.height(10.dp))
             PasswordHealth(length = viewModel._lengthState.value)
-            Spacer(modifier = Modifier.height(30.dp))
+            Spacer(modifier = Modifier.height(80.dp))
         }
     }
 }
