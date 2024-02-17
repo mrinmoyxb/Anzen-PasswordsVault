@@ -48,8 +48,8 @@ class PasswordHealthViewModel : ViewModel() {
     val _lengthOfPassword: StateFlow<Int> = lengthOfPassword
 
     // 6. Complexity Score: Not completed
-    var complexityScore = MutableStateFlow(0)
-    val _complexityScore: StateFlow<Int> = complexityScore
+    var countScore = MutableStateFlow(0)
+    val _countScore: StateFlow<Int> = countScore
 
     // 7. Strength
     var strength = MutableStateFlow("")
@@ -98,18 +98,18 @@ class PasswordHealthViewModel : ViewModel() {
     }
 
     // 3. Calculate complexity score:
-    fun calculateComplexityScore() {
+    fun calculateCountScore() {
         if (_uppercaseCount.value > 0) {
-            complexityScore.value++
+            countScore.value++
         }
         if (_lowercaseCount.value > 0) {
-            complexityScore.value++
+            countScore.value++
         }
         if (_numbersCount.value > 0) {
-            complexityScore.value++
+            countScore.value++
         }
         if (_symbolsCount.value > 0) {
-            complexityScore.value++
+            countScore.value++
         }
     }
 
@@ -131,7 +131,7 @@ class PasswordHealthViewModel : ViewModel() {
                 timeToCrack.value = "Months to years"
             }
 
-            in 14..20 -> {
+            in 14..50 -> {
                 strength.value = "Strong"
                 timeToCrack.value = "Centuries"
             }
@@ -147,7 +147,7 @@ class PasswordHealthViewModel : ViewModel() {
     fun calculateButton() {
         lengthPassowrd()
         checkCharacters()
-        calculateComplexityScore()
+        calculateCountScore()
         reportPass()
     }
 }
