@@ -1,28 +1,28 @@
-package com.example.passwordmanager.Model.NavigationBar
+package com.example.passwordmanager.NavigationBar
 
 import androidx.annotation.DrawableRes
 import com.example.passwordmanager.R
 
-sealed class BottomBarNavigation(
+sealed class BottomBarScreens(
     val route: String,
     val title: String,
     @DrawableRes val icon: Int
 ){
-    object Home: BottomBarNavigation(
+    object Home: BottomBarScreens(
         route = "home",
         title = "Home",
         icon = R.drawable.home
     )
 
-    object PasswordGenerator: BottomBarNavigation(
+    object PasswordGenerator: BottomBarScreens(
         route = "passwordGenerator",
         title = "PasswordGenerator",
         icon = R.drawable.key_img
     )
 
-    object PasswordChecker: BottomBarNavigation(
-        route = "PasswordChecker",
-        title = "PasswordChecker",
+    object PasswordHelath: BottomBarScreens(
+        route = "passwordHelath",
+        title = "PasswordHelath",
         icon = R.drawable.shield
     )
 }
