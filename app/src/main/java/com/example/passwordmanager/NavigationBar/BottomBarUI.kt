@@ -44,9 +44,9 @@ fun ButtonBar(navController: NavHostController) {
     )
     {
         val screens = listOf(
-            BottomBarScreens.Home,
-            BottomBarScreens.PasswordGenerator,
-            BottomBarScreens.PasswordHealth
+            BottomBarScreensData.Home,
+            BottomBarScreensData.PasswordGenerator,
+            BottomBarScreensData.PasswordHealth
         )
         val navBackStackEntry by navController.currentBackStackEntryAsState()
         val currentDestination = navBackStackEntry?.destination
@@ -75,7 +75,7 @@ fun ButtonBar(navController: NavHostController) {
 
 @Composable
 fun RowScope.AddItem(
-    screen: BottomBarScreens,
+    screen: BottomBarScreensData,
     currentDestination: NavDestination?,
     navController: NavHostController
 ){
