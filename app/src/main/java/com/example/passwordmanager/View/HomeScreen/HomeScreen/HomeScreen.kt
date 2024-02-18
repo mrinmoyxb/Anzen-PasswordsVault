@@ -42,10 +42,11 @@ fun HomeScreen() {
             item {
                 Spacer(modifier = Modifier.height(30.dp))
 
+                // 1. Name of user
                 NameComponent("Mrinmoy")
 
+                // 2. Analyse Component
                 AnalyseComponent()
-
 
                 // 3. Buttons Row 1
                 Row(
