@@ -26,6 +26,7 @@ import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.draw.shadow
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.colorResource
@@ -45,7 +46,9 @@ fun IconComponent(
     label: String,
     color: Color,
     onClick: () -> Unit,
-    ){
+    ) {
+    val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
+    val p2 = listOf(Color(0xFF4A00E0), Color(0xFF8E2DE2))
     Card(
         modifier = Modifier
             .width(200.dp)
@@ -53,56 +56,62 @@ fun IconComponent(
             .padding(10.dp)
             .clickable {},
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(color)
-    ){
-        Column(
-            modifier = Modifier
-                .fillMaxSize()
-                .padding(start = 10.dp, bottom = 10.dp),
-            verticalArrangement = Arrangement.Bottom
-        ) {
-            Icon(painter = icon, contentDescription = "icon", modifier = Modifier.size(70.dp))
-            Text(label, fontSize = 20.sp, textAlign = TextAlign.Center,
-                fontFamily = inter, fontWeight= FontWeight.Normal)
-        }
-    }
-}
-
-
-@Preview(showBackground = true)
-@Composable
-fun Display(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.brand_color))
+        colors = CardDefaults.cardColors(Color.Transparent)
     ) {
-        NameComponent("Mrinmoy")
-        AnalyseComponent()
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
+        Box(
+            modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1), shape = RoundedCornerShape(20.dp))
         ) {
-            IconComponent(icon = painterResource(id = R.drawable.social),
-                label = "Socials",
-                color = colorResource(id = R.color.supporting_color1), onClick = {})
-            IconComponent(icon = painterResource(id = R.drawable.payment_icon1),
-                label = "Payments",
-                color = colorResource(id = R.color.supporting_color2), onClick = {})
-        }
-        Row(
-            modifier = Modifier.fillMaxWidth(),
-            horizontalArrangement = Arrangement.SpaceEvenly
-        ) {
-            IconComponent(icon = painterResource(id = R.drawable.application_icon1),
-                label = "Apps",
-                color = colorResource(id = R.color.supporting_color1), onClick = {})
-            IconComponent(icon = painterResource(id = R.drawable.notes_icon),
-                label = "Notes",
-                color = colorResource(id = R.color.supporting_color2), onClick = {})
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 10.dp, bottom = 10.dp),
+                verticalArrangement = Arrangement.Bottom
+            ) {
+                Icon(painter = icon, contentDescription = "icon", modifier = Modifier.size(70.dp), tint = Color.White)
+                Text(
+                    label, fontSize = 20.sp, textAlign = TextAlign.Center,
+                    fontFamily = inter, fontWeight = FontWeight.Medium, color = Color.White
+                )
+            }
         }
     }
 }
+
+
+//@Preview(showBackground = true)
+//@Composable
+//fun Display(){
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .background(colorResource(id = R.color.brand_color))
+//    ) {
+//        //NameComponent("Mrinmoy")
+//        AnalyseComponent()
+//        Row(
+//            modifier = Modifier.fillMaxWidth(),
+//            horizontalArrangement = Arrangement.SpaceEvenly
+//        ) {
+//            IconComponent(icon = painterResource(id = R.drawable.social),
+//                label = "Socials",
+//                color = colorResource(id = R.color.supporting_color1), onClick = {})
+//            IconComponent(icon = painterResource(id = R.drawable.payment_icon1),
+//                label = "Payments",
+//                color = colorResource(id = R.color.supporting_color2), onClick = {})
+//        }
+//        Row(
+//            modifier = Modifier.fillMaxWidth(),
+//            horizontalArrangement = Arrangement.SpaceEvenly
+//        ) {
+//            IconComponent(icon = painterResource(id = R.drawable.application_icon1),
+//                label = "Apps",
+//                color = colorResource(id = R.color.supporting_color1), onClick = {})
+//            IconComponent(icon = painterResource(id = R.drawable.notes_icon),
+//                label = "Notes",
+//                color = colorResource(id = R.color.supporting_color2), onClick = {})
+//        }
+//    }
+//}
 
 
 

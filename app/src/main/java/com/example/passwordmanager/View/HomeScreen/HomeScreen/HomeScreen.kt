@@ -46,6 +46,8 @@ fun HomeScreen() {
 
                 AnalyseComponent()
 
+
+                // 3. Buttons Row 1
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
@@ -58,6 +60,7 @@ fun HomeScreen() {
                         color = colorResource(id = R.color.supporting_color2), onClick = {})
                 }
 
+                // 4. Buttons Row 2
                 Row(
                     modifier = Modifier.fillMaxWidth(),
                     horizontalArrangement = Arrangement.SpaceAround
