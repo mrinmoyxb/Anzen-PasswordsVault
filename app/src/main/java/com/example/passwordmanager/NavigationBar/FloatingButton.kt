@@ -4,6 +4,9 @@ import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.offset
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.shape.CircleShape
 import androidx.compose.material.icons.Icons
@@ -26,7 +29,10 @@ fun FloatingButton(){
     FloatingActionButton(onClick = { /*TODO*/ },
         shape = CircleShape,
         containerColor = Color.White,
-        modifier = Modifier.size(80.dp)
+        modifier = Modifier
+            .size(80.dp)
+            .offset(y = -30.dp),
+        elevation = FloatingActionButtonDefaults.elevation(10.dp)
         ) {
             Icon(painter = painterResource(id = R.drawable.plus),
                 contentDescription = "new password",

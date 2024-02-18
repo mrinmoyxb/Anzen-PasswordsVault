@@ -44,7 +44,6 @@ fun MainScreen(){
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {ButtonBar(navController)},
-        floatingActionButton = { FloatingButton()},
         modifier = Modifier.navigationBarsPadding()
     ){
         BottomNavGraph(navController = navController)
