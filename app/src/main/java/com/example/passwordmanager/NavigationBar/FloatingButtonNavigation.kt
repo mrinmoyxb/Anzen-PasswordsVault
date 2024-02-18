@@ -10,14 +10,14 @@ import com.example.passwordmanager.View.HomeScreen.HomeScreen.HomeScreen
 import com.example.passwordmanager.View.NewPassword.NewPasswordScreen.NewPasswordScreen
 
 
-@Composable
-fun FloatingButtonNavigation(navController:NavHostController){
-    NavHost(navController = navController, startDestination = "home"){
-        composable(route = "home"){
-            HomeScreen()
-        }
-        composable(route = "newPassword"){
-            NewPasswordScreen()
-        }
-    }
-}
+//@Composable
+//fun FloatingButtonNavigation(navController:NavHostController){
+//    NavHost(navController = navController, startDestination = "home"){
+//        composable(route = "home"){
+//            HomeScreen()
+//        }
+//        composable(route = "newPassword"){
+//            NewPasswordScreen()
+//        }
+//    }
+//}

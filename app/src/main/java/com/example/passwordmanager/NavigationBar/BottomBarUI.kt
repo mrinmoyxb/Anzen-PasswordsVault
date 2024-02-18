@@ -105,13 +105,13 @@ fun RowScope.AddItem(
             horizontalArrangement = Arrangement.spacedBy(4.dp)
         ) {
             Icon(
-                painter = painterResource(screen.icon),
+                painter = painterResource(screen.icon!!),
                 contentDescription = "icon",
                 tint = contentColor
             )
             AnimatedVisibility(visible = selected) {
                 Text(
-                    text = screen.icon_title,
+                    text = screen.icon_title!!,
                     color = contentColor,
                     fontFamily = inter,
                     fontWeight = FontWeight.Medium

@@ -35,15 +35,3 @@ fun FloatingButton(navController: NavHostController){
         }
     }
 
-
-@Preview(showBackground = true)
-@Composable
-fun dd(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-    ) {
-        //FloatingButton()
-    }
-}

@@ -29,4 +29,5 @@ sealed class BottomBarScreensData(
         icon_title = "Password Health",
         icon = R.drawable.shield
     )
+
 }

@@ -20,10 +20,10 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
+import androidx.navigation.NavHostController
 import androidx.navigation.compose.rememberNavController
 import com.example.passwordmanager.NavigationBar.ButtonBar
 import com.example.passwordmanager.NavigationBar.FloatingButton
-import com.example.passwordmanager.NavigationBar.FloatingButtonNavigation
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.HomeScreen.Components.AnalyseComponent
 import com.example.passwordmanager.View.HomeScreen.Components.IconComponent
@@ -31,12 +31,11 @@ import com.example.passwordmanager.View.HomeScreen.Components.NameComponent
 import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordNavigationCard
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
-@Preview(showBackground = true)
 @Composable
-fun HomeScreen() {
-    val navHomeController = rememberNavController()
+fun HomeScreen(navHostController: NavHostController) {
+
     Scaffold(
-        floatingActionButton = { FloatingButton(navController = navHomeController) }
+        floatingActionButton = { FloatingButton(navController = navHostController) }
     ) {
         LazyColumn(
             modifier = Modifier
@@ -77,7 +76,6 @@ fun HomeScreen() {
                         label = "Notes",
                         color = colorResource(id = R.color.supporting_color2), onClick = {})
                 }
-                FloatingButtonNavigation(navHomeController)
                 Spacer(modifier = Modifier.height(80.dp))
             }
         }
