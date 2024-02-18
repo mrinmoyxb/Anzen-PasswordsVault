@@ -35,7 +35,8 @@ fun ContentButton(state: String, label: String, modifier: Modifier = Modifier){
     ){
         Box(modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF5347E5))){
+            //.background(Color(0xFF5347E5))){
+            .background(Color.White)){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -46,7 +47,7 @@ fun ContentButton(state: String, label: String, modifier: Modifier = Modifier){
                 Text(state, fontSize = 25.sp,
                     fontFamily = inter,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White,
+                    color = Color.Black,
                     textAlign = TextAlign.Center
                 )
                 Column(
@@ -59,7 +60,7 @@ fun ContentButton(state: String, label: String, modifier: Modifier = Modifier){
                         fontSize = 15.sp,
                         fontFamily = inter,
                         fontWeight = FontWeight.Medium,
-                        color = Color.White,
+                        color = Color.Black,
                         textAlign = TextAlign.Center,
                     )
                 }

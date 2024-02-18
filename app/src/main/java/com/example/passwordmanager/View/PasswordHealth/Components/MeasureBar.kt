@@ -98,10 +98,10 @@ fun ComplexityBar(
         EmbeddedElements(
             bigText = 32,
             bigTextFontSize = 60,
-            bigTextColor = Color.Black,
+            bigTextColor = Color.White,
             bigTextSuffix = "%",
             smallText = "Complexity Score",
-            smallTextColor = Color.Black,
+            smallTextColor = Color.White,
             smallTextFontSize = 20
         )
     }

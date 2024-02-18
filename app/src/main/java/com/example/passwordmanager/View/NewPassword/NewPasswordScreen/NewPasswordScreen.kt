@@ -43,7 +43,7 @@ import androidx.wear.compose.material.MaterialTheme.colors
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.NewPassword.Componenets.DropDown
 import com.example.passwordmanager.View.NewPassword.Componenets.InputCard
-import com.example.passwordmanager.View.NewPassword.Componenets.NewPasswordScreenHeading
+import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.ui.theme.inter
 
 
@@ -58,8 +58,8 @@ fun NewPasswordScreen() {
             .padding(10.dp)
     ) {
         Spacer(modifier = Modifier.height(30.dp))
-        NewPasswordScreenHeading()
-        Spacer(modifier = Modifier.height(10.dp))
+        Heading("Add new", FontWeight.Medium, "Password", FontWeight.Bold)
+        //Spacer(modifier = Modifier.height(10.dp))
         Card(
             modifier = Modifier
                 .height(500.dp)
@@ -71,28 +71,39 @@ fun NewPasswordScreen() {
                 modifier = Modifier
                     .fillMaxSize()
                     .background(color = colorResource(R.color.brand_color), RoundedCornerShape(20.dp))
-                    .padding(15.dp)
+                    .padding(10.dp)
             ) {
                 Column(
                     modifier = Modifier.fillMaxSize()
                 ) {
-                    Text("Category", fontSize = 20.sp, color = Color.Black,
-                        fontFamily = inter, fontWeight = FontWeight.Bold)
+
+                    // 1. Category
+                    Text("Category", fontSize = 20.sp, color = Color.White,
+                        fontFamily = inter, fontWeight = FontWeight.SemiBold)
                     Spacer(modifier = Modifier.height(10.dp))
                     DropDown()
                     Spacer(modifier = Modifier.height(10.dp))
+
+
+                    // 2. Username
                     InputCard(
                         "Username",
                         "Enter Username",
                         painterResource(id = R.drawable.nerd_face)
                     )
                     Spacer(modifier = Modifier.height(10.dp))
+
+
+                    // 3. Email
                     InputCard(
                         "Email",
                         "Enter Email",
                         painterResource(id = R.drawable.email)
                     )
                     Spacer(modifier = Modifier.height(10.dp))
+
+
+                    // 4. Password
                     InputCard(
                         "Password",
                         "Enter Password",

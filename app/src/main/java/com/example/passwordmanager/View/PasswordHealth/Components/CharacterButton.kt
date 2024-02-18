@@ -45,7 +45,8 @@ fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier
     ){
         Box(modifier = Modifier
             .fillMaxSize()
-            .background(Color(0xFF5347E5))){
+            .background(Color.White)){
+            //.background(Color(0xFF5347E5))){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -56,14 +57,14 @@ fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier
                 Text(number, fontSize = 52.sp,
                     fontFamily = inter,
                     fontWeight = FontWeight.Bold,
-                    color = Color.White,
+                    color = Color.Black,
                     textAlign = TextAlign.Center
                 )
                 Text(label,
                     fontSize = 14.sp,
                     fontFamily = inter,
                     fontWeight = FontWeight.Medium,
-                    color = Color.White,
+                    color = Color.Black,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.offset(y=-8.dp)
                     )

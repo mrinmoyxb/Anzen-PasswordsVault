@@ -43,8 +43,8 @@ import com.example.passwordmanager.ui.theme.inter
 fun InputCard(heading: String, label: String, painter: Painter){
     var value by remember{mutableStateOf("")}
     Column() {
-                Text(heading, fontSize = 20.sp, color = Color.Black,
-                    fontFamily = inter, fontWeight = FontWeight.Bold)
+                Text(heading, fontSize = 20.sp, color = Color.White,
+                    fontFamily = inter, fontWeight = FontWeight.SemiBold)
                 Spacer(modifier = Modifier.height(8.dp))
                 Box(
                     modifier = Modifier

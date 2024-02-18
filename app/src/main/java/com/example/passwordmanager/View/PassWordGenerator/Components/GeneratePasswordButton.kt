@@ -29,7 +29,6 @@ import com.example.passwordmanager.ui.theme.inter
 fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
 
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
-    val p2 = listOf(Color(0xFFBEEBFF), Color(0xFF9DDFFF), Color(0xFF5A74FC))
     Card(
         modifier = Modifier
             .height(100.dp)

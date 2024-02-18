@@ -56,6 +56,7 @@ fun PasswordHealthScreen(){
     val complexityScore by viewModel._complexityScore.collectAsState(0.0f)
 
     val p1 = listOf(Color(0xFF42e695), Color(0xFF3bb2b8))
+    val p2 = listOf(Color(0xFF8E2DE2), Color(0xFF4A00E0))
 
     LazyColumn(
         modifier = Modifier
@@ -96,7 +97,7 @@ fun PasswordHealthScreen(){
                 Box(
                     modifier = Modifier
                         .fillMaxSize()
-                        .background(Brush.linearGradient(p1))
+                        .background(Brush.linearGradient(p2))
                         .padding(top = 10.dp, start = 2.dp, end = 2.dp)
                 ) {
                     Column(
