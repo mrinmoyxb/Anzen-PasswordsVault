@@ -13,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
+import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.foundation.text.KeyboardOptions
 import androidx.compose.material3.Card
@@ -44,6 +45,7 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.View.NewPassword.Componenets.DropDown
 import com.example.passwordmanager.View.NewPassword.Componenets.InputCard
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
+import com.example.passwordmanager.View.PasswordHealth.Components.CustomPasswordButton
 import com.example.passwordmanager.ui.theme.inter
 
 
@@ -51,66 +53,76 @@ import com.example.passwordmanager.ui.theme.inter
 @Composable
 fun NewPasswordScreen() {
 
-    Column(
+    LazyColumn(
         modifier = Modifier
             .fillMaxSize()
             .background(colorResource(id = R.color.black))
             .padding(10.dp)
     ) {
-        Spacer(modifier = Modifier.height(30.dp))
-        Heading("Add new", FontWeight.Medium, "Password", FontWeight.Bold)
-        //Spacer(modifier = Modifier.height(10.dp))
-        Card(
-            modifier = Modifier
-                .height(500.dp)
-                .fillMaxWidth(),
-            shape = RoundedCornerShape(20.dp),
-            colors = CardDefaults.cardColors(Color.Transparent)
-        ) {
-            Box(
+        item {
+            Spacer(modifier = Modifier.height(30.dp))
+            Heading("Add new", FontWeight.Medium, "Password", FontWeight.Bold)
+            Card(
                 modifier = Modifier
-                    .fillMaxSize()
-                    .background(color = colorResource(R.color.brand_color), RoundedCornerShape(20.dp))
-                    .padding(10.dp)
+                    .height(600.dp)
+                    .fillMaxWidth(),
+                shape = RoundedCornerShape(20.dp),
+                colors = CardDefaults.cardColors(Color.Transparent)
             ) {
-                Column(
-                    modifier = Modifier.fillMaxSize()
+                Box(
+                    modifier = Modifier
+                        .fillMaxSize()
+                        .background(
+                            color = colorResource(R.color.brand_color),
+                            RoundedCornerShape(20.dp)
+                        )
+                        .padding(10.dp)
                 ) {
+                    Column(
+                        //modifier = Modifier.fillMaxSize()
+                    ) {
 
-                    // 1. Category
-                    Text("Category", fontSize = 20.sp, color = Color.White,
-                        fontFamily = inter, fontWeight = FontWeight.SemiBold)
-                    Spacer(modifier = Modifier.height(10.dp))
-                    DropDown()
-                    Spacer(modifier = Modifier.height(10.dp))
-
-
-                    // 2. Username
-                    InputCard(
-                        "Username",
-                        "Enter Username",
-                        painterResource(id = R.drawable.nerd_face)
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
+                        // 1. Category
+                        Text(
+                            "Category", fontSize = 20.sp, color = Color.White,
+                            fontFamily = inter, fontWeight = FontWeight.SemiBold
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
+                        DropDown()
+                        Spacer(modifier = Modifier.height(10.dp))
 
 
-                    // 3. Email
-                    InputCard(
-                        "Email",
-                        "Enter Email",
-                        painterResource(id = R.drawable.email)
-                    )
-                    Spacer(modifier = Modifier.height(10.dp))
+                        // 2. Username
+                        InputCard(
+                            "Username",
+                            "Enter Username",
+                            painterResource(id = R.drawable.nerd_face)
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
 
 
-                    // 4. Password
-                    InputCard(
-                        "Password",
-                        "Enter Password",
-                        painterResource(id = R.drawable.lock_img)
-                    )
+                        // 3. Email
+                        InputCard(
+                            "Email",
+                            "Enter Email",
+                            painterResource(id = R.drawable.email)
+                        )
+                        Spacer(modifier = Modifier.height(10.dp))
+
+
+                        // 4. Password
+                        InputCard(
+                            "Password",
+                            "Enter Password",
+                            painterResource(id = R.drawable.lock_img)
+                        )
+                        Spacer(modifier = Modifier.height(22.dp))
+
+                        // 5. Add Password button
+                        CustomPasswordButton(text = "Save my password")
+                    }
+
                 }
-
             }
         }
     }

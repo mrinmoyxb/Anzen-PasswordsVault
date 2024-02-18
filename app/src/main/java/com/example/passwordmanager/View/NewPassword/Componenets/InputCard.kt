@@ -90,5 +90,5 @@ fun InputCard(heading: String, label: String, painter: Painter){
                         ),
                     )
                 }
-    }
+        }
 }

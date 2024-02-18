@@ -48,7 +48,6 @@ fun IconComponent(
     onClick: () -> Unit,
     ) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
-    val p2 = listOf(Color(0xFF4A00E0), Color(0xFF8E2DE2))
     Card(
         modifier = Modifier
             .width(200.dp)

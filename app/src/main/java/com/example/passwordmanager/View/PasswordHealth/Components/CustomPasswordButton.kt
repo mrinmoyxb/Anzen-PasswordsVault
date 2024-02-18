@@ -19,11 +19,10 @@ import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
-fun GeneratePasswordHealth() {
+fun CustomPasswordButton(text: String) {
 
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
 
@@ -46,7 +45,7 @@ fun GeneratePasswordHealth() {
 
         ) {
             Text(
-                "Generate Password",
+                text,
                 fontSize = 23.sp,
                 color = Color.White,
                 fontFamily = inter,
