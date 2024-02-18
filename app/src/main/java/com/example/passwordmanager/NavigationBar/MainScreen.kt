@@ -44,6 +44,7 @@ fun MainScreen(){
     val navController = rememberNavController()
     Scaffold(
         bottomBar = {ButtonBar(navController)},
+        floatingActionButton = { FloatingButton()},
         modifier = Modifier.navigationBarsPadding()
     ){
         BottomNavGraph(navController = navController)
@@ -56,91 +57,4 @@ fun BottomNavPreview() {
     MainScreen()
 }
 
-@SuppressLint("SuspiciousIndentation")
-@Composable
-fun ButtonBar(navController: NavHostController) {
-    Column(
-        modifier = Modifier
-            .fillMaxWidth()
-            .background(Color.Black),
-        verticalArrangement = Arrangement.Center,
-        horizontalAlignment = Alignment.CenterHorizontally
-    )
-    {
-        val screens = listOf(
-            BottomBarScreens.Home,
-            BottomBarScreens.PasswordGenerator,
-            BottomBarScreens.PasswordHealth
-        )
-        val navBackStackEntry by navController.currentBackStackEntryAsState()
-        val currentDestination = navBackStackEntry?.destination
 
-            Row(
-                modifier = Modifier
-                    .padding(start = 10.dp, end = 10.dp, top = 8.dp, bottom = 8.dp)
-                    .fillMaxWidth().height(70.dp)
-                    .clip(RoundedCornerShape(50.dp))
-                    .background(Color(0xFFFFFFFF)),
-                horizontalArrangement = Arrangement.SpaceEvenly,
-                verticalAlignment = Alignment.CenterVertically
-            ) {
-                screens.forEach { screen ->
-                    AddItem(
-                        screen = screen,
-                        currentDestination = currentDestination,
-                        navController = navController
-                    )
-
-                }
-            }
-        }
-    }
-
-
-@Composable
-fun RowScope.AddItem(
-    screen: BottomBarScreens,
-    currentDestination: NavDestination?,
-    navController: NavHostController
-){
-    val selected = currentDestination?.hierarchy?.any{
-        it.route==screen.route
-    } == true
-
-    val background = if(selected) Color.Black else Color.White
-    val contentColor = if(selected) Color.White else Color.Black
-
-    Box(
-        modifier = Modifier
-            .height(40.dp)
-            .clip(CircleShape)
-            .background(background)
-            .clickable(onClick = {
-                navController.navigate(screen.route) {
-                    popUpTo(navController.graph.findStartDestination().id)
-                    launchSingleTop = true
-                }
-            })
-    ) {
-        Row(
-            modifier = Modifier
-                .padding(start = 10.dp, end = 10.dp, top = 8.dp, bottom = 8.dp),
-            verticalAlignment = Alignment.CenterVertically,
-            horizontalArrangement = Arrangement.spacedBy(4.dp)
-        ) {
-            Icon(
-                painter = painterResource(screen.icon),
-                contentDescription = "icon",
-                tint = contentColor
-            )
-                AnimatedVisibility(visible = selected) {
-                    Text(
-                        text = screen.icon_title,
-                        color = contentColor,
-                        fontFamily = inter,
-                        fontWeight = FontWeight.Medium
-                    )
-                }
-        }
-    }
-}
