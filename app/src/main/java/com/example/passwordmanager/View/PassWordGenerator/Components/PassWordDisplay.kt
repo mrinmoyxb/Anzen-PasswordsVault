@@ -36,7 +36,7 @@ import com.example.passwordmanager.ui.theme.inter
 @Composable
 fun PassWordDisplay(password: String){
 
-    val p1 = listOf(/*Color(0xFF40A2E3),*/ Color(0xFF8E2DE2), Color(0xFF4A00E0))
+    val p1 = listOf(Color(0xFF8E2DE2), Color(0xFF4A00E0))
     Card(
         modifier = Modifier
             .fillMaxWidth()
