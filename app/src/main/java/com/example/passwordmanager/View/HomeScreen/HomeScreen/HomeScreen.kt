@@ -58,10 +58,10 @@ fun HomeScreen(navHostController: NavHostController) {
                 ) {
                     IconComponent(icon = painterResource(id = R.drawable.social),
                         label = "Socials",
-                        color = colorResource(id = R.color.supporting_color1), onClick = {})
+                        color = colorResource(id = R.color.supporting_color1), navHostController, "savedPasswordSocial")
                     IconComponent(icon = painterResource(id = R.drawable.payment_icon1),
                         label = "Payments",
-                        color = colorResource(id = R.color.supporting_color2), onClick = {})
+                        color = colorResource(id = R.color.supporting_color2), navHostController, "savedPasswordPayments")
                 }
 
                 // 4. Buttons Row 2
@@ -71,10 +71,10 @@ fun HomeScreen(navHostController: NavHostController) {
                 ) {
                     IconComponent(icon = painterResource(id = R.drawable.application_icon1),
                         label = "Apps",
-                        color = colorResource(id = R.color.supporting_color2), onClick = {})
+                        color = colorResource(id = R.color.supporting_color2), navHostController, "savedPasswordApps")
                     IconComponent(icon = painterResource(id = R.drawable.notes_icon),
                         label = "Notes",
-                        color = colorResource(id = R.color.supporting_color2), onClick = {})
+                        color = colorResource(id = R.color.supporting_color2), navHostController, "savedPasswordDocuments")
                 }
                 Spacer(modifier = Modifier.height(80.dp))
             }

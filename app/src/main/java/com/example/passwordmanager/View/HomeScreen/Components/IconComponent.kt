@@ -36,6 +36,7 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.navigation.NavHostController
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ui.theme.inter
 
@@ -45,7 +46,8 @@ fun IconComponent(
     icon: Painter,
     label: String,
     color: Color,
-    onClick: () -> Unit,
+    navHostController: NavHostController,
+    route: String
     ) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
     Card(
@@ -53,7 +55,7 @@ fun IconComponent(
             .width(200.dp)
             .height(200.dp)
             .padding(10.dp)
-            .clickable {},
+            .clickable {navHostController.navigate(route)},
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent)
     ) {
