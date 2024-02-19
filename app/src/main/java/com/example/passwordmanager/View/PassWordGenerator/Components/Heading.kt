@@ -30,7 +30,7 @@ import com.example.passwordmanager.ui.theme.inter
 @Composable
 fun Heading(text1: String, fontweight1: FontWeight, text2: String, fontweight2: FontWeight) {
     Column(
-        modifier = Modifier.fillMaxWidth().padding(10.dp),
+        modifier = Modifier.fillMaxWidth()
         ) {
                 Text(
                     text = text1,

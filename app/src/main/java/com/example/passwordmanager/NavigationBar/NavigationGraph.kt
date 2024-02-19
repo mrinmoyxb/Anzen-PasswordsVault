@@ -8,6 +8,7 @@ import com.example.passwordmanager.View.HomeScreen.HomeScreen.HomeScreen
 import com.example.passwordmanager.View.NewPassword.NewPasswordScreen.NewPasswordScreen
 import com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScreen.PasswordGeneratorScreen
 import com.example.passwordmanager.View.PasswordHealth.PasswordHealthScreen.PasswordHealthScreen
+import com.example.passwordmanager.View.SavedPasswords.SavePasswordScreens.SavedPasswordScreen
 
 @Composable
 fun BottomNavGraph(navController: NavHostController){
@@ -26,6 +27,9 @@ fun BottomNavGraph(navController: NavHostController){
         }
         composable(route = "newPassword"){
             NewPasswordScreen()
+        }
+        composable(route = "savedPassword"){
+            SavedPasswordScreen()
         }
     }
 }
