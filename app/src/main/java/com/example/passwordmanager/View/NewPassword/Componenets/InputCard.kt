@@ -64,6 +64,7 @@ fun InputCard(heading: String, label: String, painter: Painter){
                         placeholder = {
                             Text(
                                 label,
+                                fontSize = 13.sp,
                                 color = Color.Black,
                                 fontFamily = inter,
                                 fontWeight = FontWeight.Medium
