@@ -26,6 +26,6 @@ There are three main objectives of this project:
 ## 🧑‍💻 What I Learned
 ## ✨ Contributions
 
-Contributions are welcome! If you’d like to add new feature or improve existing ones, feel free to submit a pull request. Drop a like and followe me on the github.
+Contributions are welcome! If you’d like to add new feature or improve existing ones, feel free to submit a pull request. Drop a like and follow me on the github.
 
 Happy coding! 🚀
