@@ -38,28 +38,29 @@ fun PasswordHealth(length: Int) {
     var pass_statement: String = ""
 
     when (length) {
-        in 5..7 -> {
-            pass_state = "Very weak"; pass_color = colorResource(id = R.color.red); pass_statement =
-                "Seconds to minutes"
+        in 1..7 -> {
+            pass_state = "Very weak"; pass_color = colorResource(id = R.color.red);
+            pass_statement = "Seconds to minutes"
         }
 
         in 8..10 -> {
-            pass_state = "Weak"; pass_color = colorResource(id = R.color.orange); pass_statement =
-                "Hours to Days"
+            pass_state = "Weak"; pass_color = colorResource(id = R.color.orange);
+            pass_statement = "Hours to Days"
         }
 
         in 11..13 -> {
-            pass_state = "Good"; pass_color = colorResource(id = R.color.yellow); pass_statement =
-                "Months to years"
+            pass_state = "Good"; pass_color = colorResource(id = R.color.yellow);
+            pass_statement = "Months to years"
         }
 
         in 14..20 -> {
-            pass_state = "Strong"; pass_color = colorResource(id = R.color.green); pass_statement =
-                "Centuries"
+            pass_state = "Strong"; pass_color = colorResource(id = R.color.green);
+            pass_statement = "Centuries"
         }
 
         else -> {
-            ""
+            pass_state = "...";
+            pass_statement = "..."
         }
     }
 

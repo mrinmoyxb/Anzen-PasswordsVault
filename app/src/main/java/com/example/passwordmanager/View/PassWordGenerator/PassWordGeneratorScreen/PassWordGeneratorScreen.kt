@@ -55,6 +55,7 @@ fun PasswordGeneratorScreen() {
 
     val viewModel: PasswordGeneratorViewModel = viewModel()
     val generatedPassword by viewModel.generatedPassword.collectAsState("")
+    val specialCase by viewModel._specialCase.collectAsState()
     val clipboardManager = LocalClipboardManager.current
     val context  = LocalContext.current
 
@@ -89,7 +90,7 @@ fun PasswordGeneratorScreen() {
                 modifier = Modifier.fillMaxWidth(),
                 horizontalArrangement = Arrangement.SpaceEvenly
             ) {
-                GeneratePasswordButton(viewModel)
+                GeneratePasswordButton(viewModel, context, specialCase)
                 Spacer(modifier = Modifier.width(5.dp))
                 CopyButton(generatedPassword, clipboardManager, context)
             }

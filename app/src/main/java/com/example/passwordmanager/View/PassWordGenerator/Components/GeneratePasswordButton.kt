@@ -1,5 +1,7 @@
 package com.example.passwordmanager.View.PassWordGenerator.Components
 
+import android.content.Context
+import android.widget.Toast
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Box
@@ -26,7 +28,7 @@ import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGenerator
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
-fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
+fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel, context: Context, specialCase: Boolean) {
 
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
     Card(
@@ -35,7 +37,8 @@ fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel) {
             .fillMaxWidth(0.7f)
             .offset(x=-1.dp)
             .clickable{
-                      viewModel.generateRandomPassword()
+                viewModel.generateRandomPassword()
+                Toast.makeText(context, "Please select an option", Toast.LENGTH_SHORT).show()
             },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent),

@@ -1,10 +1,14 @@
 package com.example.passwordmanager.ViewModel.PasswordGenerator
 
+import android.widget.Toast
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
+import kotlinx.coroutines.launch
 import kotlin.random.Random
 
 class PasswordGeneratorViewModel: ViewModel() {
@@ -27,12 +31,13 @@ class PasswordGeneratorViewModel: ViewModel() {
     var lengthState = MutableStateFlow(8)
     val _lengthState: StateFlow<Int> = lengthState
 
+    var specialCase = MutableStateFlow(false)
+    val _specialCase: StateFlow<Boolean> = specialCase
 
     val lowercase = ('a'..'z').toList()
     val uppercase = ('A'..'Z').toList()
     val numbers = ('0'..'9').toList()
     val symbols = listOf<Char>('!', '@', '#', '$', '%', '^', '&', '*', '(', ')', '-', '_', '+','=','{','}','[',']','|','\\',':',';','"','\'','<','>', '.', ',', '?')
-
 
     fun uppercaseOnClick() {
         uppercaseState.value = !uppercaseState.value
@@ -50,8 +55,8 @@ class PasswordGeneratorViewModel: ViewModel() {
         numberState.value = !numberState.value
     }
 
-    
     fun generateRandomPassword() {
+        viewModelScope.launch {
             val characters = mutableListOf<Char>()
             if (_lowercaseState.value) {
                 characters.addAll('a'..'z')
@@ -68,6 +73,9 @@ class PasswordGeneratorViewModel: ViewModel() {
             if (_numberState.value) {
                 characters.addAll('0'..'9')
             }
+            if(!lowercaseState.value && !uppercaseState.value && !symbolState.value && !numberState.value){
+                specialCase.value = true
+            }
 
             val random = Random
             val password =
@@ -76,6 +84,7 @@ class PasswordGeneratorViewModel: ViewModel() {
             generatedPassword.value = password
         }
     }
+}
 
 
 
