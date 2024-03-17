@@ -23,38 +23,20 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.ui.theme.inter
 
-@Composable
-fun CustomPasswordButton(text: String, onClick:() -> Unit) {
-
-    val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
-    val context = LocalContext.current
-
-    Card(
-        modifier = Modifier
-            .height(100.dp)
-            .fillMaxWidth()
-            .offset(x=-1.dp)
-            .clickable{
-                      onClick
-                Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
-            },
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(Color.Transparent),
-    ) {
-        Box(
-            modifier = Modifier
-                .fillMaxSize()
-                .background(Brush.linearGradient(p1)),
-            contentAlignment = Alignment.Center
-
-        ) {
-            Text(
-                text,
-                fontSize = 23.sp,
-                color = Color.White,
-                fontFamily = inter,
-                fontWeight = FontWeight.Medium,
-            )
-        }
-    }
-}
+//@Composable
+//fun CustomPasswordButton(text: String, onClick:() -> Unit) {
+//
+//    val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
+//    val context = LocalContext.current
+//
+//    Card(modifier = Modifier.height(100.dp).fillMaxWidth().offset(x=-1.dp).clickable{ onClick
+//                Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show() },
+//        shape = RoundedCornerShape(20.dp),
+//        colors = CardDefaults.cardColors(Color.Transparent),
+//    ) {
+//        Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1)), contentAlignment = Alignment.Center) {
+//            Text(text, fontSize = 23.sp, color = Color.White, fontFamily = inter, fontWeight = FontWeight.Medium,
+//            )
+//        }
+//    }
+//}

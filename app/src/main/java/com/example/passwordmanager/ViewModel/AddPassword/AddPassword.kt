@@ -7,7 +7,7 @@ import com.example.passwordmanager.Model.Database.PasswordEntity
 import kotlinx.coroutines.flow.Flow
 import kotlinx.coroutines.launch
 
-class AddPassword(private val passwordDao: PasswordDao): ViewModel() {
+class AddPasswordViewModel(private val passwordDao: PasswordDao): ViewModel() {
     fun addPasswordToDatabase(category: String, appName: String, userName: String, email: String, password: String) {
         viewModelScope.launch {
             passwordDao.insertIntoDatabase(PasswordEntity(0, category, appName, userName, email, password))

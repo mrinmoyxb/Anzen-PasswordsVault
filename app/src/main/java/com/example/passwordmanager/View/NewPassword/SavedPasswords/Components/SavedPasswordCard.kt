@@ -25,7 +25,6 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme.colors
 import com.example.passwordmanager.Model.Database.PasswordEntity
-import com.example.passwordmanager.ViewModel.AddPassword.AddPassword
 
 
 @Composable

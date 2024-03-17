@@ -12,17 +12,17 @@ import com.example.passwordmanager.View.NewPassword.NewPasswordScreen.NewPasswor
 import com.example.passwordmanager.View.NewPassword.SavedPasswords.SavePasswordScreens.SavedPasswordScreen
 import com.example.passwordmanager.View.PassWordGenerator.PassWordGeneratorScreen.PasswordGeneratorScreen
 import com.example.passwordmanager.View.PasswordHealth.PasswordHealthScreen.PasswordHealthScreen
-import com.example.passwordmanager.ViewModel.AddPassword.AddPassword
+import com.example.passwordmanager.ViewModel.AddPassword.AddPasswordViewModel
 
 @Composable
 fun BottomNavGraph(navController: NavHostController){
     val context = LocalContext.current
-    val viewModel = AddPassword(PasswordDatabase.getInstance(context).passwordDao())
+    val viewModel = AddPasswordViewModel(PasswordDatabase.getInstance(context).passwordDao())
 
-    var getSocial = viewModel.getSocials.collectAsState(emptyList())
-    var getApp = viewModel.getApps.collectAsState(emptyList())
-    var getPayments = viewModel.getPayments.collectAsState(emptyList())
-    var getDocument = viewModel.getDocuments.collectAsState(emptyList())
+    val getApps = viewModel.getApps.collectAsState(emptyList())
+    val getDocuments = viewModel.getDocuments.collectAsState(emptyList())
+    val getSocials = viewModel.getSocials.collectAsState(emptyList())
+    val getPayments = viewModel.getPayments.collectAsState(emptyList())
 
     NavHost(navController = navController, startDestination = BottomBarScreensData.Home.route){
         composable(
@@ -41,21 +41,20 @@ fun BottomNavGraph(navController: NavHostController){
 
 
 
-
         composable(route = "newPassword"){
             NewPasswordScreen(viewModel)
         }
         composable(route = "savedPasswordSocial"){
-            SavedPasswordScreen(categoryName = "Social", getSocial.value)
+            SavedPasswordScreen(categoryName = "Social", getSocials.value)
         }
         composable(route = "savedPasswordApps"){
-            SavedPasswordScreen(categoryName = "Apps", getApp.value)
+            SavedPasswordScreen(categoryName = "Apps", getApps.value)
         }
         composable(route = "savedPasswordPayments"){
             SavedPasswordScreen(categoryName = "Payments", getPayments.value)
         }
         composable(route = "savedPasswordDocuments"){
-            SavedPasswordScreen(categoryName = "Documents", getDocument.value)
+            SavedPasswordScreen(categoryName = "Documents", getDocuments.value)
         }
     }
 }

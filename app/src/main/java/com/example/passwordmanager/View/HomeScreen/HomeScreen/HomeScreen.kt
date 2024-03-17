@@ -40,7 +40,6 @@ import com.example.passwordmanager.NavigationBar.ButtonBar
 import com.example.passwordmanager.NavigationBar.FloatingButton
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.HomeScreen.Components.AnalyseComponent
-import com.example.passwordmanager.View.HomeScreen.Components.IconComponent
 import com.example.passwordmanager.View.HomeScreen.Components.NameComponent
 import com.example.passwordmanager.View.PassWordGenerator.Components.PasswordNavigationCard
 import com.example.passwordmanager.ui.theme.inter
@@ -49,6 +48,7 @@ import com.example.passwordmanager.ui.theme.inter
 @Composable
 fun HomeScreen(navHostController: NavHostController) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
+
     Scaffold(
         floatingActionButton = { FloatingButton(navController = navHostController) }
     ) {
@@ -73,14 +73,36 @@ fun HomeScreen(navHostController: NavHostController) {
                 ) {
 
                     // Social
-                    Card(modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp).clickable { navHostController.navigate("savedPasswordSocial") },
-                        shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Color.Transparent)
+                    Card(
+                        modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp)
+                            .clickable { navHostController.navigate("savedPasswordSocial") },
+                        shape = RoundedCornerShape(20.dp),
+                        colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
-                        Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1), shape = RoundedCornerShape(20.dp))) {
-                            Column(modifier = Modifier.fillMaxSize().padding(start = 10.dp, bottom = 10.dp), verticalArrangement = Arrangement.Bottom
+                        Box(
+                            modifier = Modifier.fillMaxSize().background(
+                                Brush.linearGradient(p1),
+                                shape = RoundedCornerShape(20.dp)
+                            )
+                        ) {
+                            Column(
+                                modifier = Modifier.fillMaxSize()
+                                    .padding(start = 10.dp, bottom = 10.dp),
+                                verticalArrangement = Arrangement.Bottom
                             ) {
-                                Icon(painter = painterResource(id = R.drawable.social), contentDescription = "icon", modifier = Modifier.size(70.dp), tint = Color.White)
-                                Text("Social", fontSize = 20.sp, textAlign = TextAlign.Center, fontFamily = inter, fontWeight = FontWeight.Medium, color = Color.White
+                                Icon(
+                                    painter = painterResource(id = R.drawable.social),
+                                    contentDescription = "icon",
+                                    modifier = Modifier.size(70.dp),
+                                    tint = Color.White
+                                )
+                                Text(
+                                    "Social",
+                                    fontSize = 20.sp,
+                                    textAlign = TextAlign.Center,
+                                    fontFamily = inter,
+                                    fontWeight = FontWeight.Medium,
+                                    color = Color.White
                                 )
                             }
                         }
@@ -88,18 +110,40 @@ fun HomeScreen(navHostController: NavHostController) {
 
                     // Payments
                     Card(
-                        modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp).clickable { navHostController.navigate("savedPasswordPayments") },
-                        shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Color.Transparent)
+                        modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp)
+                            .clickable { navHostController.navigate("savedPasswordPayments") },
+                        shape = RoundedCornerShape(20.dp),
+                        colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
-                        Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1), shape = RoundedCornerShape(20.dp))) {
-                            Column(modifier = Modifier.fillMaxSize().padding(start = 10.dp, bottom = 10.dp), verticalArrangement = Arrangement.Bottom
+                        Box(
+                            modifier = Modifier.fillMaxSize().background(
+                                Brush.linearGradient(p1),
+                                shape = RoundedCornerShape(20.dp)
+                            )
+                        ) {
+                            Column(
+                                modifier = Modifier.fillMaxSize()
+                                    .padding(start = 10.dp, bottom = 10.dp),
+                                verticalArrangement = Arrangement.Bottom
                             ) {
-                                Icon(painter = painterResource(id = R.drawable.payment_icon1), contentDescription = "icon", modifier = Modifier.size(70.dp), tint = Color.White)
-                                Text("Payments", fontSize = 20.sp, textAlign = TextAlign.Center, fontFamily = inter, fontWeight = FontWeight.Medium, color = Color.White
+                                Icon(
+                                    painter = painterResource(id = R.drawable.payment_icon1),
+                                    contentDescription = "icon",
+                                    modifier = Modifier.size(70.dp),
+                                    tint = Color.White
+                                )
+                                Text(
+                                    "Payments",
+                                    fontSize = 20.sp,
+                                    textAlign = TextAlign.Center,
+                                    fontFamily = inter,
+                                    fontWeight = FontWeight.Medium,
+                                    color = Color.White
                                 )
                             }
                         }
                     }
+                }
 
                     // 4. Buttons Row 2
                     Row(
@@ -135,5 +179,4 @@ fun HomeScreen(navHostController: NavHostController) {
                 }
             }
         }
-    }
 }

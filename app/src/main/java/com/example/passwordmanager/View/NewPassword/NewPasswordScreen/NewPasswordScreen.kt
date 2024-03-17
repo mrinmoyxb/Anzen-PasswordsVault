@@ -3,6 +3,7 @@ package com.example.passwordmanager.View.NewPassword.NewPasswordScreen
 import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
+import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Box
 import androidx.compose.foundation.layout.Column
@@ -12,6 +13,7 @@ import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
 import androidx.compose.foundation.lazy.LazyColumn
@@ -31,6 +33,7 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
+import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.Key.Companion.I
 import androidx.compose.ui.platform.LocalContext
@@ -49,14 +52,15 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.View.NewPassword.Componenets.DropDown
 import com.example.passwordmanager.View.NewPassword.Componenets.InputCard
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
-import com.example.passwordmanager.View.PasswordHealth.Components.CustomPasswordButton
-import com.example.passwordmanager.ViewModel.AddPassword.AddPassword
+import com.example.passwordmanager.ViewModel.AddPassword.AddPasswordViewModel
 import com.example.passwordmanager.ui.theme.inter
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewPasswordScreen(viewModel: AddPassword) {
+fun NewPasswordScreen(viewModel: AddPasswordViewModel) {
+    val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
+    val context = LocalContext.current
 
     var category by remember { mutableStateOf("") }
     var appName by remember{mutableStateOf("")}
@@ -177,8 +181,15 @@ fun NewPasswordScreen(viewModel: AddPassword) {
                 Spacer(modifier = Modifier.height(10.dp))
 
                 // 6. Add Password button
-                CustomPasswordButton(text = "Save my password") {
-                    viewModel.addPasswordToDatabase("Social", appName, userName, email, password) }
+                Card(modifier = Modifier.height(100.dp).fillMaxWidth().offset(x= (-1).dp).clickable{ viewModel.addPasswordToDatabase(category, appName, userName, email, password)
+                    Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show() },
+                    shape = RoundedCornerShape(20.dp),
+                    colors = CardDefaults.cardColors(Color.Transparent),
+                ) {
+                    Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1)), contentAlignment = Alignment.Center) {
+                        Text("Save Password", fontSize = 23.sp, color = Color.White, fontFamily = inter, fontWeight = FontWeight.Medium)
+                    }
+                }
                 Spacer(modifier = Modifier.height(80.dp))
             }
 
@@ -187,11 +198,3 @@ fun NewPasswordScreen(viewModel: AddPassword) {
 
 }
 
-
-// 3. Username
-//                InputCard(value = userName,
-//                    onValueChange = { newValue -> userName = newValue },
-//                    "Username",
-//                    "Enter Username"
-//                )
-//                Spacer(modifier = Modifier.height(10.dp))

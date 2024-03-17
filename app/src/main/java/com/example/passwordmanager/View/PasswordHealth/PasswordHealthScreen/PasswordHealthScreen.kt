@@ -36,7 +36,6 @@ import com.example.passwordmanager.View.PasswordHealth.Components.CharacterButto
 import com.example.passwordmanager.View.PasswordHealth.Components.CheckHealthButton
 import com.example.passwordmanager.View.PasswordHealth.Components.ComplexityBar
 import com.example.passwordmanager.View.PasswordHealth.Components.ContentButton
-import com.example.passwordmanager.View.PasswordHealth.Components.CustomPasswordButton
 import com.example.passwordmanager.View.PasswordHealth.Components.InputPasswordBar
 import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealthViewModel
 import com.example.passwordmanager.ui.theme.inter
