@@ -45,16 +45,16 @@ fun BottomNavGraph(navController: NavHostController){
             NewPasswordScreen(viewModel)
         }
         composable(route = "savedPasswordSocial"){
-            SavedPasswordScreen(categoryName = "Social", getSocials.value)
+            SavedPasswordScreen(categoryName = "Social", getSocials.value, viewModel)
         }
         composable(route = "savedPasswordApps"){
-            SavedPasswordScreen(categoryName = "Apps", getApps.value)
+            SavedPasswordScreen(categoryName = "Apps", getApps.value, viewModel)
         }
         composable(route = "savedPasswordPayments"){
-            SavedPasswordScreen(categoryName = "Payments", getPayments.value)
+            SavedPasswordScreen(categoryName = "Payments", getPayments.value, viewModel)
         }
         composable(route = "savedPasswordDocuments"){
-            SavedPasswordScreen(categoryName = "Documents", getDocuments.value)
+            SavedPasswordScreen(categoryName = "Documents", getDocuments.value, viewModel)
         }
     }
 }

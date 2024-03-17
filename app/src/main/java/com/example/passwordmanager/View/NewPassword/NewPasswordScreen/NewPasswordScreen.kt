@@ -182,7 +182,12 @@ fun NewPasswordScreen(viewModel: AddPasswordViewModel) {
 
                 // 6. Add Password button
                 Card(modifier = Modifier.height(100.dp).fillMaxWidth().offset(x= (-1).dp).clickable{ viewModel.addPasswordToDatabase(category, appName, userName, email, password)
-                    Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show() },
+                    Toast.makeText(context, "Saved", Toast.LENGTH_SHORT).show()
+                    userName = ""
+                    appName = ""
+                    email = ""
+                    password = ""
+                    category = "" },
                     shape = RoundedCornerShape(20.dp),
                     colors = CardDefaults.cardColors(Color.Transparent),
                 ) {

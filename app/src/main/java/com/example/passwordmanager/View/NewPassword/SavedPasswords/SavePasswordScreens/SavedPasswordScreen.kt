@@ -13,7 +13,6 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.offset
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.layout.size
-import androidx.compose.foundation.layout.width
 import androidx.compose.foundation.lazy.LazyColumn
 import androidx.compose.foundation.lazy.LazyRow
 import androidx.compose.foundation.shape.CircleShape
@@ -26,29 +25,23 @@ import androidx.compose.material3.Divider
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
-import androidx.compose.runtime.collectAsState
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Brush
 import androidx.compose.ui.graphics.Color
-import androidx.compose.ui.platform.LocalContext
-import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.example.passwordmanager.Model.Database.PasswordDatabase
 import com.example.passwordmanager.Model.Database.PasswordEntity
-import com.example.passwordmanager.R
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
-import com.example.passwordmanager.View.NewPassword.SavedPasswords.Components.SavedPasswordCard
-import com.example.passwordmanager.ui.theme.inter
+import com.example.passwordmanager.ViewModel.AddPassword.AddPasswordViewModel
 
 
 @Composable
-fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>) {
-    val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
+fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>, viewModel: AddPasswordViewModel) {
+    //val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
+    val p1 = listOf(Color(0xFF8E2DE2), Color(0xFF4A00E0))
     Column(modifier = Modifier
         .fillMaxSize()
         .background(Color.Black)
@@ -67,7 +60,7 @@ fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
-                            .height(220.dp),
+                            .height(190.dp),
                         shape = RoundedCornerShape(20.dp),
                         colors = CardDefaults.cardColors(Color.Transparent)
                     ) {
@@ -103,7 +96,7 @@ fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>
                                             shape = CircleShape,
                                             modifier = Modifier.size(40.dp)
                                                 .background(Color.Transparent).offset(y = 8.dp)
-                                                .clickable { },
+                                                .clickable { viewModel.deletePasswordFromDatabase(password.id)},
                                             colors = CardDefaults.cardColors(Color.White)
                                         )
                                         {
@@ -189,6 +182,7 @@ fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>
                             }
                         }
                     }
+                    Spacer(modifier = Modifier.height(5.dp))
                 }
             }
         }
