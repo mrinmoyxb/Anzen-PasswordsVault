@@ -1,5 +1,6 @@
 package com.example.passwordmanager.View.NewPassword.NewPasswordScreen
 
+import android.widget.Toast
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Arrangement
@@ -32,6 +33,7 @@ import androidx.compose.ui.Modifier
 import androidx.compose.ui.draw.clip
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.input.key.Key.Companion.I
+import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
@@ -42,17 +44,25 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import androidx.wear.compose.material.MaterialTheme.colors
+import com.example.passwordmanager.Model.Database.PasswordDatabase
 import com.example.passwordmanager.R
 import com.example.passwordmanager.View.NewPassword.Componenets.DropDown
 import com.example.passwordmanager.View.NewPassword.Componenets.InputCard
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PasswordHealth.Components.CustomPasswordButton
+import com.example.passwordmanager.ViewModel.AddPassword.AddPassword
 import com.example.passwordmanager.ui.theme.inter
 
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun NewPasswordScreen() {
+fun NewPasswordScreen(viewModel: AddPassword) {
+
+    var category by remember { mutableStateOf("") }
+    var appName by remember{mutableStateOf("")}
+    var userName by remember{mutableStateOf("")}
+    var email by remember{mutableStateOf("")}
+    var password by remember{mutableStateOf("")}
 
     LazyColumn(
         modifier = Modifier
@@ -63,22 +73,7 @@ fun NewPasswordScreen() {
         item {
             Spacer(modifier = Modifier.height(30.dp))
             Heading("Add new", FontWeight.Medium, "Password", FontWeight.Bold)
-//            Card(
-//                modifier = Modifier
-//                    .height(600.dp)
-//                    .fillMaxWidth(),
-//                shape = RoundedCornerShape(20.dp),
-//                colors = CardDefaults.cardColors(Color.Transparent)
-//            ) {
-//                Box(
-//                    modifier = Modifier
-//                        .fillMaxSize()
-//                        .background(
-//                            color = colorResource(R.color.brand_color),
-//                            RoundedCornerShape(20.dp)
-//                        )
-//                        .padding(10.dp)
-//                ) {
+
             Column(
                 modifier = Modifier.fillMaxSize().padding(start=5.dp, end=5.dp)
             ) {
@@ -89,57 +84,114 @@ fun NewPasswordScreen() {
                     fontFamily = inter, fontWeight = FontWeight.SemiBold
                 )
                 Spacer(modifier = Modifier.height(10.dp))
-                DropDown()
+                category =  DropDown()
                 Spacer(modifier = Modifier.height(10.dp))
 
-                // 2. App Name
-                InputCard(
-                    "App name",
-                    "Enter application name",
-                    painterResource(id = R.drawable.application_icon1)
-                )
+                // 2. App Name:
+                Text("App name", fontSize = 20.sp, color = Color.White,
+                    fontFamily = inter, fontWeight = FontWeight.SemiBold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(40.dp))
+                        .fillMaxWidth()
+                        .height(60.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(20.dp))
+                ) {
+                    TextField(value = appName, onValueChange = {appName = it}, modifier = Modifier.fillMaxSize().padding(5.dp),
+                        placeholder = { Text("Enter your app name", fontSize = 13.sp, color = Color.Black, fontFamily = inter, fontWeight = FontWeight.Medium)},
+                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent, cursorColor = Color.Black,
+                            focusedIndicatorColor = Color.White, unfocusedIndicatorColor = Color.White),
+                        keyboardOptions = KeyboardOptions(KeyboardCapitalization.None, autoCorrect = true,
+                            keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
+                        ),
+                    )
+                }
                 Spacer(modifier = Modifier.height(10.dp))
 
-                // 3. Username
-                InputCard(
-                    "Username",
-                    "Enter Username",
-                    painterResource(id = R.drawable.nerd_face)
-                )
+                // 3. Username:
+                Text("Username", fontSize = 20.sp, color = Color.White,
+                    fontFamily = inter, fontWeight = FontWeight.SemiBold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(40.dp))
+                        .fillMaxWidth()
+                        .height(60.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(20.dp))
+                ) {
+                    TextField(value = userName, onValueChange = {userName = it}, modifier = Modifier.fillMaxSize().padding(5.dp),
+                        placeholder = { Text("Enter your username", fontSize = 13.sp, color = Color.Black, fontFamily = inter, fontWeight = FontWeight.Medium)},
+                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent, cursorColor = Color.Black,
+                            focusedIndicatorColor = Color.White, unfocusedIndicatorColor = Color.White),
+                        keyboardOptions = KeyboardOptions(KeyboardCapitalization.None, autoCorrect = true,
+                            keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
+                        ),
+                    )
+                }
+                Spacer(modifier = Modifier.height(10.dp))
+
+                // 4. Email:
+                Text("Email", fontSize = 20.sp, color = Color.White,
+                    fontFamily = inter, fontWeight = FontWeight.SemiBold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(40.dp))
+                        .fillMaxWidth()
+                        .height(60.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(20.dp))
+                ) {
+                    TextField(value = email, onValueChange = {email = it}, modifier = Modifier.fillMaxSize().padding(5.dp),
+                        placeholder = { Text("Enter your email", fontSize = 13.sp, color = Color.Black, fontFamily = inter, fontWeight = FontWeight.Medium)},
+                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent, cursorColor = Color.Black,
+                            focusedIndicatorColor = Color.White, unfocusedIndicatorColor = Color.White),
+                        keyboardOptions = KeyboardOptions(KeyboardCapitalization.None, autoCorrect = true,
+                            keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
+                        ),
+                    )
+                }
                 Spacer(modifier = Modifier.height(10.dp))
 
 
-                // 4. Email
-                InputCard(
-                    "Email",
-                    "Enter Email",
-                    painterResource(id = R.drawable.email)
-                )
+                // 5. Password:
+                Text("Password", fontSize = 20.sp, color = Color.White,
+                    fontFamily = inter, fontWeight = FontWeight.SemiBold)
+                Spacer(modifier = Modifier.height(8.dp))
+                Box(
+                    modifier = Modifier
+                        .clip(RoundedCornerShape(40.dp))
+                        .fillMaxWidth()
+                        .height(60.dp)
+                        .background(color = Color.White, shape = RoundedCornerShape(20.dp))
+                ) {
+                    TextField(value = password, onValueChange = {password = it}, modifier = Modifier.fillMaxSize().padding(5.dp),
+                        placeholder = { Text("Enter your password", fontSize = 13.sp, color = Color.Black, fontFamily = inter, fontWeight = FontWeight.Medium)},
+                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent, cursorColor = Color.Black,
+                            focusedIndicatorColor = Color.White, unfocusedIndicatorColor = Color.White),
+                        keyboardOptions = KeyboardOptions(KeyboardCapitalization.None, autoCorrect = true,
+                            keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
+                        ),
+                    )
+                }
                 Spacer(modifier = Modifier.height(10.dp))
-
-
-                // 5. Password
-                InputCard(
-                    "Password",
-                    "Enter Password",
-                    painterResource(id = R.drawable.lock_img)
-                )
-                Spacer(modifier = Modifier.height(22.dp))
 
                 // 6. Add Password button
-                CustomPasswordButton(text = "Save my password")
+                CustomPasswordButton(text = "Save my password") {
+                    viewModel.addPasswordToDatabase("Social", appName, userName, email, password) }
                 Spacer(modifier = Modifier.height(80.dp))
             }
 
         }
     }
-//        }
-//    }
-//}
+
 }
 
-@Preview(showBackground = true)
-@Composable
-fun NewPasswordScreenDisplay(){
-    NewPasswordScreen()
-}
+
+// 3. Username
+//                InputCard(value = userName,
+//                    onValueChange = { newValue -> userName = newValue },
+//                    "Username",
+//                    "Enter Username"
+//                )
+//                Spacer(modifier = Modifier.height(10.dp))

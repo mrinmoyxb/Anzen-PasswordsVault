@@ -136,7 +136,7 @@ fun PasswordHealthScreen(){
 
             // Generate Password:
             Spacer(modifier = Modifier.height(10.dp))
-            CustomPasswordButton("Generate Password")
+            //CustomPasswordButton("Generate Password")
             Spacer(modifier = Modifier.height(80.dp))
         }
 

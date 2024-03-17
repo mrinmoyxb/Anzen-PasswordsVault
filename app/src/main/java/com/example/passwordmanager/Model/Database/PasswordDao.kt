@@ -13,19 +13,19 @@ interface PasswordDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     suspend fun insertIntoDatabase(pass: PasswordEntity)
 
-    @Query("DELETE FROM passwordsTable WHERE id = :id")
+    @Query("DELETE FROM passwordentity WHERE id = :id")
     suspend fun deleteFromDatabase(id: Int)
 
-    @Query("SELECT *FROM passwordsTable WHERE category = 'Social'")
+    @Query("SELECT *FROM passwordentity WHERE category = 'Social'")
     fun showSocials(): Flow<List<PasswordEntity>>
 
-    @Query("SELECT *FROM passwordsTable WHERE category = 'Payment'")
+    @Query("SELECT *FROM passwordentity WHERE category = 'Payment'")
     fun showPayments(): Flow<List<PasswordEntity>>
 
-    @Query("SELECT *FROM passwordsTable WHERE category = 'App'")
+    @Query("SELECT *FROM passwordentity WHERE category = 'App'")
     fun showApps(): Flow<List<PasswordEntity>>
 
-    @Query("SELECT *FROM passwordsTable WHERE category = 'Document'")
+    @Query("SELECT *FROM passwordentity WHERE category = 'Document'")
     fun showDocuments(): Flow<List<PasswordEntity>>
 
 }

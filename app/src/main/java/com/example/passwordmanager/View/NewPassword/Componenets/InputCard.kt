@@ -35,13 +35,13 @@ import androidx.compose.ui.text.input.KeyboardCapitalization
 import androidx.compose.ui.text.input.KeyboardType
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.wear.compose.material.MaterialTheme.colors
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ui.theme.inter
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun InputCard(heading: String, label: String, painter: Painter){
-    var value by remember{mutableStateOf("")}
+fun InputCard(value: String, onValueChange: (newValue: String) -> Unit, heading: String, label: String, /*painter: Painter*/){
     Column() {
                 Text(heading, fontSize = 20.sp, color = Color.White,
                     fontFamily = inter, fontWeight = FontWeight.SemiBold)
@@ -53,41 +53,12 @@ fun InputCard(heading: String, label: String, painter: Painter){
                         .height(60.dp)
                         .background(color = Color.White, shape = RoundedCornerShape(20.dp))
                 ) {
-                    TextField(
-                        value = value,
-                        onValueChange = { it ->
-                            value = it
-                        },
-                        modifier = Modifier
-                            .fillMaxSize()
-                            .padding(5.dp),
-                        placeholder = {
-                            Text(
-                                label,
-                                fontSize = 13.sp,
-                                color = Color.Black,
-                                fontFamily = inter,
-                                fontWeight = FontWeight.Medium
-                        )
-                        },
-                        leadingIcon = {
-                            Image(
-                                painter = painter,
-                                contentDescription = "nerd_icon",
-                                modifier = Modifier.size(35.dp)
-                            )
-                        },
-                        colors = TextFieldDefaults.textFieldColors(
-                            containerColor = Color.Transparent,
-                            cursorColor = Color.Black,
-                            focusedIndicatorColor = Color.White,
-                            unfocusedIndicatorColor = Color.White
-                        ),
-                        keyboardOptions = KeyboardOptions(
-                            KeyboardCapitalization.None,
-                            autoCorrect = true,
-                            keyboardType = KeyboardType.Text,
-                            imeAction = ImeAction.Next
+                    TextField(value = value, onValueChange = onValueChange, modifier = Modifier.fillMaxSize().padding(5.dp),
+                        placeholder = { Text(label, fontSize = 13.sp, color = Color.Black, fontFamily = inter, fontWeight = FontWeight.Medium)},
+                        colors = TextFieldDefaults.textFieldColors(containerColor = Color.Transparent, cursorColor = Color.Black,
+                            focusedIndicatorColor = Color.White, unfocusedIndicatorColor = Color.White),
+                        keyboardOptions = KeyboardOptions(KeyboardCapitalization.None, autoCorrect = true,
+                            keyboardType = KeyboardType.Text, imeAction = ImeAction.Next
                         ),
                     )
                 }

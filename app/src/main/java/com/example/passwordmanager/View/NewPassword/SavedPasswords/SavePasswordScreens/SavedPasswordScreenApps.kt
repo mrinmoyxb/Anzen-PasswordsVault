@@ -1,4 +1,4 @@
-package com.example.passwordmanager.View.SavedPasswords.SavePasswordScreens
+package com.example.passwordmanager.View.NewPassword.SavedPasswords.SavePasswordScreens
 
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Column
@@ -16,12 +16,12 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
-import com.example.passwordmanager.View.SavedPasswords.Components.SavedPasswordCard
+import com.example.passwordmanager.View.NewPassword.SavedPasswords.Components.SavedPasswordCard
 import com.example.passwordmanager.ui.theme.inter
 
 
 @Composable
-fun SavedPasswordScreenSocial(categoryName: String){
+fun SavedPasswordScreenApps(categoryName: String){
     LazyColumn(
         modifier = Modifier
             .fillMaxSize()
@@ -37,18 +37,18 @@ fun SavedPasswordScreenSocial(categoryName: String){
                 fontweight2 = FontWeight.Bold
             )
             //Spacer(modifier = Modifier.height(5.dp))
-            Text(categoryName, fontSize = 22.sp, fontFamily = inter, fontWeight = FontWeight.SemiBold, color = Color.White)
+            Text("categoryName", fontSize = 22.sp, fontFamily = inter, fontWeight = FontWeight.SemiBold, color = Color.White)
             Spacer(modifier = Modifier.height(5.dp))
 
-            SavedPasswordCard("Instagram", "mrinmoy@gmail.com", "mrinxb", "123")
-            Spacer(modifier = Modifier.height(10.dp))
-            SavedPasswordCard("Pintrest", "mrinmoy@gmail.com", "mrinxbpin", "12345wedfk")
-            Spacer(modifier = Modifier.height(10.dp))
-            SavedPasswordCard("Facebook", "mrinmoy@gmail.com", "mrinxbfb", "#jfjg123")
-            Spacer(modifier = Modifier.height(10.dp))
-            SavedPasswordCard("Facebook", "mrinmoy@gmail.com", "mrinxbfb", "#jfjg123")
-            Spacer(modifier = Modifier.height(10.dp))
-            SavedPasswordCard("Facebook", "mrinmoy@gmail.com", "mrinxbfb", "#jfjg123")
+//            SavedPasswordCard("Instagram", "mrinmoy@gmail.com", "mrinxb", "123")
+//            Spacer(modifier = Modifier.height(10.dp))
+//            SavedPasswordCard("Pintrest", "mrinmoy@gmail.com", "mrinxbpin", "12345wedfk")
+//            Spacer(modifier = Modifier.height(10.dp))
+//            SavedPasswordCard("Facebook", "mrinmoy@gmail.com", "mrinxbfb", "#jfjg123")
+//            Spacer(modifier = Modifier.height(10.dp))
+//            SavedPasswordCard("Facebook", "mrinmoy@gmail.com", "mrinxbfb", "#jfjg123")
+//            Spacer(modifier = Modifier.height(10.dp))
+//            SavedPasswordCard("Facebook", "mrinmoy@gmail.com", "mrinxbfb", "#jfjg123")
         }
     }
 }
@@ -56,14 +56,14 @@ fun SavedPasswordScreenSocial(categoryName: String){
 
 @Preview(showBackground = true)
 @Composable
-fun DisplayCards(){
+fun DisplayCards1(){
     Column(
         modifier = Modifier
             .fillMaxSize()
             .background(Color.Black)
             .padding(10.dp)
     ) {
-        SavedPasswordScreenSocial("Social")
+        SavedPasswordScreenApps("Apps")
     }
 
 }

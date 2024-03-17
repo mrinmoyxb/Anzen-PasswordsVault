@@ -29,10 +29,11 @@ import com.example.passwordmanager.View.NewPassword.NewPasswordScreen.NewPasswor
 
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
-fun DropDown() {
+fun DropDown(): String {
     val options = listOf("Social", "Payment", "App", "Document")
     var isExpanded by remember { mutableStateOf(false) }
     var category by remember { mutableStateOf(options[0]) }
+
     Box(
         modifier = Modifier
             .clip(RoundedCornerShape(40.dp))
@@ -68,6 +69,7 @@ fun DropDown() {
         }
 
     }
+    return category
 }
 
 

@@ -42,32 +42,15 @@ import com.example.passwordmanager.ui.theme.inter
 
 
 @Composable
-fun IconComponent(
-    icon: Painter,
-    label: String,
-    color: Color,
-    navHostController: NavHostController,
-    route: String
+fun IconComponent(icon: Painter, label: String, color: Color, navHostController: NavHostController, route: String
     ) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
-    Card(
-        modifier = Modifier
-            .width(200.dp)
-            .height(200.dp)
-            .padding(10.dp)
-            .clickable {navHostController.navigate(route)},
-        shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(Color.Transparent)
-    ) {
+    Card(modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp).clickable {navHostController.navigate(route)},
+        shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Color.Transparent)) {
         Box(
             modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1), shape = RoundedCornerShape(20.dp))
         ) {
-            Column(
-                modifier = Modifier
-                    .fillMaxSize()
-                    .padding(start = 10.dp, bottom = 10.dp),
-                verticalArrangement = Arrangement.Bottom
-            ) {
+            Column(modifier = Modifier.fillMaxSize().padding(start = 10.dp, bottom = 10.dp), verticalArrangement = Arrangement.Bottom) {
                 Icon(painter = icon, contentDescription = "icon", modifier = Modifier.size(70.dp), tint = Color.White)
                 Text(
                     label, fontSize = 20.sp, textAlign = TextAlign.Center,
