@@ -24,6 +24,11 @@ fun BottomNavGraph(navController: NavHostController){
     val getSocials = viewModel.getSocials.collectAsState(emptyList())
     val getPayments = viewModel.getPayments.collectAsState(emptyList())
 
+    val numberOfSocialPasswords = viewModel.numberOfSocialPasswords.collectAsState(0)
+    val numberOfPaymentsPasswords = viewModel.numberOfPaymentsPasswords.collectAsState(0)
+    val numberOfAppsPasswords = viewModel.numberOfAppsPasswords.collectAsState(0)
+    val numberOfDocumentsPasswords = viewModel.numberOfDocumentsPasswords.collectAsState(0)
+
     NavHost(navController = navController, startDestination = BottomBarScreensData.Home.route){
         composable(
             route = BottomBarScreensData.Home.route){

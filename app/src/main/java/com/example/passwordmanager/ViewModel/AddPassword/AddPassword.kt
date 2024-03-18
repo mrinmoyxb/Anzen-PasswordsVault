@@ -22,4 +22,9 @@ class AddPasswordViewModel(private val passwordDao: PasswordDao): ViewModel() {
     val getPayments: Flow<List<PasswordEntity>> = passwordDao.showPayments()
     val getApps: Flow<List<PasswordEntity>> = passwordDao.showApps()
     val getDocuments: Flow<List<PasswordEntity>> = passwordDao.showDocuments()
+
+    val numberOfSocialPasswords: Flow<Int> = passwordDao.numberOfSocials()
+    val numberOfPaymentsPasswords: Flow<Int> = passwordDao.numberOfPayments()
+    val numberOfAppsPasswords: Flow<Int> = passwordDao.numberOfApps()
+    val numberOfDocumentsPasswords: Flow<Int> = passwordDao.numberOfDocuments()
 }
