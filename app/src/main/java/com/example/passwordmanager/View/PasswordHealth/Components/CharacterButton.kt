@@ -41,12 +41,12 @@ fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier
             .width(87.dp)
             .then(modifier),
         shape = RoundedCornerShape(20.dp),
-        colors = CardDefaults.cardColors(Color.Transparent)
+        colors = CardDefaults.cardColors(Color.Transparent),
+        elevation = CardDefaults.cardElevation(5.dp)
     ){
         Box(modifier = Modifier
             .fillMaxSize()
             .background(Color.White)){
-            //.background(Color(0xFF5347E5))){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
