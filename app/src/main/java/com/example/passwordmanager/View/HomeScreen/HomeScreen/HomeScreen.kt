@@ -46,7 +46,7 @@ import com.example.passwordmanager.ui.theme.inter
 
 @SuppressLint("UnusedMaterial3ScaffoldPaddingParameter")
 @Composable
-fun HomeScreen(navHostController: NavHostController) {
+fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int, apps: Int, documents: Int) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
 
     Scaffold(
@@ -64,7 +64,7 @@ fun HomeScreen(navHostController: NavHostController) {
                 NameComponent("Mrinmoy")
 
                 // 2. Analyse Component
-                AnalyseComponent()
+                AnalyseComponent(socials, payments, apps, documents)
 
                 // 3. Buttons Row 1
                 Row(

@@ -32,7 +32,7 @@ fun BottomNavGraph(navController: NavHostController){
     NavHost(navController = navController, startDestination = BottomBarScreensData.Home.route){
         composable(
             route = BottomBarScreensData.Home.route){
-            HomeScreen(navController)
+            HomeScreen(navController, numberOfSocialPasswords.value, numberOfPaymentsPasswords.value, numberOfAppsPasswords.value, numberOfDocumentsPasswords.value)
         }
         composable(
             route = BottomBarScreensData.PasswordGenerator.route){

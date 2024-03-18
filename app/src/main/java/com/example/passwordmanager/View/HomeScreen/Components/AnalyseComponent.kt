@@ -31,13 +31,8 @@ import com.example.passwordmanager.View.PasswordHealth.Components.CharacterButto
 import com.example.passwordmanager.ui.theme.inter
 
 
-// 1. Total Passwords
-// 2. Reused
-// 3. Weak Passwords
-// 4. Strong Passwords
-
 @Composable
-fun AnalyseComponent(){
+fun AnalyseComponent(socials: Int, payments: Int, apps: Int, documents: Int){
     val p3 = listOf(Color(0xFF8E2DE2), Color(0xFF4A00E0))
     Card(
         modifier = Modifier
@@ -66,10 +61,10 @@ fun AnalyseComponent(){
                     modifier = Modifier.fillMaxSize().padding(top = 10.dp, bottom = 10.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    CharacterButton(number = "10", label = "Socials")
-                    CharacterButton(number = "0", label = "Payments")
-                    CharacterButton(number = "5", label = "Apps")
-                    CharacterButton(number = "0", label = "Documents")
+                    CharacterButton(number = socials.toString(), label = "Socials")
+                    CharacterButton(number = payments.toString(), label = "Payments")
+                    CharacterButton(number = apps.toString(), label = "Apps")
+                    CharacterButton(number = documents.toString(), label = "Documents")
                 }
             }
         }
@@ -77,15 +72,15 @@ fun AnalyseComponent(){
 }
 
 
-@Preview(showBackground = true)
-@Composable
-fun DisplayAnalyse(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.brand_color))
-    ) {
-        //NameComponent("Mrinmoy")
-        AnalyseComponent()
-    }
-}
+//@Preview(showBackground = true)
+//@Composable
+//fun DisplayAnalyse(){
+//    Column(
+//        modifier = Modifier
+//            .fillMaxSize()
+//            .background(colorResource(id = R.color.brand_color))
+//    ) {
+//        //NameComponent("Mrinmoy")
+//        AnalyseComponent()
+//    }
+//}
