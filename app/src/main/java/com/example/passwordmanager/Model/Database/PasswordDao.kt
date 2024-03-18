@@ -28,4 +28,15 @@ interface PasswordDao {
     @Query("SELECT *FROM passwordentity WHERE category = 'Document'")
     fun showDocuments(): Flow<List<PasswordEntity>>
 
+    @Query("SELECT COUNT(*) FROM passwordentity WHERE category = 'Social'")
+    fun numberOfSocials(): Flow<Int>
+
+    @Query("SELECT COUNT(*) FROM passwordentity WHERE category = 'App'")
+    fun numberOfApps(): Flow<Int>
+
+    @Query("SELECT COUNT(*) FROM passwordentity WHERE category = 'Document'")
+    fun numberOfDocuments(): Flow<Int>
+
+    @Query("SELECT COUNT(*) FROM passwordentity WHERE category = 'Payment'")
+    fun numberOfPayments(): Flow<Int>
 }
