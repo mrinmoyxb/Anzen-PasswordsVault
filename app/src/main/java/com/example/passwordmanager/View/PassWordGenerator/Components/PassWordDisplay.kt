@@ -59,8 +59,7 @@ fun PassWordDisplay(password: String){
             ) {
                 Image(painter = painterResource(id = R.drawable.lock_img), contentDescription = "", modifier = Modifier.size(30.dp))
                 Spacer(modifier = Modifier.width(8.dp))
-                Text(
-                    password, fontSize = 28.sp, color = Color.White, fontWeight = FontWeight.Bold,
+                Text(password, fontSize = 28.sp, color = Color.White, fontWeight = FontWeight.Bold,
                     textAlign = TextAlign.Center, fontFamily = inter
                 )
             }

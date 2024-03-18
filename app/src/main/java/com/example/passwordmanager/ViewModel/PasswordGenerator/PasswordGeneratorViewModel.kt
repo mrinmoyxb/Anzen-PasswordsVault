@@ -56,8 +56,10 @@ class PasswordGeneratorViewModel: ViewModel() {
     }
 
     fun generateRandomPassword() {
+        val random = Random
         viewModelScope.launch {
             val characters = mutableListOf<Char>()
+
             if (_lowercaseState.value) {
                 characters.addAll('a'..'z')
             }
@@ -73,15 +75,14 @@ class PasswordGeneratorViewModel: ViewModel() {
             if (_numberState.value) {
                 characters.addAll('0'..'9')
             }
-            if(!lowercaseState.value && !uppercaseState.value && !symbolState.value && !numberState.value){
-                specialCase.value = true
+
+            if(_lowercaseState.value==false && _uppercaseState.value==false && _symbolState.value==false && _numberState.value==false){
+                specialCase.value = false
             }
-
-            val random = Random
-            val password =
-                (1.._lengthState.value).map { characters.random(random) }.joinToString("")
-
-            generatedPassword.value = password
+            else{
+                val password = (1.._lengthState.value).map { characters.random(random) }.joinToString("")
+                generatedPassword.value = password
+            }
         }
     }
 }

@@ -182,7 +182,7 @@ fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>
                             }
                         }
                     }
-                    Spacer(modifier = Modifier.height(5.dp))
+                    Spacer(modifier = Modifier.height(10.dp))
                 }
             }
         }

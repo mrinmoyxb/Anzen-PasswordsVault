@@ -23,6 +23,7 @@ import androidx.compose.ui.res.colorResource
 import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
+import androidx.wear.compose.material.MaterialTheme.colors
 import com.example.passwordmanager.R
 import com.example.passwordmanager.ViewModel.PasswordGenerator.PasswordGeneratorViewModel
 import com.example.passwordmanager.ui.theme.inter
@@ -37,8 +38,12 @@ fun GeneratePasswordButton(viewModel: PasswordGeneratorViewModel, context: Conte
             .fillMaxWidth(0.7f)
             .offset(x=-1.dp)
             .clickable{
-                viewModel.generateRandomPassword()
-                Toast.makeText(context, "Please select an option", Toast.LENGTH_SHORT).show()
+                if(!specialCase){
+                    viewModel.generateRandomPassword()
+                }
+                else{
+                    Toast.makeText(context, "Please select", Toast.LENGTH_SHORT).show()
+                }
             },
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent),

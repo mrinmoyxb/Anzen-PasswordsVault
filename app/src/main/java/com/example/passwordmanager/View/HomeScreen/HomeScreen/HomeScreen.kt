@@ -56,6 +56,7 @@ fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int
             modifier = Modifier
                 .fillMaxSize()
                 .background(colorResource(id = R.color.brand_color))
+                .padding(10.dp)
         ) {
             item {
                 Spacer(modifier = Modifier.height(30.dp))

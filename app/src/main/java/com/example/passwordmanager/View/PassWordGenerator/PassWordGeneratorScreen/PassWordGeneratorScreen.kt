@@ -55,8 +55,8 @@ fun PasswordGeneratorScreen() {
 
     val viewModel: PasswordGeneratorViewModel = viewModel()
     val generatedPassword by viewModel.generatedPassword.collectAsState("")
-    val specialCase by viewModel._specialCase.collectAsState()
     val clipboardManager = LocalClipboardManager.current
+    val specialCase by viewModel.specialCase.collectAsState(false)
     val context  = LocalContext.current
 
     LazyColumn(
@@ -69,7 +69,6 @@ fun PasswordGeneratorScreen() {
             Spacer(modifier = Modifier.height(30.dp))
             Heading("Create unique", FontWeight.Medium, "Password", FontWeight.Bold)
             Spacer(modifier = Modifier.height(10.dp))
-
 
             PassWordDisplay(password = generatedPassword)
             Spacer(modifier = Modifier.height(8.dp))
@@ -94,7 +93,6 @@ fun PasswordGeneratorScreen() {
                 Spacer(modifier = Modifier.width(5.dp))
                 CopyButton(generatedPassword, clipboardManager, context)
             }
-
 
             Spacer(modifier = Modifier.height(10.dp))
             PasswordHealth(length = viewModel._lengthState.value)
