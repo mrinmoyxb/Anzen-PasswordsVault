@@ -62,7 +62,7 @@ fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int
                 Spacer(modifier = Modifier.height(30.dp))
 
                 // 1. Name of user
-                NameComponent("Mrinmoy")
+                NameComponent("********")
 
                 // 2. Analyse Component
                 AnalyseComponent(socials, payments, apps, documents)
@@ -75,7 +75,7 @@ fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int
 
                     // Social
                     Card(
-                        modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp)
+                        modifier = Modifier.width(190.dp).height(200.dp).padding(10.dp)
                             .clickable { navHostController.navigate("savedPasswordSocial") },
                         shape = RoundedCornerShape(20.dp),
                         colors = CardDefaults.cardColors(Color.Transparent)
@@ -111,7 +111,7 @@ fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int
 
                     // Payments
                     Card(
-                        modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp)
+                        modifier = Modifier.width(190.dp).height(200.dp).padding(10.dp)
                             .clickable { navHostController.navigate("savedPasswordPayments") },
                         shape = RoundedCornerShape(20.dp),
                         colors = CardDefaults.cardColors(Color.Transparent)
@@ -153,7 +153,7 @@ fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int
                     ) {
                         // Apps
                         Card(
-                            modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp).clickable { navHostController.navigate("savedPasswordApps") },
+                            modifier = Modifier.width(190.dp).height(200.dp).padding(10.dp).clickable { navHostController.navigate("savedPasswordApps") },
                             shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Color.Transparent)) {
                             Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1), shape = RoundedCornerShape(20.dp))) {
                                 Column(modifier = Modifier.fillMaxSize().padding(start = 10.dp, bottom = 10.dp), verticalArrangement = Arrangement.Bottom
@@ -165,7 +165,7 @@ fun HomeScreen(navHostController: NavHostController, socials: Int, payments: Int
                         }
                         // Documents
                         Card(
-                            modifier = Modifier.width(200.dp).height(200.dp).padding(10.dp).clickable { navHostController.navigate("savedPasswordDocuments") },
+                            modifier = Modifier.width(190.dp).height(200.dp).padding(10.dp).clickable { navHostController.navigate("savedPasswordDocuments") },
                             shape = RoundedCornerShape(20.dp), colors = CardDefaults.cardColors(Color.Transparent)) {
                             Box(modifier = Modifier.fillMaxSize().background(Brush.linearGradient(p1), shape = RoundedCornerShape(20.dp))) {
                                 Column(modifier = Modifier.fillMaxSize().padding(start = 10.dp, bottom = 10.dp), verticalArrangement = Arrangement.Bottom

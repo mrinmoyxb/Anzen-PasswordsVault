@@ -61,17 +61,55 @@ fun AnalyseComponent(socials: Int, payments: Int, apps: Int, documents: Int){
                     modifier = Modifier.fillMaxSize().padding(top = 10.dp, bottom = 10.dp),
                     horizontalArrangement = Arrangement.SpaceEvenly
                 ) {
-                    CharacterButton(number = socials.toString(), label = "Socials")
-                    CharacterButton(number = payments.toString(), label = "Payments")
-                    CharacterButton(number = apps.toString(), label = "Apps")
-                    CharacterButton(number = documents.toString(), label = "Documents")
+                    CustomCharacterButton(number = socials.toString(), label = "Socials")
+                    CustomCharacterButton(number = payments.toString(), label = "Payments")
+                    CustomCharacterButton(number = apps.toString(), label = "Apps")
+                    CustomCharacterButton(number = documents.toString(), label = "Documents")
                 }
             }
         }
     }
 }
 
-
+@Composable
+fun CustomCharacterButton(number: String, label: String, modifier: Modifier = Modifier){
+    Card(
+        modifier = Modifier
+            .height(110.dp)
+            .width(82.dp)
+            .then(modifier),
+        shape = RoundedCornerShape(20.dp),
+        colors = CardDefaults.cardColors(Color.Transparent),
+        elevation = CardDefaults.cardElevation(5.dp)
+    ){
+        Box(modifier = Modifier
+            .fillMaxSize()
+            .background(Color.White)){
+            Column(
+                modifier = Modifier
+                    .fillMaxSize()
+                    .padding(start = 3.dp, end = 3.dp, top = 3.dp, bottom = 10.dp),
+                verticalArrangement = Arrangement.Center,
+                horizontalAlignment = Alignment.CenterHorizontally
+            ){
+                Text(number, fontSize = 52.sp,
+                    fontFamily = inter,
+                    fontWeight = FontWeight.Bold,
+                    color = Color.Black,
+                    textAlign = TextAlign.Center
+                )
+                Text(label,
+                    fontSize = 13.sp,
+                    fontFamily = inter,
+                    fontWeight = FontWeight.Medium,
+                    color = Color.Black,
+                    textAlign = TextAlign.Center,
+                    modifier = Modifier.offset(y=-8.dp)
+                )
+            }
+        }
+    }
+}
 //@Preview(showBackground = true)
 //@Composable
 //fun DisplayAnalyse(){
