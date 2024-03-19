@@ -71,16 +71,3 @@ fun DropDown(): String {
     }
     return category
 }
-
-
-@Preview(showBackground = true)
-@Composable
-fun NewPasswordScreenDisplays(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(Color.Black)
-    ) {
-        DropDown()
-    }
-}

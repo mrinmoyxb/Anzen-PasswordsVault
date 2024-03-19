@@ -40,7 +40,6 @@ import com.example.passwordmanager.ViewModel.AddPassword.AddPasswordViewModel
 
 @Composable
 fun SavedPasswordScreen(categoryName: String, passwordList: List<PasswordEntity>, viewModel: AddPasswordViewModel) {
-    //val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
     val p1 = listOf(Color(0xFF8E2DE2), Color(0xFF4A00E0))
     Column(modifier = Modifier
         .fillMaxSize()

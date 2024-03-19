@@ -153,19 +153,19 @@ class PasswordHealthViewModel : ViewModel() {
             if (_symbolsCount.value > 0) {
                 countScore.value++
             }
-            if (_lengthOfPassword.value in 1..7) {
+            if (_lengthOfPassword.value in 1..7) { // 0 - 25
                 val vw = veryWeakLengthScore + (elementScore * countScore.value)
                 complexityScore.value = vw
             }
-            if (_lengthOfPassword.value in 8..10) {
+            if (_lengthOfPassword.value in 8..10) { // 26 - 50
                 val w = weakLengthScore + (elementScore * countScore.value)
                 complexityScore.value = w
             }
-            if (_lengthOfPassword.value in 11..13) {
+            if (_lengthOfPassword.value in 11..13) { // 51 - 75
                 val g = goodLengthScore + (elementScore * countScore.value)
                 complexityScore.value = g
             }
-            if (_lengthOfPassword.value in 14..50) {
+            if (_lengthOfPassword.value in 14..50) { // 76 - 100
                 val s = strongLengthScore + (elementScore * countScore.value)
                 complexityScore.value = s
             }

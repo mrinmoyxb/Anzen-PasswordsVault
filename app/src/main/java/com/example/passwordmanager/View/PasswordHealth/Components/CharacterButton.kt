@@ -29,7 +29,6 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import androidx.wear.compose.material.MaterialTheme.colors
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.ui.theme.inter
 

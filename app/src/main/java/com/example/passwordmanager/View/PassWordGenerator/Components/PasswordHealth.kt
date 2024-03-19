@@ -168,18 +168,3 @@ fun PasswordHealth(length: Int) {
             }
         }
     }
-
-
-
-@Preview(showBackground = true)
-@Composable
-fun DisplayP(){
-    Column(
-        modifier = Modifier
-            .fillMaxSize()
-            .background(colorResource(id = R.color.brand_color))
-            .padding(10.dp)
-    ) {
-        PasswordHealth(8)
-    }
-}

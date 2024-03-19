@@ -100,11 +100,3 @@ fun PasswordGeneratorScreen() {
         }
     }
 }
-
-
-@Preview(showBackground = true)
-@Composable
-fun DisplayPassword(){
-    val viewModel: PasswordGeneratorViewModel = viewModel()
-    PasswordGeneratorScreen()
-}

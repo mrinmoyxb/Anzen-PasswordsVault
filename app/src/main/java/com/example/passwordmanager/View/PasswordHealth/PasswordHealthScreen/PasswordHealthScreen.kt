@@ -38,7 +38,6 @@ import com.example.passwordmanager.R
 import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.View.PasswordHealth.Components.CharacterButton
 import com.example.passwordmanager.View.PasswordHealth.Components.CheckHealthButton
-import com.example.passwordmanager.View.PasswordHealth.Components.ComplexityBar
 import com.example.passwordmanager.View.PasswordHealth.Components.ContentButton
 import com.example.passwordmanager.View.PasswordHealth.Components.InputPasswordBar
 import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealthViewModel
@@ -165,15 +164,6 @@ fun PasswordHealthScreen(navController: NavController){
 
 @Composable
 fun ComplexityCharacterButton(number: Double, label: String, modifier: Modifier = Modifier, height: Int, width: Int){
-//    var boxColor: Color = Color.White
-//    var textColor: Color = Color.Black
-//    when(number){
-//        in 0.00..25.0 ->  {boxColor = Color.Red; textColor = Color.White}
-//        in 26.0..50.0 ->  {Color.Yellow; textColor = Color.White}
-//        in 50.1..75.0 ->  {Color.Blue; textColor = Color.White}
-//        in 75.1..100.0 ->  {Color.Green; textColor = Color.White}
-//        else -> {boxColor = Color.Blue; textColor = Color.White}
-//    }
     Card(
         modifier = Modifier
             .height(height.dp)
