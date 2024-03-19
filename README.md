@@ -1,5 +1,5 @@
 
-# 🔐 Anzen
+# 🔐 asterisk
 
 Juggling secure passwords for all our online accounts is a constant battle. We need complex combinations of letters, numbers, and symbols to thwart hackers, but those very elements make them difficult to remember. We're stuck between creating passwords so secure they're like cryptic puzzles, or resorting to weak, easily guessed options. It's a frustrating tightrope walk between security and convenience. That's where Anzen comes in. 
 
