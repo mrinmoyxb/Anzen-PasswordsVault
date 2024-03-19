@@ -57,7 +57,6 @@ fun PasswordHealthScreen(navController: NavController){
     val strength by viewModel._strength.collectAsState("")
     val timeToCrack by viewModel._timeToCrack.collectAsState("")
     val complexityScore by viewModel._complexityScore.collectAsState(0.0)
-    val countScore by viewModel._countScore.collectAsState(0)
 
     //val p1 = listOf(Color(0xFF42e695), Color(0xFF3bb2b8))
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
@@ -87,7 +86,7 @@ fun PasswordHealthScreen(navController: NavController){
             Row {
                 InputPasswordBar(viewModel)
                 Spacer(modifier = Modifier.width(8.dp))
-                CheckHealthButton(viewModel,complexityScore)
+                CheckHealthButton(viewModel)
             }
             Spacer(modifier = Modifier.height(15.dp))
 
@@ -112,7 +111,7 @@ fun PasswordHealthScreen(navController: NavController){
                         Box(contentAlignment = Alignment.Center,
                             modifier = Modifier.fillMaxWidth()
                         ) {
-                            ComplexityCharacterButton(number = countScore.toDouble(), label = "Complexity Score", height = 170, width = 190)
+                            ComplexityCharacterButton(number = complexityScore, label = "Complexity Score", height = 170, width = 190)
                         }
 
                         Spacer(modifier = Modifier.height(10.dp))
@@ -166,15 +165,15 @@ fun PasswordHealthScreen(navController: NavController){
 
 @Composable
 fun ComplexityCharacterButton(number: Double, label: String, modifier: Modifier = Modifier, height: Int, width: Int){
-    var boxColor: Color = Color.White
-    var textColor: Color = Color.Black
-    when(number){
-        in 0.00..25.0 ->  {boxColor = Color.Red; textColor = Color.White}
-        in 26.0..50.0 ->  {Color.Yellow; textColor = Color.White}
-        in 50.1..75.0 ->  {Color.Blue; textColor = Color.White}
-        in 75.1..100.0 ->  {Color.Green; textColor = Color.White}
-        else -> {boxColor = Color.White; textColor = Color.Black}
-    }
+//    var boxColor: Color = Color.White
+//    var textColor: Color = Color.Black
+//    when(number){
+//        in 0.00..25.0 ->  {boxColor = Color.Red; textColor = Color.White}
+//        in 26.0..50.0 ->  {Color.Yellow; textColor = Color.White}
+//        in 50.1..75.0 ->  {Color.Blue; textColor = Color.White}
+//        in 75.1..100.0 ->  {Color.Green; textColor = Color.White}
+//        else -> {boxColor = Color.Blue; textColor = Color.White}
+//    }
     Card(
         modifier = Modifier
             .height(height.dp)
@@ -186,7 +185,7 @@ fun ComplexityCharacterButton(number: Double, label: String, modifier: Modifier 
     ){
         Box(modifier = Modifier
             .fillMaxSize()
-            .background(boxColor)){
+            .background(Color.White)){
             Column(
                 modifier = Modifier
                     .fillMaxSize()
@@ -197,14 +196,14 @@ fun ComplexityCharacterButton(number: Double, label: String, modifier: Modifier 
                 Text(number.toString(), fontSize = 60.sp,
                     fontFamily = inter,
                     fontWeight = FontWeight.Bold,
-                    color = textColor,
+                    color = Color.Black,
                     textAlign = TextAlign.Center
                 )
                 Text(label,
                     fontSize = 18.sp,
                     fontFamily = inter,
                     fontWeight = FontWeight.Medium,
-                    color = textColor,
+                    color = Color.Black,
                     textAlign = TextAlign.Center,
                     modifier = Modifier.offset(y=-8.dp)
                 )

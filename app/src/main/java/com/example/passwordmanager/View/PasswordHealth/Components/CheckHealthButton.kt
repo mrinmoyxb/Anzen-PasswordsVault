@@ -32,7 +32,7 @@ import com.example.passwordmanager.ViewModel.PasswordHealthChecker.PasswordHealt
 
 
 @Composable
-fun CheckHealthButton(viewModel: PasswordHealthViewModel, complex: Double) {
+fun CheckHealthButton(viewModel: PasswordHealthViewModel) {
     val p1 = listOf(Color(0xFF2B32FF), Color(0xFF00ECEC))
     val context = LocalContext.current
     Column(
@@ -44,9 +44,7 @@ fun CheckHealthButton(viewModel: PasswordHealthViewModel, complex: Double) {
             modifier = Modifier
                 .height(70.dp)
                 .fillMaxWidth()
-                .clickable {viewModel.calculateButton()
-                    Toast.makeText(context, "$complex", Toast.LENGTH_SHORT).show()
-                           },
+                .clickable {viewModel.calculateButton()},
             shape = RoundedCornerShape(20.dp),
             colors = CardDefaults.cardColors(Color.Transparent)
         ) {
