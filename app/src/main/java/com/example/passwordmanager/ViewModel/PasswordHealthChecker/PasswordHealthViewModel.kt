@@ -60,8 +60,8 @@ class PasswordHealthViewModel : ViewModel() {
     var _timeToCrack: StateFlow<String> = timeToCrack
 
     //9. Complexity Score:
-    private var complexityScore = MutableStateFlow(0.0f)
-    var _complexityScore: StateFlow<Float> = complexityScore
+    private var complexityScore = MutableStateFlow(0.0)
+    var _complexityScore: StateFlow<Double> = complexityScore
 
 
     // Methods:
@@ -101,23 +101,8 @@ class PasswordHealthViewModel : ViewModel() {
         }
     }
 
-    // 3. Calculate complexity score:
-    private fun calculateCountScore() {
-        if (_uppercaseCount.value > 0) {
-            countScore.value++
-        }
-        if (_lowercaseCount.value > 0) {
-            countScore.value++
-        }
-        if (_numbersCount.value > 0) {
-            countScore.value++
-        }
-        if (_symbolsCount.value > 0) {
-            countScore.value++
-        }
-    }
 
-    // 4. Strength and time to crack:
+    // 3. Strength and time to crack:
     private fun reportPass() {
         when (_lengthOfPassword.value) {
             in 1..7 -> {
@@ -148,38 +133,49 @@ class PasswordHealthViewModel : ViewModel() {
 
     }
 
-    // 5. Complexity Score
+    // 4. Calculate complexity score:
+    private fun calculateCountScore() {
+        countScore.value = 0
+        if (_uppercaseCount.value > 0) {
+            countScore.value++
+        }
+        if (_lowercaseCount.value > 0) {
+            countScore.value++
+        }
+        if (_numbersCount.value > 0) {
+            countScore.value++
+        }
+        if (_symbolsCount.value > 0) {
+            countScore.value++
+        }
+    }
+
+
     private fun complexityScore(){
-        val c: Float = 6.25f
-        var finalScore: Float = 0.0f
+        complexityScore.value = 0.0
+        val elementScore: Double = 6.25 // this score is based on different types of characters; if there is num and lowercase so 6.25*2 here 2(num+lowercase)
+        var veryWeakLengthScore: Double = 0.0
+        var weakLengthScore: Double = 25.0
+        var goodLengthScore: Double = 50.0
+        var strongLengthScore: Double = 75.0
 
         if(_lengthOfPassword.value<=7){
-            for(i in 1.._countScore.value){
-                finalScore += c
-            }
-            complexityScore.value = finalScore
+            complexityScore.value  = veryWeakLengthScore+elementScore*countScore.value
+
         }
         else if(_lengthOfPassword.value>=8 && _lengthOfPassword.value<=10){
-            finalScore = 25.0f
-            for(i in 1.._countScore.value){
-                finalScore += c
-            }
-            complexityScore.value = finalScore
+            complexityScore.value  = weakLengthScore+elementScore*countScore.value
+            //complexityScore.value = finalScore
         }
         else if(_lengthOfPassword.value>=11 && _lengthOfPassword.value<=13){
-            finalScore = 50.0f
-            for(i in 1.._countScore.value){
-                finalScore += c
-            }
-            complexityScore.value = finalScore
+            complexityScore.value  = goodLengthScore+elementScore*countScore.value
+            //complexityScore.value = finalScore
         }
         else if(_lengthOfPassword.value>=14 && _lengthOfPassword.value<=50){
-            finalScore = 75.0f
-            for(i in 1.._countScore.value){
-                finalScore += c
-            }
-            complexityScore.value = finalScore
+            complexityScore.value  = strongLengthScore+elementScore*countScore.value
+            //complexityScore.value = finalScore
         }
+        //finalScore = 0.0
     }
 
     // 6. CalculateButton
@@ -191,3 +187,42 @@ class PasswordHealthViewModel : ViewModel() {
         complexityScore()
     }
 }
+
+
+// 5. Complexity Score
+//    private fun complexityScore(){
+//        val c: Double = 6.25
+//        var finalScore: Double = 0.0
+//        var veryWeakLengthScore: Double = 0.0
+//        var weakLengthScore: Double = 25.0
+//        var goodLengthScore: Double = 50.0
+//        var strongLengthPassword: Double = 75.0
+//
+//        if(_lengthOfPassword.value<=7){
+//            for(i in 1.._countScore.value){
+//                finalScore += c
+//            }
+//            complexityScore.value = finalScore
+//        }
+//        else if(_lengthOfPassword.value>=8 && _lengthOfPassword.value<=10){
+//            finalScore = 25.0
+//            for(i in 1.._countScore.value){
+//                finalScore += c
+//            }
+//            complexityScore.value = finalScore
+//        }
+//        else if(_lengthOfPassword.value>=11 && _lengthOfPassword.value<=13){
+//            finalScore = 50.0
+//            for(i in 1.._countScore.value){
+//                finalScore += c
+//            }
+//            complexityScore.value = finalScore
+//        }
+//        else if(_lengthOfPassword.value>=14 && _lengthOfPassword.value<=50){
+//            finalScore = 75.0
+//            for(i in 1.._countScore.value){
+//                finalScore += c
+//            }
+//            complexityScore.value = finalScore
+//        }
+//    }

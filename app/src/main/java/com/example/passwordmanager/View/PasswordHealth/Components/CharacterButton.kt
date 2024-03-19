@@ -34,11 +34,11 @@ import com.example.passwordmanager.View.PassWordGenerator.Components.Heading
 import com.example.passwordmanager.ui.theme.inter
 
 @Composable
-fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier){
+fun CharacterButton(number: String, label: String, modifier: Modifier = Modifier, height: Int, width: Int){
     Card(
         modifier = Modifier
-            .height(110.dp)
-            .width(87.dp)
+            .height(height.dp)
+            .width(width.dp)
             .then(modifier),
         shape = RoundedCornerShape(20.dp),
         colors = CardDefaults.cardColors(Color.Transparent),

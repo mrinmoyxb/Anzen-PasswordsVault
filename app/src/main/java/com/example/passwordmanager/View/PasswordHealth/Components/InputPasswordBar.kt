@@ -45,15 +45,11 @@ fun InputPasswordBar(viewModel: PasswordHealthViewModel){
         TextField(
             value = value,
             onValueChange = { value = it },
-            /*placeholder = { Text("************",
-                fontFamily = inter,
-                fontWeight = FontWeight.Medium, fontSize = 20.sp,
-                color = Color.Black)},*/
             modifier = Modifier.fillMaxWidth(0.75f).height(70.dp),
             shape = RoundedCornerShape(20.dp),
             colors = TextFieldDefaults.textFieldColors(
                 containerColor = Color.White,
-                cursorColor = Color.White,
+                cursorColor = Color.Black,
                 focusedIndicatorColor = Color.Black,
                 unfocusedIndicatorColor = Color.Black
             ),

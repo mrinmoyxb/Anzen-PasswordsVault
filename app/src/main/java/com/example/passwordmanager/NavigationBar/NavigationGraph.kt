@@ -34,16 +34,13 @@ fun BottomNavGraph(navController: NavHostController){
             route = BottomBarScreensData.Home.route){
             HomeScreen(navController, numberOfSocialPasswords.value, numberOfPaymentsPasswords.value, numberOfAppsPasswords.value, numberOfDocumentsPasswords.value)
         }
-        composable(
-            route = BottomBarScreensData.PasswordGenerator.route){
+        composable(route = BottomBarScreensData.PasswordGenerator.route){
             PasswordGeneratorScreen()
         }
         composable(
             route = BottomBarScreensData.PasswordHealth.route){
-            PasswordHealthScreen()
+            PasswordHealthScreen(navController)
         }
-
-
 
 
         composable(route = "newPassword"){
@@ -61,6 +58,7 @@ fun BottomNavGraph(navController: NavHostController){
         composable(route = "savedPasswordDocuments"){
             SavedPasswordScreen(categoryName = "Documents", getDocuments.value, viewModel)
         }
+
     }
 }
 

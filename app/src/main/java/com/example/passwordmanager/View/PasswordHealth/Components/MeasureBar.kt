@@ -48,7 +48,8 @@ fun ComplexityBar(
     backgroundIndicatorColor: Color = Color.White,
     backgroundIndicatorStrokeWidth: Float = 100f,
     foregroundIndicatorColor: Color = Color.Blue,
-    foregroundIndicatorStrokeWidth: Float = 100f
+    foregroundIndicatorStrokeWidth: Float = 100f,
+    complex: Float
 ){
 
     var allowedIndicatorValue by remember{
@@ -96,9 +97,9 @@ fun ComplexityBar(
     ){
         Spacer(modifier = Modifier.height(150.dp))
         EmbeddedElements(
-            bigText = 32,
+            bigText = 45.2.toInt(),
             bigTextFontSize = 60,
-            bigTextColor = Color.White,
+            bigTextColor = Color.Black,
             bigTextSuffix = "%",
             smallText = "Complexity Score",
             smallTextColor = Color.White,
@@ -179,5 +180,5 @@ fun EmbeddedElements(
 @Preview(showBackground = true)
 @Composable
 fun disp(){
-    ComplexityBar( indicatorValue = 200.2f)
+    ComplexityBar( indicatorValue = 200.2f, complex = 22.2f)
 }
