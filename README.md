@@ -22,6 +22,9 @@ There are three main objectives of this project:
 * **`Room Database`**
 
 ## 🎨 UI/UX
+
+![Untitled-1](https://github.com/mrinmoyxb/bitpass/assets/141025752/8c7e56ef-5294-47d9-b64b-2bb0787f04e5)
+
 ## 🔍 About Application
 ## 🧑‍💻 What I Learned
 ## ✨ Contributions
